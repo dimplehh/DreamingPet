@@ -9,7 +9,7 @@ public class MovePet : MonoBehaviour
     [SerializeField] float distanceX, distanceY;
     void Start(){
         bone = GameObject.Find("bone").transform;
-        speed = GameObject.Find("bone").GetComponent<MoveBone>().speed*0.2f;
+        speed = GameObject.Find("bone").GetComponent<MoveBone>().speed*0.15f;
         
     }
     void Update(){
