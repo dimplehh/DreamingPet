@@ -35,12 +35,7 @@ public class Enemy : MonoBehaviour
         else if (collision.gameObject.tag == "Player")//플레이어 닿았을 때
         {
             OnHit(collision);//강아지 주금
-            Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);
-        }
-        else if (collision.gameObject.tag == "Bone")//간식이랑 닿았을 때
-        {
-            Destroy(GameObject.FindGameObjectsWithTag("Player")[0]);
-            OnHit(collision);//간식 사라짐
+            Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//간식 사라짐
         }
         
     }

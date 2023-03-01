@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovePet : MonoBehaviour
 {
     Transform bone;
-    [SerializeField] float speed;
+    public float speed;
     [SerializeField] float distanceX, distanceY;
     void Start(){
         bone = GameObject.Find("bone").transform;

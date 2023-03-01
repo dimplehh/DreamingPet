@@ -17,7 +17,7 @@ public class GameManager:MonoBehaviour
     float speed;
     [SerializeField]
     ObjectManager objectManager;
-
+    
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
@@ -31,25 +31,26 @@ public class GameManager:MonoBehaviour
 
     void Start()
     {
-        Managers mg = Managers.Instance;//ÀÌ°É ³ªÁß¿¡ »ç¿ëÇÒ ¼ö ÀÖÀ» °Í(½Ì±ÛÅæ Å¬·¡½º)- ÄÚµå ±ò²ûÈ÷ ÇÏ´Â ¿ë    
+        Managers mg = Managers.Instance;///ì´ê±¸ ë‚˜ì¤‘ì— ì‚¬ìš©í•  ìˆ˜ ìˆì„ ê²ƒ(ì‹±ê¸€í†¤ í´ë˜ìŠ¤)- ì½”ë“œ ê¹”ë”íˆ í•˜ëŠ” ìš©  
     }
 
     void Update()
     {
         curSpawnDelay += Time.deltaTime;
 
-        if (curSpawnDelay > maxSpawnDelay) //¼ÒÈ¯ÇÒ ¶§ µÆ´Ù.
+        if (curSpawnDelay > maxSpawnDelay) //ì†Œí™˜í•  ë•Œ ëë‹¤.
         {
             SpawnEnemy();
             maxSpawnDelay = Random.Range(0.5f, 3f);
             curSpawnDelay = 0;
         }
+        
     }
 
     void SpawnEnemy()
     {
-        int ranEnemy = 0;//³ªÁß¿¡ Àå¾Ö¹° ¿©·¯°³ »ı±â¸é Random.Range(0,3);ÀÌ·±½ÄÀ¸·Î ¹Ù²Ù±â
-        int ranPoint = Random.Range(0, spawnPoints.Length);//¼ÒÈ¯µÉ À§Ä¡
+        int ranEnemy = 0;//ë‚˜ì¤‘ì— ì¥ì• ë¬¼ ì—¬ëŸ¬ê°œ ìƒê¸°ë©´ Random.Range(0,3);ì´ëŸ°ì‹ìœ¼ë¡œ ë°”ê¾¸ê¸°
+        int ranPoint = Random.Range(0, spawnPoints.Length);//ì†Œí™˜ë  ìœ„ì¹˜
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
 
