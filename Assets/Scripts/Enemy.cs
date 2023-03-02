@@ -34,8 +34,13 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
         else if (collision.gameObject.tag == "Player")//플레이어 닿았을 때
         {
-            OnHit(collision);//강아지 주금
-            Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//간식 사라짐
+
+            if(--collision.gameObject.GetComponent<Player>().life<=0){
+                OnHit(collision);//강아지 주금
+                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//간식 사라짐
+            }
+
+            GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(collision.gameObject.GetComponent<Player>().life);
         }
         
     }

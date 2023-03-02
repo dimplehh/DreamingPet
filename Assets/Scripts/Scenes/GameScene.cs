@@ -22,6 +22,8 @@ public class GameScene : BaseScene
     {
 
     }
+
+
     void Update(){
         /*Score Update*/
         if(player!=null){

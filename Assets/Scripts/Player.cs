@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
     public int score;
     public int life;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,4 +28,5 @@ public class Player : MonoBehaviour
             score += (int)(Time.deltaTime * GetComponent<MovePet>().speed * 1000);
         }
     }
+    
 }

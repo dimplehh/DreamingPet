@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager:MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager:MonoBehaviour
     [SerializeField]
     ObjectManager objectManager;
     public float score;
+    public int life;
+    public Image[] lifeImage;
     
     public GameObject Spawn(string path, Transform parent = null)
     {
@@ -29,7 +32,10 @@ public class GameManager:MonoBehaviour
     {
         return score;
     }
-
+    public int Life(int life)
+    {
+        return life;
+    }
     void Awake()
     {
         enemyObjs = new string[] {"enemy"};
@@ -62,5 +68,18 @@ public class GameManager:MonoBehaviour
 
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed;
+    }
+
+
+    /* 플레이어의 목숨 업데이트 */
+    public void UpdateLife(int curlife){
+        /*life 초기화*/
+        for(int i = 0; i < 5; i++){
+            lifeImage[i].color = new Color(1,1,1,0);
+        }
+        /*life 적용*/
+        for(int i = 0; i < curlife; i++){
+            lifeImage[i].color = new Color(1,1,1,1);
+        }
     }
 }
