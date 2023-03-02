@@ -26,6 +26,7 @@ public class GameScene : BaseScene
         /*Score Update*/
         if(player!=null){
             scoreText.text = "Score : " + string.Format("{0:n0}",player.GetComponent<Player>().score);
+            Managers.Game.score = player.GetComponent<Player>().score;
         }
     }
 }
