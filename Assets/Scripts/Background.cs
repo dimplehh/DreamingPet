@@ -36,9 +36,13 @@ public class Background : MonoBehaviour
 
         if (sprites[endIndex].position.y > 0)//Àý´ëÁÂÇ¥
         {
-            if(count % circle == circle - 1)
+            if (count % circle == circle - 2)
             {
                 sprites[startIndex].gameObject.GetComponent<SpriteRenderer>().sprite = gradsprites[num];
+            }
+            if (count % circle == circle - 1)
+            {
+                sprites[startIndex].gameObject.GetComponent<SpriteRenderer>().sprite = realsprites[num];
             }
             else if (count % circle == 0)
             {
