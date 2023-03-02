@@ -17,11 +17,17 @@ public class GameManager:MonoBehaviour
     float speed;
     [SerializeField]
     ObjectManager objectManager;
+    public float score;
     
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
         return go;
+    }
+
+    public float Score(float score)
+    {
+        return score;
     }
 
     void Awake()

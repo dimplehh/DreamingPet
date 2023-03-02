@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 81587013}
   - component: {fileID: 81587014}
   m_Layer: 6
-  m_Name: back 0
+  m_Name: back0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 712858822}
   - component: {fileID: 712858823}
   m_Layer: 6
-  m_Name: back 2
+  m_Name: back2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,6 +904,7 @@ MonoBehaviour:
   curSpawnDelay: 0
   speed: 2
   objectManager: {fileID: 1063556438}
+  score: 0
 --- !u!4 &729785373
 Transform:
   m_ObjectHideFlags: 0
@@ -1489,6 +1490,15 @@ MonoBehaviour:
   - {fileID: 81587013}
   - {fileID: 1911742898}
   - {fileID: 712858822}
+  realsprites:
+  - {fileID: 21300000, guid: 101ef435a918e93469a4a557cb5826b7, type: 3}
+  - {fileID: 21300000, guid: 5f9505172dc1afb4e8bdb4976af8ba77, type: 3}
+  - {fileID: 21300000, guid: 55c452cf90f2e9b40b5c8232872667bc, type: 3}
+  gradsprites:
+  - {fileID: 21300000, guid: 6e2145eea48153b42ba46f2e04ea4375, type: 3}
+  - {fileID: 21300000, guid: fe40db4690c631b42b79f607772c8944, type: 3}
+  - {fileID: 21300000, guid: 8a9f24afd3c14ff40beea551ec911f95, type: 3}
+  circle: 2
 --- !u!1 &1836536757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1586,7 @@ GameObject:
   - component: {fileID: 1911742898}
   - component: {fileID: 1911742899}
   m_Layer: 6
-  m_Name: back 1
+  m_Name: back1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,12 +12,21 @@ public class Background : MonoBehaviour
     int endIndex;
     [SerializeField]
     Transform[] sprites;
-
+    [SerializeField]
+    Sprite[] realsprites;
+    [SerializeField]
+    Sprite[] gradsprites;
+    [SerializeField]
+    int circle;
     float viewHeight;
+    int count;
+    int num;
 
     private void Awake()
     {
         viewHeight = Camera.main.orthographicSize * 2;
+        count = 1;
+        num = 1;
     }
     void Update()
     {
@@ -27,8 +36,18 @@ public class Background : MonoBehaviour
 
         if (sprites[endIndex].position.y > 0)//Àý´ëÁÂÇ¥
         {
+            if(count % circle == circle - 1)
+            {
+                sprites[startIndex].gameObject.GetComponent<SpriteRenderer>().sprite = gradsprites[num];
+            }
+            else if (count % circle == 0)
+            {
+                for (int i = 0; i < 3; i++) { sprites[i].gameObject.GetComponent<SpriteRenderer>().sprite = realsprites[num]; }
+                num++;
+                num = (num % 3 == 0) ? 0 : num;
+            }
+
             //#.Sprite ReUse
-            //Vector3 upSpritePos = sprites[startIndex].localPosition;
             Vector3 downSprite = sprites[endIndex].localPosition;
             sprites[startIndex].transform.localPosition = downSprite + Vector3.down * viewHeight;
 
@@ -36,6 +55,8 @@ public class Background : MonoBehaviour
             int endIndexSave = endIndex;
             endIndex = startIndex;
             startIndex = (endIndexSave - 1 == -1) ? sprites.Length - 1 : endIndexSave - 1;
+
+            count++;
         }
     }
 }
