@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void OnHit(Collider2D collision)//±¸¸§¿¡ ºÎµúÇûÀ» ¶§
+    void OnHit(Collider2D collision)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     {
-        Destroy(collision.gameObject);//°­¾ÆÁö ÁÖ±İ
+        Destroy(collision.gameObject);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
         
     }
 
@@ -35,16 +35,28 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Border")
             gameObject.SetActive(false);
-        else if (collision.gameObject.tag == "Player")//ÇÃ·¹ÀÌ¾î ´ê¾ÒÀ» ¶§
+        else if (collision.gameObject.tag == "Player")//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
-
-            if(--collision.gameObject.GetComponent<Player>().life<=0){
-                OnHit(collision);//°­¾ÆÁö ÁÖ±İ
-                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//°£½Ä »ç¶óÁü
+            GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(--collision.gameObject.GetComponent<Player>().life);
+            if (collision.gameObject.GetComponent<Player>().life <= 0)
+            {
+                OnHit(collision);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
+                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
             }
-
-            GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(collision.gameObject.GetComponent<Player>().life);
+            else
+            {
+                //í”¼ê²© í›„ ë¬´ì 
+                StartCoroutine(InvicibleTime(collision));
+            }
         }
-        
     }
+    IEnumerator InvicibleTime(Collider2D collision)
+    {
+        collision.gameObject.layer = 7;
+        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        yield return new WaitForSeconds(1f);
+        collision.gameObject.layer = 0;
+        collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+    }
+    
 }

@@ -17,8 +17,8 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-    public void Restart()
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(sceneName);
     }
 }

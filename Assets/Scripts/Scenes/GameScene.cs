@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameScene : BaseScene
 {
@@ -10,8 +11,8 @@ public class GameScene : BaseScene
     public TMP_Text scoreText2;
     public TMP_Text highScoreText2;
     public int savedScore = 0;
-    [SerializeField] GameObject player;
-
+    public GameObject player;
+    [SerializeField] bool gameState;
     private string KeyString = "HighScore";
 
     void Start()
@@ -28,6 +29,8 @@ public class GameScene : BaseScene
 
         //SceneType = Define.Scene.Game;
 
+        Managers.Game.gamePause(0f); //게임 시작 전 일시정
+        gameState = false;
         player = Managers.Game.Spawn("dog");
         GameObject bone = Managers.Game.Spawn("bone");
     }
@@ -45,8 +48,16 @@ public class GameScene : BaseScene
     }
 
     void Update(){
+        /*터치 시 게임 시작*/
+        if (gameState==false && Input.GetMouseButton(0))
+        {
+            GameObject.Find("Touch").SetActive(false);
+            Managers.Game.gamePause(1f);
+            gameState = true;
+        }
+
         /*Score Update*/
-        if(player!=null){
+        if (player!=null){
             scoreText.text = "Score : " + string.Format("{0:n0}",player.GetComponent<Player>().score);
             scoreText2.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
             highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
@@ -64,4 +75,6 @@ public class GameScene : BaseScene
             Managers.Game.score = player.GetComponent<Player>().score;
         }
     }
+
+    
 }
