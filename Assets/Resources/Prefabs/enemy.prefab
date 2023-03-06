@@ -120,9 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4673f149a2936ed43884fb827f1f8be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   health: 0
   sprites: []
+  spriteRenderer: {fileID: 0}
+  panel: {fileID: 4068489075376524386, guid: 572c4816094af4442b546562bff349f8, type: 3}
 --- !u!60 &6303436048923304989
 PolygonCollider2D:
   m_ObjectHideFlags: 0

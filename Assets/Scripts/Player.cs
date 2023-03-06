@@ -28,5 +28,4 @@ public class Player : MonoBehaviour
             score += (int)(Time.deltaTime * GetComponent<MovePet>().speed * 1000);
         }
     }
-    
 }

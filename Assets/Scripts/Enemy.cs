@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Enemy : MonoBehaviour
     int health;
     [SerializeField]
     Sprite[] sprites;
+    [SerializeField]
+
 
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;

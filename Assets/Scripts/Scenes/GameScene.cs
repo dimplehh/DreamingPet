@@ -48,7 +48,6 @@ public class GameScene : BaseScene
 
             if(player.GetComponent<Player>().score > savedScore)
             {
-                Debug.Log("hi?");
                 savedScore = player.GetComponent<Player>().score;
                 PlayerPrefs.SetInt(KeyString, player.GetComponent<Player>().score);
                 PlayerPrefs.Save();

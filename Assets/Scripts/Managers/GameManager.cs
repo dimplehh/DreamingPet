@@ -21,6 +21,8 @@ public class GameManager:MonoBehaviour
     public float score;
     public int life;
     public Image[] lifeImage;
+    [SerializeField]
+    GameObject Panel;
     
     public GameObject Spawn(string path, Transform parent = null)
     {
@@ -81,5 +83,7 @@ public class GameManager:MonoBehaviour
         for(int i = 0; i < curlife; i++){
             lifeImage[i].color = new Color(1,1,1,1);
         }
+        if (curlife <= 0)
+            Panel.SetActive(true);
     }
 }

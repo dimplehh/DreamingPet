@@ -161,9 +161,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   life: 5
-  lifeImage:
-  - {fileID: 2625508836262144271, guid: 9a864a2317fdcfa41a4bdff974763ada, type: 3}
-  - {fileID: 7744939314181370318, guid: 702b29afb974ea5469d5cfb08e50cbb6, type: 3}
-  - {fileID: 5320357992089160512, guid: e1817f8962e94914982bc360e500b293, type: 3}
-  - {fileID: 4393656767592083101, guid: ce9968023642a9a489d18f921db6d592, type: 3}
-  - {fileID: 7864297720015980233, guid: 010d3bae3e3c53c41bac00684dc73ae1, type: 3}
+  panel: {fileID: 4068489075376524386, guid: 572c4816094af4442b546562bff349f8, type: 3}
