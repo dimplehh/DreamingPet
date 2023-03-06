@@ -7,6 +7,8 @@ public class GameScene : BaseScene
 {
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
+    public TMP_Text scoreText2;
+    public TMP_Text highScoreText2;
     public int savedScore = 0;
     [SerializeField] GameObject player;
 
@@ -17,6 +19,7 @@ public class GameScene : BaseScene
         savedScore = PlayerPrefs.GetInt(KeyString);
         PlayerPrefs.Save();
         highScoreText.text = "BEST : " + savedScore.ToString();
+        highScoreText2.text = savedScore.ToString();
     }
 
     protected override void Init()
@@ -38,20 +41,24 @@ public class GameScene : BaseScene
         PlayerPrefs.SetInt(KeyString, 0);
         PlayerPrefs.Save();
         highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+        highScoreText2.text = string.Format("{0:n0}", savedScore);
     }
 
     void Update(){
         /*Score Update*/
         if(player!=null){
             scoreText.text = "Score : " + string.Format("{0:n0}",player.GetComponent<Player>().score);
+            scoreText2.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
             highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+            highScoreText2.text = string.Format("{0:n0}", savedScore);
 
-            if(player.GetComponent<Player>().score > savedScore)
+            if (player.GetComponent<Player>().score > savedScore)
             {
                 savedScore = player.GetComponent<Player>().score;
                 PlayerPrefs.SetInt(KeyString, player.GetComponent<Player>().score);
                 PlayerPrefs.Save();
                 highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+                highScoreText2.text = string.Format("{0:n0}", savedScore);
             }
 
             Managers.Game.score = player.GetComponent<Player>().score;

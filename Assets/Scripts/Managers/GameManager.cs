@@ -23,7 +23,9 @@ public class GameManager:MonoBehaviour
     public Image[] lifeImage;
     [SerializeField]
     GameObject Panel;
-    
+    [SerializeField]
+    GameObject Back;
+
     public GameObject Spawn(string path, Transform parent = null)
     {
         GameObject go = Managers.Resource.Instantiate(path, parent);
@@ -84,6 +86,9 @@ public class GameManager:MonoBehaviour
             lifeImage[i].color = new Color(1,1,1,1);
         }
         if (curlife <= 0)
+        {
             Panel.SetActive(true);
+            Back.GetComponent<Background>().enabled = false;
+        }
     }
 }

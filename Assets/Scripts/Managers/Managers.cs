@@ -9,11 +9,11 @@ public class Managers : MonoBehaviour
                                                                            //public으로 init()함수를 실행하고 인스턴스를 return하는 기능하는 애를 만듦
     GameManager _game = new GameManager();
     ResourceManager _resource = new ResourceManager();
-    //ObjectManager _object = new ObjectManager();
+    ObjectManager _object = new ObjectManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
-    //public static ObjectManager Object { get { return Instance._object; } }
+    public static ObjectManager Object { get { return Instance._object; } }
     void Start()
     {
         init();
