@@ -46,4 +46,19 @@ public class ObjectManager : MonoBehaviour
         }
         return null;
     }
+
+    public void DelObj(string type)
+    {
+        switch(type)
+        {
+            case "enemy":
+                targetPool = enemy;
+                break;
+        }
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.3)
+                targetPool[index].SetActive(false);
+        }
+    }
 }

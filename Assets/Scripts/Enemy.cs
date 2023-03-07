@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     Sprite[] sprites;
     [SerializeField]
-
-
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
 
@@ -33,9 +31,9 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Border")
-            gameObject.SetActive(false);
-        else if (collision.gameObject.tag == "Player")//�÷��̾� ����� ��
+        //if (collision.gameObject.tag == "Border")
+        //    gameObject.SetActive(false);
+        if (collision.gameObject.tag == "Player")//�÷��̾� ����� ��
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(--collision.gameObject.GetComponent<Player>().life);
             if (collision.gameObject.GetComponent<Player>().life <= 0)

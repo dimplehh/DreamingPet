@@ -26,6 +26,8 @@ public class GameManager:MonoBehaviour
     [SerializeField]
     GameObject Back;
 
+    GameObject enemy;
+
     public void gamePause(float timescale)
     {
         Time.timeScale = timescale; // 게임 시간 일시 정지
@@ -65,7 +67,14 @@ public class GameManager:MonoBehaviour
             maxSpawnDelay = Random.Range(0.5f, 3f);
             curSpawnDelay = 0;
         }
-        
+        DeleteEnemy();
+    }
+
+    void DeleteEnemy()
+    {
+        int ranEnemy = 0;//나중에 장애물 여러개 생기면 Random.Range(0,3);이런식으로 바꾸기
+        int ranPoint = Random.Range(0, spawnPoints.Length);//소환될 위치
+        objectManager.DelObj(enemyObjs[ranEnemy]);
     }
 
     void SpawnEnemy()
@@ -78,7 +87,6 @@ public class GameManager:MonoBehaviour
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed;
     }
-
 
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife){
