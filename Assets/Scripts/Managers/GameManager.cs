@@ -25,6 +25,8 @@ public class GameManager:MonoBehaviour
     GameObject Panel;
     [SerializeField]
     GameObject Back;
+    [SerializeField]
+    bool stop;
 
     GameObject enemy;
 
@@ -59,9 +61,17 @@ public class GameManager:MonoBehaviour
 
     void Update()
     {
-        curSpawnDelay += Time.deltaTime;
+        if (!stop)
+            curSpawnDelay += Time.deltaTime;
+        else
+            curSpawnDelay = 0;
+
+
         if (Panel.activeSelf)
+        {
+            stop = true;
             StopEnemy();
+        }
         else
         {
             if (curSpawnDelay > maxSpawnDelay) //소환할 때 됐다.
@@ -74,12 +84,25 @@ public class GameManager:MonoBehaviour
         }
     }
 
+    //프로토타입에만 쓰일 코드이다.
+    //추후 일시 정지 기능을 구현할 때는 Time.deltaTime으로 조절하면 될 것 같다.
+    public void StopEnemyBack()
+    {
+        
+        stop = !stop;
+        Back.GetComponent<Background>().enabled = !Back.GetComponent<Background>().enabled;
+        StopEnemy();
+    }
+
     void StopEnemy()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(enemyObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
-            targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            if (stop)
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            else
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);//프로토타입 일시정지 해{
         }
     }
 

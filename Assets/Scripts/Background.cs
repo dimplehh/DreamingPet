@@ -32,9 +32,9 @@ public class Background : MonoBehaviour
     {
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
-        transform.position = curPos + nextPos;//½Ã°£¿¡ µû¶ó Á¶±Ý¾¿ È­¸é ÀÌµ¿½ÃÅ´
+        transform.position = curPos + nextPos;//ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¾ï¿½ È­ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å´
 
-        if (sprites[endIndex].position.y > 0)//Àý´ëÁÂÇ¥
+        if (sprites[endIndex].position.y > 0)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥
         {
             if (count % circle == circle - 2)
             {
