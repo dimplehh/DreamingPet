@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 348350634115200825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.41, y: -5.67, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,7 +123,6 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
-  panel: {fileID: 4068489075376524386, guid: 572c4816094af4442b546562bff349f8, type: 3}
 --- !u!60 &6303436048923304989
 PolygonCollider2D:
   m_ObjectHideFlags: 0
