@@ -31,15 +31,13 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Border")
-        //    gameObject.SetActive(false);
-        if (collision.gameObject.tag == "Player")//�÷��̾� ����� ��
+        if (collision.gameObject.tag == "Player")
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(--collision.gameObject.GetComponent<Player>().life);
             if (collision.gameObject.GetComponent<Player>().life <= 0)
             {
-                OnHit(collision);//������ �ֱ�
-                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);//���� �����
+                OnHit(collision);
+                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);
             }
             else
             {

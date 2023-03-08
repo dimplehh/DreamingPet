@@ -28,6 +28,17 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    public GameObject[] GetTargetPool(string type)
+    {
+        switch (type)
+        {
+            case "enemy":
+                targetPool = enemy;
+                break;
+        }
+        return targetPool;
+    }
+
     public GameObject MakeObj(string type)
     {
         switch(type)

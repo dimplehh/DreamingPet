@@ -60,14 +60,27 @@ public class GameManager:MonoBehaviour
     void Update()
     {
         curSpawnDelay += Time.deltaTime;
-
-        if (curSpawnDelay > maxSpawnDelay) //소환할 때 됐다.
+        if (Panel.activeSelf)
+            StopEnemy();
+        else
         {
-            SpawnEnemy();
-            maxSpawnDelay = Random.Range(0.5f, 3f);
-            curSpawnDelay = 0;
+            if (curSpawnDelay > maxSpawnDelay) //소환할 때 됐다.
+            {
+                SpawnEnemy();
+                maxSpawnDelay = Random.Range(0.5f, 3f);
+                curSpawnDelay = 0;
+            }
+            DeleteEnemy();
         }
-        DeleteEnemy();
+    }
+
+    void StopEnemy()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(enemyObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 
     void DeleteEnemy()
@@ -102,6 +115,7 @@ public class GameManager:MonoBehaviour
         {
             Panel.SetActive(true);
             Back.GetComponent<Background>().enabled = false;
+            speed = 0;
         }
     }
 
