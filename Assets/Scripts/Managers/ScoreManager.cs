@@ -23,6 +23,7 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         PlayerPrefs.SetInt(KeyString, 0);
+        savedScore = PlayerPrefs.GetInt(KeyString);
         PlayerPrefs.Save();
         highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
         highScoreText2.text = string.Format("{0:n0}", savedScore);

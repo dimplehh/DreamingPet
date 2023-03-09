@@ -1344,8 +1344,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 618656603}
-        m_TargetAssemblyTypeName: GameScene, Assembly-CSharp
+      - m_Target: {fileID: 2043661465}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
         m_MethodName: ResetScore
         m_Mode: 1
         m_Arguments:
