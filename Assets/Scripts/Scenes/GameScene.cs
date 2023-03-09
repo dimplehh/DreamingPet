@@ -6,21 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameScene : BaseScene
 {
-    public TMP_Text scoreText;
-    public TMP_Text highScoreText;
-    public TMP_Text scoreText2;
-    public TMP_Text highScoreText2;
-    public int savedScore = 0;
     public GameObject player;
+    [SerializeField]
+    ScoreManager scoreManager;
     [SerializeField] bool gameState;
-    private string KeyString = "HighScore";
 
     void Start()
     {
-        savedScore = PlayerPrefs.GetInt(KeyString);
-        PlayerPrefs.Save();
-        highScoreText.text = "BEST : " + savedScore.ToString();
-        highScoreText2.text = savedScore.ToString();
+        scoreManager.GenerateScore();
     }
 
     protected override void Init()
@@ -39,14 +32,6 @@ public class GameScene : BaseScene
 
     }
 
-    public void ResetScore()
-    {
-        PlayerPrefs.SetInt(KeyString, 0);
-        PlayerPrefs.Save();
-        highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
-        highScoreText2.text = string.Format("{0:n0}", savedScore);
-    }
-
     void Update(){
         /*터치 시 게임 시작*/
         if (gameState==false && Input.GetMouseButton(0))
@@ -57,23 +42,7 @@ public class GameScene : BaseScene
         }
 
         /*Score Update*/
-        if (player!=null){
-            scoreText.text = "Score : " + string.Format("{0:n0}",player.GetComponent<Player>().score);
-            scoreText2.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
-            highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
-            highScoreText2.text = string.Format("{0:n0}", savedScore);
-
-            if (player.GetComponent<Player>().score > savedScore)
-            {
-                savedScore = player.GetComponent<Player>().score;
-                PlayerPrefs.SetInt(KeyString, player.GetComponent<Player>().score);
-                PlayerPrefs.Save();
-                highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
-                highScoreText2.text = string.Format("{0:n0}", savedScore);
-            }
-
-            Managers.Game.score = player.GetComponent<Player>().score;
-        }
+        scoreManager.UpdateScore(player);
     }
 
     

@@ -10,10 +10,12 @@ public class Managers : MonoBehaviour
     GameManager _game = new GameManager();
     ResourceManager _resource = new ResourceManager();
     ObjectManager _object = new ObjectManager();
+    ScoreManager _score = new ScoreManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static ObjectManager Object { get { return Instance._object; } }
+    public static ScoreManager Score { get { return Instance._score; } }
     void Start()
     {
         init();
