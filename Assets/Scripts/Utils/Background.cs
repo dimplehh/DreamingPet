@@ -17,7 +17,7 @@ public class Background : MonoBehaviour
     [SerializeField]
     Sprite[] gradsprites;
     [SerializeField]
-    int circle;
+    int cycle;
     float viewHeight;
     int count;
     int num;
@@ -36,15 +36,15 @@ public class Background : MonoBehaviour
 
         if (sprites[endIndex].position.y > 0)//������ǥ
         {
-            if (count % circle == circle - 2)
+            if (count % cycle == cycle - 2)
             {
                 sprites[startIndex].gameObject.GetComponent<SpriteRenderer>().sprite = gradsprites[num];
             }
-            if (count % circle == circle - 1)
+            if (count % cycle == cycle - 1)
             {
                 sprites[startIndex].gameObject.GetComponent<SpriteRenderer>().sprite = realsprites[num];
             }
-            else if (count % circle == 0)
+            else if (count % cycle == 0)
             {
                 for (int i = 0; i < 3; i++) { sprites[i].gameObject.GetComponent<SpriteRenderer>().sprite = realsprites[num]; }
                 num++;
