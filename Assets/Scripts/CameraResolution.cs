@@ -8,8 +8,6 @@ public class CameraResolution : MonoBehaviour
     {
         Camera camera = GetComponent<Camera>();
         Rect rect = camera.rect;
-        Debug.Log(Screen.width);
-        Debug.Log(Screen.height);
         float scaleheight = ((float)Screen.width / Screen.height) / ((float)9 / 16);
         float scalewidth = 1f / scaleheight;
         if(scaleheight < 1)

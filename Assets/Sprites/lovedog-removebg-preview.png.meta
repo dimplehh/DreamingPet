@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a69725ebe37286a41931b70ac263cea2
+guid: cccb1f8ff3869524c8e224abd73c7a7d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -52,7 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -117,70 +117,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3-removebg-preview_0
+      name: lovedog-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 13
+        x: 12
         y: 11
-        width: 95
-        height: 79
+        width: 96
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 38.5, y: 5.5}
-        - {x: 30.5, y: 0.5}
-        - {x: -5.5, y: 2.5}
-        - {x: -1.5, y: 12.5}
-        - {x: 3.5, y: 9.5}
-        - {x: 5.5, y: 26.5}
-        - {x: -0.5, y: 33.5}
-        - {x: -37.5, y: 33.5}
-        - {x: -45.5, y: 24.5}
-        - {x: -42.5, y: 9.5}
-        - {x: -38.5, y: 11.5}
-        - {x: -32.5, y: 1.5}
-        - {x: -32.5, y: -36.5}
-        - {x: 31.5, y: -37.5}
-        - {x: 32.5, y: -6.5}
-        - {x: 41.5, y: 3.5}
+      - - {x: 40, y: 8.5}
+        - {x: 32, y: 0.5}
+        - {x: -4, y: 4.5}
+        - {x: -2, y: 15.5}
+        - {x: 4, y: 12.5}
+        - {x: 6, y: 27.5}
+        - {x: -2, y: 35.5}
+        - {x: -37, y: 35.5}
+        - {x: -44, y: 26.5}
+        - {x: -41, y: 11.5}
+        - {x: -37, y: 15.5}
+        - {x: -32, y: 4.5}
+        - {x: -33, y: -34.5}
+        - {x: 31, y: -35.5}
+        - {x: 32, y: -5.5}
+        - {x: 43, y: 6.5}
       tessellationDetail: 0
       bones: []
-      spriteID: 94e0dc06f8c2e9f4686592b1ecd2b4cb
-      internalID: -1722797398
+      spriteID: 717657411f2b1964a8d646b10308bfa7
+      internalID: 2100954888
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
-    physicsShape:
-    - - {x: -0.6627426, y: 6.294468}
-      - {x: 3.3831635, y: 17.063911}
-      - {x: 7.630417, y: 13.293095}
-      - {x: 9.426048, y: 29.31443}
-      - {x: -0.08282471, y: 37.00824}
-      - {x: -33.994877, y: 35.871155}
-      - {x: -40.453636, y: 27.635757}
-      - {x: -40.300716, y: 18.152916}
-      - {x: -33.242313, y: 17.398567}
-      - {x: -29.018953, y: 5.6647186}
-      - {x: -28.378277, y: -34.028652}
-      - {x: 33.960556, y: -33.482838}
-      - {x: 34.831703, y: -5.4141846}
-      - {x: 45.377747, y: 5.3764305}
-      - {x: 42.547295, y: 6.784176}
-      - {x: 34.372948, y: 2.5345688}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      3-removebg-preview_0: -1722797398
+      lovedog-removebg-preview_0: 2100954888
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
