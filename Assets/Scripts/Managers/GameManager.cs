@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager:MonoBehaviour
 {
-    [SerializeField]
-    float maxSpawnDelay;
-    [SerializeField]
-    float curSpawnDelay;
-    [SerializeField]
-    float speed;
     public float score;
     public int life;
     public Image[] lifeImage;
