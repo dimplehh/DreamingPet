@@ -55,20 +55,5 @@ public class GameManager:MonoBehaviour
         }
     }
 
-    //프로토타입 캐릭터 삭제에 사용된다 추후 게임에서는 사용되지 않는다.
-    public void DestroyPlayer()
-    {
-        if (GameObject.FindWithTag("Player") == true)
-        {
-            Destroy(GameObject.FindWithTag("Player"));
-            Destroy(GameObject.FindWithTag("Bone"));
-        }
-        else
-        {
-            GameObject.Find("@Scene").GetComponent<GameScene>().player = Spawn("dog");
-            Spawn("bone");
-            UpdateLife(5);
-            GameObject.Find("PlayerSpeedSlider").GetComponent<PlayerSpeed>().speedSlider.value = 1f;
-        }
-    }
+    
 }

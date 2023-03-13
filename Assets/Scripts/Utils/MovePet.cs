@@ -16,9 +16,9 @@ public class MovePet : MonoBehaviour
     GameObject boneObject;
     Color color;
     void Start(){
-        boneObject = GameObject.Find("bone");//³ªÁß¿¡ ºÎÇÏ ÁÙÀÌ´Â ÄÚµå·Î ¹Ù²ã¾ß ÇÒ µí..
+        boneObject = GameObject.Find("bone");//ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½..
         bone = boneObject.transform;
-        speed = boneObject.GetComponent<MoveBone>().speed * 0.2f;
+        speed = boneObject.GetComponent<MoveBone>().speed * 0.15f;
         color = boneObject.GetComponent<SpriteRenderer>().color;
     }
     void Update(){
