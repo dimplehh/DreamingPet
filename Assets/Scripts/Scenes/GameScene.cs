@@ -34,7 +34,7 @@ public class GameScene : BaseScene
 
     void Update(){
         /*터치 시 게임 시작*/
-        if (gameState==false && Input.GetMouseButton(0))
+        if (gameState == false && Input.GetMouseButton(0))
         {
             GameObject.Find("Touch").SetActive(false);
             Managers.Game.gamePause(1f);
