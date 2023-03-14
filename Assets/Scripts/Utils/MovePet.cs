@@ -18,25 +18,28 @@ public class MovePet : MonoBehaviour
     void Start(){
         boneObject = GameObject.Find("bone");//���߿� ���� ���̴� �ڵ�� �ٲ�� �� ��..
         bone = boneObject.transform;
-        speed = boneObject.GetComponent<MoveBone>().speed * 0.15f;
+        speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
         color = boneObject.GetComponent<SpriteRenderer>().color;
     }
     void Update(){
-        if(!EventSystem.current.IsPointerOverGameObject())
+        distanceX = transform.position.x - bone.position.x;
+        distanceY = transform.position.y - bone.position.y;
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            distanceX = transform.position.x - bone.position.x;
-            distanceY = transform.position.y - bone.position.y;
+            // 기존 간식과의 거리에 비례하여 속도가 조절되던 것을 거리 상관없이 일정하게 바꾸었다.
             if (distanceX > 0.1)
             {
-                transform.Translate(new Vector2(-distanceX, 0) * Time.deltaTime * speed);
+                //transform.Translate(new Vector2(-distanceX, 0) * Time.deltaTime * speed);
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
             else if (distanceX < -0.1)
             {
-                transform.Translate(new Vector2(distanceX, 0) * Time.deltaTime * speed);
+                //transform.Translate(new Vector2(distanceX, 0) * Time.deltaTime * speed);
                 transform.eulerAngles = new Vector3(0, 180, 0);
             }
+            transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.deltaTime * speed);
 
+            /*
             if (distanceY > 0.1)
             {
                 transform.Translate(new Vector2(0, -distanceY) * Time.deltaTime * speed);
@@ -45,6 +48,7 @@ public class MovePet : MonoBehaviour
             {
                 transform.Translate(new Vector2(0, -distanceY) * Time.deltaTime * speed);
             }
+            */
 
             if (Mathf.Abs(distanceX) < 0.15 && Mathf.Abs(distanceY) < 0.15)
             {
@@ -59,7 +63,9 @@ public class MovePet : MonoBehaviour
                 boneObject.GetComponent<SpriteRenderer>().color = color;
             }
         }
+  
     }
+
 
     
 }
