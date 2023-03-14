@@ -12,8 +12,7 @@ public class AdmobManager : MonoBehaviour
     public TextMeshProUGUI LogText;
     public Button FrontAdsBtn, RewardAdsBtn;
 
-    List<String> deviceIds = new List<string>();
-
+    public AdmobTestDevicesId testId;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +24,8 @@ public class AdmobManager : MonoBehaviour
         });
 
         //test 디바이스 추가.
-        deviceIds.Add("52d9018a2fd6eefd");
         RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
-            .SetTestDeviceIds(deviceIds)
+            .SetTestDeviceIds(testId.DeviceId)
             .build();
         MobileAds.SetRequestConfiguration(requestConfiguration);
 

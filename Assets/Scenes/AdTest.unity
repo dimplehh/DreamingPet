@@ -1447,6 +1447,7 @@ MonoBehaviour:
   LogText: {fileID: 1563961548}
   FrontAdsBtn: {fileID: 397965618}
   RewardAdsBtn: {fileID: 1932811113}
+  testId: {fileID: 11400000, guid: 95d1c3b0f343e462491cc7f00b330455, type: 2}
 --- !u!4 &1415016143
 Transform:
   m_ObjectHideFlags: 0
