@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] enemyObjs;
     [SerializeField]
+    string[] feverObjs;
+    [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
     ObjectManager objectManager;
@@ -23,9 +25,11 @@ public class LevelManager : MonoBehaviour
     float curSpawnDelay;
     int i;
     int level;
+    int feverCycle;
     void Awake()
     {
         enemyObjs = new string[] { "enemy" };
+        feverObjs = new string[] { "fever" };
     }
     void Start()
     {//Level Design
@@ -35,6 +39,7 @@ public class LevelManager : MonoBehaviour
 
         maxT = t[t.Length - 1];
         level = 0;
+        feverCycle = 3;
     }
 
     // Update is called once per frame
@@ -60,8 +65,16 @@ public class LevelManager : MonoBehaviour
                 {
                     SpawnEnemy();
                     curSpawnDelay = 0;
+
+                    feverCycle -= 1;
+                    if(feverCycle == 0)
+                    {
+                        SpawnFever();
+                        feverCycle = 3;
+                    }
                 }
                 DeleteEnemy();
+                DeleteFever();
             }
             else
             {
@@ -76,6 +89,23 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
             }
         }
+    }
+
+    public void DeleteFever()
+    {
+        int ranEnemy = 0;//나중에 장애물 여러개 생기면 Random.Range(0,3);이런식으로 바꾸기
+        objectManager.DelObj(feverObjs[ranEnemy]);
+    }
+
+    public void SpawnFever()
+    {
+        int ranEnemy = 0;
+        int ranPoint = Random.Range(0, spawnPoints.Length);//소환될 위치 //2.ranPoint 2개 받기
+        GameObject fever = objectManager.MakeObj(feverObjs[ranEnemy]);
+        fever.transform.position = spawnPoints[ranPoint].position;
+
+        Rigidbody2D rigid = fever.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * 3.0f; //3.speed 변경
     }
 
     public void StopEnemy()

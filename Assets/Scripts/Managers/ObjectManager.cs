@@ -6,14 +6,18 @@ public class ObjectManager : MonoBehaviour
 {
     [SerializeField]
     GameObject enemyPrefab;
+    [SerializeField]
+    GameObject feverPrefab;
 
     GameObject[] enemy;
+    GameObject[] fever;
     //GameObject[] coin;
     GameObject[] targetPool;
 
     private void Awake()
     {
         enemy = new GameObject[10];
+        fever = new GameObject[5];
         //coin = new GameObject[10];
         Generate();
     }
@@ -26,6 +30,12 @@ public class ObjectManager : MonoBehaviour
             //Managers.Resource.Instantiate(); //차후 이 코드로 바꾸기
             enemy[index].SetActive(false);
         }
+        for (int index = 0; index < fever.Length; index++)
+        {
+            fever[index] = Instantiate(feverPrefab);
+            //Managers.Resource.Instantiate(); //차후 이 코드로 바꾸기
+            fever[index].SetActive(false);
+        }
     }
 
     public GameObject[] GetTargetPool(string type)
@@ -34,6 +44,9 @@ public class ObjectManager : MonoBehaviour
         {
             case "enemy":
                 targetPool = enemy;
+                break;
+            case "fever":
+                targetPool = fever;
                 break;
         }
         return targetPool;
@@ -45,6 +58,9 @@ public class ObjectManager : MonoBehaviour
         {
             case "enemy":
                 targetPool = enemy;
+                break;
+            case "fever":
+                targetPool = fever;
                 break;
         }
         for (int index = 0; index < targetPool.Length; index++)
@@ -64,6 +80,9 @@ public class ObjectManager : MonoBehaviour
         {
             case "enemy":
                 targetPool = enemy;
+                break;
+            case "fever":
+                targetPool = fever;
                 break;
         }
         for (int index = 0; index < targetPool.Length; index++)

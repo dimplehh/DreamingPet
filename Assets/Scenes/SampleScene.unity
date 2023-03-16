@@ -2078,6 +2078,7 @@ MonoBehaviour:
   - {fileID: 1380319219}
   Panel: {fileID: 651126219}
   Back: {fileID: 1769926725}
+  feverSlider: {fileID: 695573758}
 --- !u!4 &729785373
 Transform:
   m_ObjectHideFlags: 0
@@ -2107,6 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyObjs:
   - enemy
+  feverObjs: []
   spawnPoints:
   - {fileID: 1134209563}
   - {fileID: 429405383}
@@ -2302,7 +2304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.31829083, g: 0.3039783, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2887,6 +2889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 348350634115200825, guid: f807b3f7958c2844c84681aa39781d41, type: 3}
+  feverPrefab: {fileID: 348350634115200825, guid: 6488a8e6499975a428c378130e4a1a49, type: 3}
 --- !u!4 &1063556439
 Transform:
   m_ObjectHideFlags: 0
@@ -4610,7 +4613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753356230725494794, guid: 572c4816094af4442b546562bff349f8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -92.737915
+      value: -92.73779
       objectReference: {fileID: 0}
     - target: {fileID: 2753356230725494794, guid: 572c4816094af4442b546562bff349f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

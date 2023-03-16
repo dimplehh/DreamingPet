@@ -12,6 +12,8 @@ public class GameManager:MonoBehaviour
     GameObject Panel;
     [SerializeField]
     GameObject Back;
+    [SerializeField]
+    Slider feverSlider;
 
     public void gamePause(float timescale)
     {
@@ -55,5 +57,9 @@ public class GameManager:MonoBehaviour
         }
     }
 
-    
+    public void UpdateFeverScore(int feverScore)
+    {
+        feverSlider.value = (feverScore / 5.0f );
+        Debug.Log(feverSlider.value);
+    }
 }

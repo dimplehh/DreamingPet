@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public int score;
     public int life;
+    public int feverScore;
     
     // Start is called before the first frame update
     void Start()
