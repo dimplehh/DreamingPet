@@ -18,19 +18,23 @@ public class LevelManager : MonoBehaviour
     float[] t;
     float[] maxSpawnDelay;
     float[] speed;
+    float maxT;
 
     float curSpawnDelay;
     int i;
+    int level;
     void Awake()
     {
         enemyObjs = new string[] { "enemy" };
     }
     void Start()
     {//Level Design
-        i = 0;
-        t = new float[6] { 15.0f , 20.0f, 30.0f, 40.0f, 50.0f, 60.0f};
+        t = new float[6] { 10.0f, 20.0f, 30.0f, 40.0f, 50.0f, 60.0f };
         maxSpawnDelay = new float[6] { 5f, 4f, 4f, 3f, 2f, 2f };
         speed = new float[6] { 2.0f, 2.2f, 2.2f, 2.4f, 2.4f, 2.6f };
+
+        maxT = t[t.Length - 1];
+        level = 0;
     }
 
     // Update is called once per frame
@@ -61,8 +65,15 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                i++;
-                Debug.Log("Level:" + i);
+                if (i < t.Length - 1)
+                    i++;
+                else
+                {
+                    t[i] = maxT; //지금까지 정해진 레벨디자인 초과하면 레벨만 오르고 일정한 속도로 무한지속
+                    speed[i] += 0.2f;
+                }
+                level++;
+                Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
             }
         }
     }

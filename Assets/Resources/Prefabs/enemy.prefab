@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4424334654510481991}
   - component: {fileID: 8364207207649532060}
   - component: {fileID: 4428744126819989582}
-  - component: {fileID: 6303436048923304989}
+  - component: {fileID: 6042962951637890717}
   m_Layer: 3
   m_Name: enemy
   m_TagString: Enemy
@@ -123,7 +123,7 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
---- !u!60 &6303436048923304989
+--- !u!60 &6042962951637890717
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -148,16 +148,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.020833334, y: 1.5833334}
-      - {x: -0.5625, y: 0.9583334}
-      - {x: -1.5625, y: 0.9166667}
-      - {x: -1.9791667, y: 0}
-      - {x: -2.6875, y: -0.4166667}
-      - {x: -2.6041667, y: -1.25}
-      - {x: -1.9791667, y: -1.5833334}
-      - {x: 2.1875, y: -1.5416667}
-      - {x: 2.7708335, y: -0.6666667}
-      - {x: 2.5208335, y: 0.125}
-      - {x: 1.8541667, y: 0.375}
-      - {x: 1.5625, y: 1.2916667}
-      - {x: 0.9791667, y: 1.625}
+    - - {x: 0.041666668, y: 0.9166667}
+      - {x: -0.875, y: 1.4166667}
+      - {x: -1.375, y: 0.9166667}
+      - {x: -1.625, y: 0.33333334}
+      - {x: -2.125, y: 0.20833334}
+      - {x: -2.4166667, y: -0.20833334}
+      - {x: -2.2916667, y: -0.6666667}
+      - {x: -1.75, y: -1}
+      - {x: 1.9583334, y: -0.9583334}
+      - {x: 2.4166667, y: -0.375}
+      - {x: 2.1666667, y: 0.2916667}
+      - {x: 1.625, y: 0.6666667}
+      - {x: 0.875, y: 1.4166667}

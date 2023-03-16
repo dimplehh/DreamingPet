@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6250622110166275262}
   - component: {fileID: 6250622110166275263}
   - component: {fileID: 6250622110166275261}
-  - component: {fileID: -2265915203835293876}
   - component: {fileID: 810638032536294260}
+  - component: {fileID: 6778064726427118010}
   m_Layer: 0
   m_Name: dog
   m_TagString: Player
@@ -104,7 +104,21 @@ MonoBehaviour:
   biteDog: {fileID: 21300000, guid: d56fca22fe4715d4ca16d2c92814ecc4, type: 3}
   distanceX: 0
   distanceY: 0
---- !u!60 &-2265915203835293876
+--- !u!114 &810638032536294260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250622110166275249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d100d63c6e146a4999b8c4e67754888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  life: 5
+--- !u!60 &6778064726427118010
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,38 +143,19 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.14583334, y: 0.1875}
-      - {x: 0.020833334, y: 0.5625}
-      - {x: 0.22916667, y: 0.4375}
-      - {x: 0.3125, y: 1.1458334}
-      - {x: -0.020833334, y: 1.4791667}
-      - {x: -1.5208334, y: 1.4791667}
-      - {x: -1.8541667, y: 1.1458334}
-      - {x: -1.7291667, y: 0.5208334}
-      - {x: -1.5313543, y: 0.6419589}
-      - {x: -1.3541667, y: 0.14583334}
-      - {x: -1.3541667, y: -1.3541667}
-      - {x: -1.4791667, y: -1.4791667}
-      - {x: 0.2724675, y: -1.479167}
-      - {x: 1.3541667, y: -1.4791667}
-      - {x: 1.3541667, y: -0.27083334}
-      - {x: 1.6458334, y: 0.020833334}
-      - {x: 1.827116, y: 0.18763384}
-      - {x: 1.8541667, y: 0.25098515}
-      - {x: 1.884233, y: 0.27078855}
-      - {x: 1.6875, y: 0.3541667}
-      - {x: 1.3125, y: 0.10416667}
---- !u!114 &810638032536294260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6250622110166275249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d100d63c6e146a4999b8c4e67754888, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
-  life: 5
+    - - {x: -1.8333334, y: 2}
+      - {x: -2.9583335, y: 0.8333334}
+      - {x: -3.5, y: 0.083333336}
+      - {x: -2.6666667, y: -0.7916667}
+      - {x: -1.5416667, y: -1.0416667}
+      - {x: -1.2083334, y: -1.9166667}
+      - {x: 0.75, y: -2.1666667}
+      - {x: 1.75, y: -1.9166667}
+      - {x: 2.5416667, y: -0.7916667}
+      - {x: 3.1666667, y: -0.625}
+      - {x: 3.4166667, y: 0.5}
+      - {x: 2.5833335, y: 0.5416667}
+      - {x: 2.2083335, y: 1.0833334}
+      - {x: 2.2083335, y: 1.75}
+      - {x: 0.7083334, y: 1.375}
+      - {x: -0.375, y: 2.125}
