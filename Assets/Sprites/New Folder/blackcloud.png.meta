@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a69725ebe37286a41931b70ac263cea2
+guid: 42f82552898ce994e805e81cf7acdc05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +7,7 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 0
+    sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,7 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -127,72 +127,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: 3-removebg-preview_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 11
-        width: 95
-        height: 79
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 38.5, y: 5.5}
-        - {x: 30.5, y: 0.5}
-        - {x: -5.5, y: 2.5}
-        - {x: -1.5, y: 12.5}
-        - {x: 3.5, y: 9.5}
-        - {x: 5.5, y: 26.5}
-        - {x: -0.5, y: 33.5}
-        - {x: -37.5, y: 33.5}
-        - {x: -45.5, y: 24.5}
-        - {x: -42.5, y: 9.5}
-        - {x: -38.5, y: 11.5}
-        - {x: -32.5, y: 1.5}
-        - {x: -32.5, y: -36.5}
-        - {x: 31.5, y: -37.5}
-        - {x: 32.5, y: -6.5}
-        - {x: 41.5, y: 3.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94e0dc06f8c2e9f4686592b1ecd2b4cb
-      internalID: -1722797398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
-    physicsShape:
-    - - {x: -0.6627426, y: 6.294468}
-      - {x: 3.3831635, y: 17.063911}
-      - {x: 7.630417, y: 13.293095}
-      - {x: 9.426048, y: 29.31443}
-      - {x: -0.08282471, y: 37.00824}
-      - {x: -33.994877, y: 35.871155}
-      - {x: -40.453636, y: 27.635757}
-      - {x: -40.300716, y: 18.152916}
-      - {x: -33.242313, y: 17.398567}
-      - {x: -29.018953, y: 5.6647186}
-      - {x: -28.378277, y: -34.028652}
-      - {x: 33.960556, y: -33.482838}
-      - {x: 34.831703, y: -5.4141846}
-      - {x: 45.377747, y: 5.3764305}
-      - {x: 42.547295, y: 6.784176}
-      - {x: 34.372948, y: 2.5345688}
+    physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      3-removebg-preview_0: -1722797398
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

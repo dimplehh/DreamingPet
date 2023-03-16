@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6250622110166275249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: -1569539917
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1722797398, guid: a69725ebe37286a41931b70ac263cea2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d56fca22fe4715d4ca16d2c92814ecc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.9583333, y: 3.2916667}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,10 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330821869f1c8984a8611f0f3d4559ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boneObject: {fileID: 4588981689228300362, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
   speed: 0
-  Dog: {fileID: -1722797398, guid: a69725ebe37286a41931b70ac263cea2, type: 3}
-  biteDog: {fileID: 2100954888, guid: cccb1f8ff3869524c8e224abd73c7a7d, type: 3}
+  Dog: {fileID: 21300000, guid: d56fca22fe4715d4ca16d2c92814ecc4, type: 3}
+  biteDog: {fileID: 21300000, guid: d56fca22fe4715d4ca16d2c92814ecc4, type: 3}
   distanceX: 0
   distanceY: 0
 --- !u!60 &-2265915203835293876
@@ -122,8 +121,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.9583333, y: 3.2916667}
-    newSize: {x: 3.9583333, y: 3.2916667}
+    oldSize: {x: 10.666667, y: 10.666667}
+    newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
