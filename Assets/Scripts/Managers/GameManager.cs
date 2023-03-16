@@ -14,6 +14,8 @@ public class GameManager:MonoBehaviour
     GameObject Back;
     [SerializeField]
     Slider feverSlider;
+    public bool feverState;
+    GameObject player;
 
     public void gamePause(float timescale)
     {
@@ -38,6 +40,8 @@ public class GameManager:MonoBehaviour
     void Start()
     {
         Managers mg = Managers.Instance;///이걸 나중에 사용할 수 있을 것(싱글톤 클래스)- 코드 깔끔히 하는 용  
+        feverState = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     /* 플레이어의 목숨 업데이트 */
@@ -56,10 +60,23 @@ public class GameManager:MonoBehaviour
             Back.GetComponent<Background>().enabled = false;
         }
     }
-
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore / 5.0f );
-        Debug.Log(feverSlider.value);
+        feverSlider.value = (feverScore / 2.0f );
+        if (feverSlider.value == 1.0f)
+        {
+            feverState = true;
+            StartCoroutine(FeverTime());
+        }
+    }
+
+    IEnumerator FeverTime()
+    {
+        player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        yield return new WaitForSeconds(10f);
+        feverState = false;
+        player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        player.GetComponent<Player>().feverScore = 0;
+        feverSlider.value = 0.0f;
     }
 }

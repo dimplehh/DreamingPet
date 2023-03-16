@@ -123,6 +123,7 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!60 &6042962951637890717
 PolygonCollider2D:
   m_ObjectHideFlags: 0

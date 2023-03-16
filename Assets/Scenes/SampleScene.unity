@@ -2079,6 +2079,8 @@ MonoBehaviour:
   Panel: {fileID: 651126219}
   Back: {fileID: 1769926725}
   feverSlider: {fileID: 695573758}
+  feverState: 0
+  player: {fileID: 6250622110166275249, guid: 7e66254fd42d5e0438e1d32ffd028565, type: 3}
 --- !u!4 &729785373
 Transform:
   m_ObjectHideFlags: 0

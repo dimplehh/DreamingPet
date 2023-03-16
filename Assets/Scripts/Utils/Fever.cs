@@ -14,6 +14,7 @@ public class Fever : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {//GameObject.Find 차후 수정
+            Debug.Log("플레이어피버스코어:" + collision.gameObject.GetComponent<Player>().feverScore);
             GameObject.Find("GameManager").GetComponent<GameManager>().UpdateFeverScore(++collision.gameObject.GetComponent<Player>().feverScore);
             Debug.Log("feverScore:" + collision.gameObject.GetComponent<Player>().feverScore);
             gameObject.SetActive(false);
