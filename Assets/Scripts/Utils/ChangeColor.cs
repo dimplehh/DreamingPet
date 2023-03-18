@@ -20,9 +20,9 @@ public class ChangeColor : MonoBehaviour
         if(spriteRenderer != null && timeSinceChange >= timeToChange)
         {
             Color newColor = new Color(
-                Random.value,
-                Random.value,
-                Random.value
+                Random.Range(0.5f, 1.0f),
+                Random.Range(0.5f, 1.0f),
+                Random.Range(0.5f, 1.0f)
                 );
 
             spriteRenderer.color = newColor;
