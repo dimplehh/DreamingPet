@@ -24,7 +24,6 @@ public class GameManager:MonoBehaviour
             Time.timeScale = 1.0f;//나중에 이 값을 fever 상태에 따라 바뀌도록...
         else
             Time.timeScale = 0.0f;
-        //Time.timeScale = timescale; // 게임 시간 일시 정지
     }
 
     public GameObject Spawn(string path, Transform parent = null)
@@ -94,9 +93,11 @@ public class GameManager:MonoBehaviour
     IEnumerator FeverTime()
     {
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        player.GetComponent<ChangeColor>().enabled = true;
         yield return new WaitForSeconds(10f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        player.GetComponent<ChangeColor>().enabled = false;
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.value = 0.0f;
     }
