@@ -20,7 +20,11 @@ public class GameManager:MonoBehaviour
 
     public void gamePause(float timescale)
     {
-        Time.timeScale = timescale; // 게임 시간 일시 정지
+        if (Time.timeScale == 0)
+            Time.timeScale = 1.0f;//나중에 이 값을 fever 상태에 따라 바뀌도록...
+        else
+            Time.timeScale = 0.0f;
+        //Time.timeScale = timescale; // 게임 시간 일시 정지
     }
 
     public GameObject Spawn(string path, Transform parent = null)
