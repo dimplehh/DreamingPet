@@ -100,12 +100,12 @@ public class LevelManager : MonoBehaviour
     public void SpawnFever()
     {
         int ranEnemy = 0;
-        int ranPoint = Random.Range(0, spawnPoints.Length);//소환될 위치 //2.ranPoint 2개 받기
+        int ranPoint = Random.Range(0, spawnPoints.Length);//소환될 위치
         GameObject fever = objectManager.MakeObj(feverObjs[ranEnemy]);
         fever.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid = fever.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * 3.0f; //3.speed 변경
+        rigid.velocity = Vector2.up * speed[i];
     }
 
     public void StopEnemy()

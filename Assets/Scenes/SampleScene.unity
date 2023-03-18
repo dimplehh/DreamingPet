@@ -2080,7 +2080,6 @@ MonoBehaviour:
   Back: {fileID: 1769926725}
   feverSlider: {fileID: 695573758}
   feverState: 0
-  player: {fileID: 6250622110166275249, guid: 7e66254fd42d5e0438e1d32ffd028565, type: 3}
 --- !u!4 &729785373
 Transform:
   m_ObjectHideFlags: 0
@@ -3661,7 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dcba21919d64f49a0532111481d9e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.8
   startIndex: 0
   endIndex: 2
   sprites:

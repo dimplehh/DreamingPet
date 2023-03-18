@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4424334654510481991}
   - component: {fileID: 8364207207649532060}
   - component: {fileID: 4428744126819989582}
-  - component: {fileID: 6042962951637890717}
+  - component: {fileID: 4791160830562126556}
   m_Layer: 3
   m_Name: enemy
   m_TagString: Enemy
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 348350634115200825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.41, y: -5.67, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1569539917
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 42f82552898ce994e805e81cf7acdc05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 969c3fb90ea712f44ad098cafa226b76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +123,7 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
-  gameManager: {fileID: 0}
---- !u!60 &6042962951637890717
+--- !u!60 &4791160830562126556
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +140,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.666667, y: 10.666667}
+    oldSize: {x: 33.333332, y: 33.333332}
     newSize: {x: 5.7916665, y: 3.5416667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -149,16 +148,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.041666668, y: 0.9166667}
-      - {x: -0.875, y: 1.4166667}
-      - {x: -1.375, y: 0.9166667}
-      - {x: -1.625, y: 0.33333334}
-      - {x: -2.125, y: 0.20833334}
-      - {x: -2.4166667, y: -0.20833334}
-      - {x: -2.2916667, y: -0.6666667}
-      - {x: -1.75, y: -1}
-      - {x: 1.9583334, y: -0.9583334}
-      - {x: 2.4166667, y: -0.375}
-      - {x: 2.1666667, y: 0.2916667}
-      - {x: 1.625, y: 0.6666667}
-      - {x: 0.875, y: 1.4166667}
+    - - {x: 3, y: 2.9166667}
+      - {x: -0.25, y: 4.625}
+      - {x: -3.75, y: 4.2083335}
+      - {x: -6.4583335, y: 1}
+      - {x: -10.208334, y: 0.2916667}
+      - {x: -11.5, y: -2.1666667}
+      - {x: -10.083334, y: -3.9583335}
+      - {x: -0.5, y: -4.75}
+      - {x: 8.625, y: -3.8333335}
+      - {x: 10.291667, y: -1.4166667}
+      - {x: 8.416667, y: -0.2916667}
+      - {x: 7.291667, y: 1.875}
+      - {x: 5.666667, y: 3.375}
