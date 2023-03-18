@@ -6,7 +6,7 @@ using GoogleMobileAds.Api;
 using System;
 using TMPro;
 
-public class AdmobManager
+public class AdmobManager 
 {
     private List<string> deviceId = new List<string>();
 

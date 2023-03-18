@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager:MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class GameManager:MonoBehaviour
     public bool feverState;
     GameObject player;
     private int EndAdCount = 0;
+
+    [SerializeField]
+    GameObject ReAd;
+    [SerializeField]
+    TMP_Text Timer;
+
 
     public void gamePause(float timescale)
     {
@@ -57,24 +64,7 @@ public class GameManager:MonoBehaviour
         }
         if (curlife <= 0)
         {
-            if (EndAdCount == 0)
-            {
-                EndAdCount++;
-                
-
-            }
-            else
-            {
-                Panel.SetActive(true);
-                Back.GetComponent<Background>().enabled = false;
-
-                int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
-                endAdCount++;
-                PlayerPrefs.SetInt("EndAdCount", endAdCount);
-                PlayerPrefs.Save();
-                if (endAdCount % 3 == 0) StartCoroutine(EndAd());
-            }
-            
+                StartCoroutine(RestartAd());
         }
     }
     public void UpdateFeverScore(int feverScore)
@@ -101,5 +91,35 @@ public class GameManager:MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Managers.Ad.ShowFrontAd();
+    }
+
+    IEnumerator RestartAd()
+    {
+        ReAd.SetActive(true);
+        Back.GetComponent<Background>().enabled = false;
+        //GameObject.Find("GameManager").GetComponent<LevelManager>().StopEnemy();
+        //적 멈추기
+        for (int i = 1; i <= 10; i++)
+        {
+            Timer.text = (10-i).ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        ReAd.SetActive(false);
+        Panel.SetActive(true);
+        int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
+        endAdCount++;
+        PlayerPrefs.SetInt("EndAdCount", endAdCount);
+        PlayerPrefs.Save();
+        if (endAdCount % 3 == 0) StartCoroutine(EndAd());
+    }
+
+    public void showReward()
+    {
+        Managers.Ad.ShowRewardAd();
+    }
+
+    public void NoRewardAd()
+    {
+        //StopCoroutine(RestartAd()); 다시 작성하자
     }
 }
