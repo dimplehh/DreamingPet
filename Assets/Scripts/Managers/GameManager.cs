@@ -17,11 +17,17 @@ public class GameManager:MonoBehaviour
     public bool feverState;
     GameObject player;
     private int EndAdCount = 0;
+    float feverTime = 1.3f;
 
     public void gamePause(float timescale)
     {
         if (Time.timeScale == 0)
-            Time.timeScale = 1.0f;//나중에 이 값을 fever 상태에 따라 바뀌도록...
+        {
+            if (feverState)
+                Time.timeScale = feverTime;
+            else
+                Time.timeScale = 1.0f;
+        }
         else
             Time.timeScale = 0.0f;
     }
@@ -94,10 +100,12 @@ public class GameManager:MonoBehaviour
     {
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         player.GetComponent<ChangeColor>().enabled = true;
+        Time.timeScale = feverTime;
         yield return new WaitForSeconds(10f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
+        Time.timeScale = 1.0f;
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.value = 0.0f;
     }
