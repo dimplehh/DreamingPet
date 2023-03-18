@@ -45,6 +45,8 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 09492a717044b644781b89c55d3feb20, type: 3}
+    - {fileID: 2800000, guid: 969c3fb90ea712f44ad098cafa226b76, type: 3}
+    - {fileID: 2800000, guid: 1511acdfab419ab4bb73d5be58c48140, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -54,13 +56,17 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d56fca22fe4715d4ca16d2c92814ecc4, type: 3}
   - {fileID: 21300000, guid: 42f82552898ce994e805e81cf7acdc05, type: 3}
   - {fileID: 21300000, guid: aea165d2c9d6f5a4e94454cf614a9eec, type: 3}
+  - {fileID: 21300000, guid: 969c3fb90ea712f44ad098cafa226b76, type: 3}
   - {fileID: 21300000, guid: 68a698bf1009a9c45b2dffb6772943f9, type: 3}
+  - {fileID: 21300000, guid: 1511acdfab419ab4bb73d5be58c48140, type: 3}
   m_PackedSpriteNamesToIndex:
   - bone
   - dog
   - blackcloud
   - cloud
+  - KakaoTalk_20230317_093705091_01
   - KakaoTalk_20230315_201603393_01
+  - KakaoTalk_20230317_093705091
   m_RenderDataMap: {}
   m_Tag: SpriteAtlas
   m_IsVariant: 0
