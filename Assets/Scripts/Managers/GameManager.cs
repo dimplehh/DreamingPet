@@ -18,6 +18,7 @@ public class GameManager:MonoBehaviour
     public bool feverState;
     GameObject player;
     private int EndAdCount = 0;
+    float feverTime = 1.3f;
 
     [SerializeField]
     GameObject ReAd;
@@ -27,7 +28,15 @@ public class GameManager:MonoBehaviour
 
     public void gamePause(float timescale)
     {
-        Time.timeScale = timescale; // 게임 시간 일시 정지
+        if (Time.timeScale == 0)
+        {
+            if (feverState)
+                Time.timeScale = feverTime;
+            else
+                Time.timeScale = 1.0f;
+        }
+        else
+            Time.timeScale = 0.0f;
     }
 
     public GameObject Spawn(string path, Transform parent = null)
@@ -80,9 +89,13 @@ public class GameManager:MonoBehaviour
     IEnumerator FeverTime()
     {
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        player.GetComponent<ChangeColor>().enabled = true;
+        Time.timeScale = feverTime;
         yield return new WaitForSeconds(10f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        player.GetComponent<ChangeColor>().enabled = false;
+        Time.timeScale = 1.0f;
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.value = 0.0f;
     }
