@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-    static Managers s_instance; //°íÁ¤ÇÑ´Ù´Â ÀÇ¹ÌÀÇ staticÀ» ºÙ¿© Managers classÀÇ instance¸¸µê
-    public static Managers Instance { get { init(); return s_instance; } } //´Ù¸¥ ¸ðµç classµéÀÌ °øÅëÀ¸·Î »ç¿ë °¡´ÉÇÏµµ·Ï 
-                                                                           //publicÀ¸·Î init()ÇÔ¼ö¸¦ ½ÇÇàÇÏ°í ÀÎ½ºÅÏ½º¸¦ returnÇÏ´Â ±â´ÉÇÏ´Â ¾Ö¸¦ ¸¸µê
+    static Managers s_instance; //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù´ï¿½ ï¿½Ç¹ï¿½ï¿½ï¿½ staticï¿½ï¿½ ï¿½Ù¿ï¿½ Managers classï¿½ï¿½ instanceï¿½ï¿½ï¿½ï¿½
+    public static Managers Instance { get { init(); return s_instance; } } //ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ classï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ 
+                                                                           //publicï¿½ï¿½ï¿½ï¿½ init()ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ returnï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½
     GameManager _game = new GameManager();
     ResourceManager _resource = new ResourceManager();
     ObjectManager _object = new ObjectManager();
     ScoreManager _score = new ScoreManager();
+    AdmobManager _Ad = new AdmobManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static ObjectManager Object { get { return Instance._object; } }
     public static ScoreManager Score { get { return Instance._score; } }
+    public static AdmobManager Ad { get { return Instance._Ad; } }
+
+
     void Start()
     {
-        init();
+        //init();
     }
 
     void Update()
@@ -38,6 +42,9 @@ public class Managers : MonoBehaviour
             }
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+            Managers.Ad.init();
         }
+        
     }
+    
 }

@@ -9,7 +9,7 @@ public class GameScene : BaseScene
     public GameObject player;
     [SerializeField]
     ScoreManager scoreManager;
-    [SerializeField] bool gameState;
+    public bool gameState;
 
     void Start()
     {

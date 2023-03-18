@@ -6,14 +6,15 @@ using GoogleMobileAds.Api;
 using System;
 using TMPro;
 
-public class AdmobManager : MonoBehaviour
+public class AdmobManager
 {
-    public bool isTestMode;
-    public TextMeshProUGUI LogText;
-    public Button FrontAdsBtn, RewardAdsBtn;
+    private List<string> deviceId = new List<string>();
 
-    public AdmobTestDevicesId testId;
-
+    private void TestId()
+    {
+        deviceId.Add("52d9018a2fd6eefd");
+    }
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +34,37 @@ public class AdmobManager : MonoBehaviour
         LoadFrontAd();
         LoadRewardAd();
     }
+    */
+    public void init()
+    {
+        TestId();
+        // SDK 초기
+        MobileAds.Initialize((InitializationStatus initStatus) =>
+        {
+            // This callback is called once the MobileAds SDK is initialized.
+        });
 
+        //test 디바이스 추가.
+        RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
+            .SetTestDeviceIds(deviceId)
+            .build();
+        MobileAds.SetRequestConfiguration(requestConfiguration);
+
+        LoadBannerAd();
+        LoadFrontAd();
+        LoadRewardAd();
+    }
+
+    /*
     // Update is called once per frame
     void Update()
     {
         //버튼 활성화 조절
-        FrontAdsBtn.interactable = frontAd.CanShowAd();
-        RewardAdsBtn.interactable = rewardAd.CanShowAd();
+        //FrontAdsBtn.interactable = frontAd.CanShowAd();
+        //RewardAdsBtn.interactable = rewardAd.CanShowAd();
 
     }
+    */
 
     //배너광고
     const string bannerTestID = "ca-app-pub-3940256099942544/6300978111";
@@ -66,7 +89,7 @@ public class AdmobManager : MonoBehaviour
         if (a) bannerAd.Show();
         else bannerAd.Hide();
     }
-
+    
     //전면 광고
     const string frontTestID = "ca-app-pub-3940256099942544/1033173712";
     const string frontId = "ca-app-pub-7040385188716427/9836628816";
@@ -82,7 +105,7 @@ public class AdmobManager : MonoBehaviour
         frontAd.OnAdClosed += (sender, e) =>
         {
             //여기에 광고가 닫힌 후 추가 작업을 넣어주면 된다.
-            LogText.text = "Success Front";
+            
         };
     }
     public void ShowFrontAd()
@@ -104,7 +127,7 @@ public class AdmobManager : MonoBehaviour
         rewardAd.OnUserEarnedReward += (sender, e) =>
         {
             //여기에 광고가 닫힌 후 추가 작업을 넣어주면 된다.
-            LogText.text = "Success Reward";
+            
         };
     }
     public void ShowRewardAd()

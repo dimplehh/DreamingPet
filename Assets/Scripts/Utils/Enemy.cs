@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
             {
                 OnHit(collision);
                 Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);
+                
             }
             else
             {

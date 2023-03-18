@@ -16,6 +16,7 @@ public class GameManager:MonoBehaviour
     Slider feverSlider;
     public bool feverState;
     GameObject player;
+    private int EndAdCount = 0;
 
     public void gamePause(float timescale)
     {
@@ -56,8 +57,24 @@ public class GameManager:MonoBehaviour
         }
         if (curlife <= 0)
         {
-            Panel.SetActive(true);
-            Back.GetComponent<Background>().enabled = false;
+            if (EndAdCount == 0)
+            {
+                EndAdCount++;
+                
+
+            }
+            else
+            {
+                Panel.SetActive(true);
+                Back.GetComponent<Background>().enabled = false;
+
+                int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
+                endAdCount++;
+                PlayerPrefs.SetInt("EndAdCount", endAdCount);
+                PlayerPrefs.Save();
+                if (endAdCount % 3 == 0) StartCoroutine(EndAd());
+            }
+            
         }
     }
     public void UpdateFeverScore(int feverScore)
@@ -78,5 +95,11 @@ public class GameManager:MonoBehaviour
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.value = 0.0f;
+    }
+
+    IEnumerator EndAd()
+    {
+        yield return new WaitForSeconds(1f);
+        Managers.Ad.ShowFrontAd();
     }
 }
