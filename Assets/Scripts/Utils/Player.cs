@@ -31,4 +31,21 @@ public class Player : MonoBehaviour
             //Test용으로 score의 변화는 일정하게 잠시 바꿔 놓았다.
         }
     }
+
+    IEnumerator InvicibleTime()
+    {
+        gameObject.layer = 7;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        yield return new WaitForSeconds(3f);
+        gameObject.layer = 0;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+    }
+    public void StartScore()
+    {
+        StartCoroutine("ScoreUpdate");
+    }
+    public void StartInvicible()
+    {
+        StartCoroutine(InvicibleTime());
+    }
 }

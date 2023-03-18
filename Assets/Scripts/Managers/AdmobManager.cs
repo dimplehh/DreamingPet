@@ -6,7 +6,7 @@ using GoogleMobileAds.Api;
 using System;
 using TMPro;
 
-public class AdmobManager 
+public class AdmobManager
 {
     private List<string> deviceId = new List<string>();
 
@@ -124,17 +124,30 @@ public class AdmobManager
         rewardAd = new RewardedAd(rewardTestID);
         AdRequest request = new AdRequest.Builder().Build();
         rewardAd.LoadAd(request);
+        
+    }
+    public void ShowRewardAd(GameObject player,GameObject bone, GameManager gm)
+    {
         rewardAd.OnUserEarnedReward += (sender, e) =>
         {
-            //여기에 광고가 닫힌 후 추가 작업을 넣어주면 된다.
-            
+            player.GetComponent<Player>().life++;
+            player.SetActive(true);
+            bone.SetActive(true);
+            player.GetComponent<Player>().StartScore();
+            player.GetComponent<Player>().StartInvicible();
+            gm.UpdateLife(1);
+            gm.Back.GetComponent<Background>().enabled = true;
+            gm.gameObject.GetComponent<LevelManager>().stop = false;
+            gm.gameObject.GetComponent<LevelManager>().StopEnemy();
         };
-    }
-    public void ShowRewardAd()
-    {
         rewardAd.Show();
+        gm.ReAd.SetActive(false);
+        gm.StopCoroutine("RestartAd");
+        
         LoadRewardAd();
     }
+
+    
 }
 
 

@@ -2247,6 +2247,7 @@ MonoBehaviour:
   feverState: 0
   ReAd: {fileID: 1297493547}
   Timer: {fileID: 1920150290}
+  EndPoint: 0
 --- !u!4 &729785373
 Transform:
   m_ObjectHideFlags: 0

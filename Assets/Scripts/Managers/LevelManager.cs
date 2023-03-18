@@ -14,8 +14,7 @@ public class LevelManager : MonoBehaviour
     ObjectManager objectManager;
     [SerializeField]
     GameObject Panel;
-    [SerializeField]
-    bool stop;
+    public bool stop;
 
     float[] t;
     float[] maxSpawnDelay;
@@ -82,7 +81,7 @@ public class LevelManager : MonoBehaviour
                     i++;
                 else
                 {
-                    t[i] = maxT; //Áö±Ý±îÁö Á¤ÇØÁø ·¹º§µðÀÚÀÎ ÃÊ°úÇÏ¸é ·¹º§¸¸ ¿À¸£°í ÀÏÁ¤ÇÑ ¼Óµµ·Î ¹«ÇÑÁö¼Ó
+                    t[i] = maxT; //ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     speed[i] += 0.2f;
                 }
                 level++;
@@ -93,14 +92,14 @@ public class LevelManager : MonoBehaviour
 
     public void DeleteFever()
     {
-        int ranEnemy = 0;//³ªÁß¿¡ Àå¾Ö¹° ¿©·¯°³ »ý±â¸é Random.Range(0,3);ÀÌ·±½ÄÀ¸·Î ¹Ù²Ù±â
+        int ranEnemy = 0;//ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Random.Range(0,3);ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
         objectManager.DelObj(feverObjs[ranEnemy]);
     }
 
     public void SpawnFever()
     {
         int ranEnemy = 0;
-        int ranPoint = Random.Range(0, spawnPoints.Length);//¼ÒÈ¯µÉ À§Ä¡
+        int ranPoint = Random.Range(0, spawnPoints.Length);//ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ä¡
         GameObject fever = objectManager.MakeObj(feverObjs[ranEnemy]);
         fever.transform.position = new Vector2(spawnPoints[ranPoint].position.x, spawnPoints[ranPoint].position.y - 3.0f);
 
@@ -116,24 +115,24 @@ public class LevelManager : MonoBehaviour
             if (stop)
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             else
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);//ÇÁ·ÎÅäÅ¸ÀÔ ÀÏ½ÃÁ¤Áö ÇØ{
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½{
         }
     }
 
     public void DeleteEnemy()
     {
-        int ranEnemy = 0;//³ªÁß¿¡ Àå¾Ö¹° ¿©·¯°³ »ý±â¸é Random.Range(0,3);ÀÌ·±½ÄÀ¸·Î ¹Ù²Ù±â
+        int ranEnemy = 0;//ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Random.Range(0,3);ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
         objectManager.DelObj(enemyObjs[ranEnemy]);
     }
 
     public void SpawnEnemy()
     {
-        int ranEnemy = 0;//³ªÁß¿¡ Àå¾Ö¹° ¿©·¯°³ »ý±â¸é Random.Range(0,3);ÀÌ·±½ÄÀ¸·Î ¹Ù²Ù±â
-        int ranPoint = Random.Range(0, spawnPoints.Length);//¼ÒÈ¯µÉ À§Ä¡ //2.ranPoint 2°³ ¹Þ±â
+        int ranEnemy = 0;//ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Random.Range(0,3);ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
+        int ranPoint = Random.Range(0, spawnPoints.Length);//ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ä¡ //2.ranPoint 2ï¿½ï¿½ ï¿½Þ±ï¿½
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * speed[i]; //3.speed º¯°æ
+        rigid.velocity = Vector2.up * speed[i]; //3.speed ï¿½ï¿½ï¿½ï¿½
     }
 }

@@ -11,20 +11,18 @@ public class GameManager:MonoBehaviour
     public Image[] lifeImage;
     [SerializeField]
     GameObject Panel;
-    [SerializeField]
-    GameObject Back;
+    public GameObject Back;
     [SerializeField]
     Slider feverSlider;
     public bool feverState;
     GameObject player;
-    private int EndAdCount = 0;
+    GameObject bone;
     float feverTime = 1.3f;
 
-    [SerializeField]
-    GameObject ReAd;
+    public GameObject ReAd;
     [SerializeField]
     TMP_Text Timer;
-
+    public bool EndPoint;
 
     public void gamePause(float timescale)
     {
@@ -58,7 +56,9 @@ public class GameManager:MonoBehaviour
     {
         Managers mg = Managers.Instance;///이걸 나중에 사용할 수 있을 것(싱글톤 클래스)- 코드 깔끔히 하는 용  
         feverState = false;
+        EndPoint = false;
         player = GameObject.FindGameObjectWithTag("Player");
+        bone = GameObject.FindGameObjectWithTag("Bone");
     }
 
     /* 플레이어의 목숨 업데이트 */
@@ -73,7 +73,16 @@ public class GameManager:MonoBehaviour
         }
         if (curlife <= 0)
         {
-                StartCoroutine(RestartAd());
+            if (EndPoint == false)
+            {
+                gameObject.GetComponent<LevelManager>().stop = true;
+                gameObject.GetComponent<LevelManager>().StopEnemy();
+                StartCoroutine("RestartAd");
+            }
+            else
+            {
+                NoRewardAd();
+            }
         }
     }
     public void UpdateFeverScore(int feverScore)
@@ -112,11 +121,24 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background>().enabled = false;
         //GameObject.Find("GameManager").GetComponent<LevelManager>().StopEnemy();
         //적 멈추기
+        EndPoint = true;
         for (int i = 1; i <= 10; i++)
         {
             Timer.text = (10-i).ToString();
             yield return new WaitForSeconds(1f);
         }
+        NoRewardAd();
+    }
+
+    public void showReward()
+    {
+        Managers.Ad.ShowRewardAd(player,bone,this);
+    }
+
+    public void NoRewardAd()
+    {
+        if (EndPoint == false) StopCoroutine("RestartAd");
+        Back.GetComponent<Background>().enabled = false;
         ReAd.SetActive(false);
         Panel.SetActive(true);
         int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
@@ -126,13 +148,6 @@ public class GameManager:MonoBehaviour
         if (endAdCount % 3 == 0) StartCoroutine(EndAd());
     }
 
-    public void showReward()
-    {
-        Managers.Ad.ShowRewardAd();
-    }
-
-    public void NoRewardAd()
-    {
-        //StopCoroutine(RestartAd()); 다시 작성하자
-    }
+    
+    
 }

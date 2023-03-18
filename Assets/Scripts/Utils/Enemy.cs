@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigid;
+    
 
     void Awake()
     {
@@ -36,8 +37,8 @@ public class Enemy : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(--collision.gameObject.GetComponent<Player>().life);
             if (collision.gameObject.GetComponent<Player>().life <= 0)
             {
-                OnHit(collision);
-                Destroy(GameObject.FindGameObjectsWithTag("Bone")[0]);
+                collision.gameObject.SetActive(false);
+                GameObject.FindGameObjectsWithTag("Bone")[0].SetActive(false);
                 
             }
             else
