@@ -11,8 +11,7 @@ public class Enemy : MonoBehaviour
     Sprite[] sprites;
     [SerializeField]
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rigid;
-    
+    Vector2 vector;
 
     void Awake()
     {
@@ -46,6 +45,15 @@ public class Enemy : MonoBehaviour
                 //피격 후 무적
                 StartCoroutine(InvicibleTime(collision));
             }
+        }
+        else if(collision.gameObject.tag == "Player" && GameObject.Find("GameManager").GetComponent<GameManager>().feverState)
+        {
+            //vector = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
+            //Vector2 vector2 = new Vector2(transform.position.x + vector.x * 10, transform.position.y + vector.y * 10);
+            //Debug.Log(vector2);
+            //transform.position = Vector2.Lerp(transform.position, vector2, 0.001f);
+            //gameObject.SetActive(false); //구름 튕겨내기 고쳐야 할 부분
+            collision.GetComponent<Player>().score += 50;
         }
     }
     IEnumerator InvicibleTime(Collider2D collision)
