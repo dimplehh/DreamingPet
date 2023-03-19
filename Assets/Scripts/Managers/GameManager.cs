@@ -13,7 +13,7 @@ public class GameManager:MonoBehaviour
     GameObject Panel;
     public GameObject Back;
     [SerializeField]
-    Slider feverSlider;
+    public Slider feverSlider;
     public bool feverState;
     GameObject player;
     GameObject bone;
@@ -87,26 +87,26 @@ public class GameManager:MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore / 2.0f );
-        if (feverSlider.value == 1.0f)
+        feverSlider.value = (feverScore * 10.0f / 2);
+        if (feverSlider.value == 10.0f)
         {
             feverState = true;
             StartCoroutine(FeverTime());
         }
     }
-
     IEnumerator FeverTime()
     {
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         player.GetComponent<ChangeColor>().enabled = true;
         Time.timeScale = feverTime;
+        feverSlider.GetComponent<SliderTimer>().enabled = true;
         yield return new WaitForSeconds(10f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
         Time.timeScale = 1.0f;
         player.GetComponent<Player>().feverScore = 0;
-        feverSlider.value = 0.0f;
+        feverSlider.GetComponent<SliderTimer>().enabled = false;
     }
 
     IEnumerator EndAd()
