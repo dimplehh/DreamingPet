@@ -118,7 +118,7 @@ public class GameManager:MonoBehaviour
     IEnumerator RestartAd()
     {
         ReAd.SetActive(true);
-        Back.GetComponent<Background>().enabled = false;
+        Back.GetComponent<Background2>().enabled = false;
         //GameObject.Find("GameManager").GetComponent<LevelManager>().StopEnemy();
         //적 멈추기
         EndPoint = true;
@@ -138,7 +138,7 @@ public class GameManager:MonoBehaviour
     public void NoRewardAd()
     {
         if (EndPoint == false) StopCoroutine("RestartAd");
-        Back.GetComponent<Background>().enabled = false;
+        Back.GetComponent<Background2>().enabled = false;
         ReAd.SetActive(false);
         Panel.SetActive(true);
         int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);

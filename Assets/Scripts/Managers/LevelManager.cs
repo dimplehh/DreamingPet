@@ -9,13 +9,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] feverObjs;
     [SerializeField]
+    string[] rainObjs;
+    [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
     ObjectManager objectManager;
     [SerializeField]
     GameObject Panel;
     public bool stop;
-
+    int enemyCnt=0;
     float[] t;
     float[] maxSpawnDelay;
     float[] speed;
@@ -29,6 +31,7 @@ public class LevelManager : MonoBehaviour
     {
         enemyObjs = new string[] { "enemy" };
         feverObjs = new string[] { "fever" };
+        rainObjs = new string[] { "rain" };
     }
     void Start()
     {//Level Design
@@ -62,7 +65,11 @@ public class LevelManager : MonoBehaviour
                 t[i] -= Time.deltaTime;
                 if (curSpawnDelay > maxSpawnDelay[i])
                 {
-                    SpawnEnemy();
+                    enemyCnt++;
+                    
+                    if (enemyCnt % 5 == 0) SpawnRain();
+                    else SpawnEnemy();
+
                     curSpawnDelay = 0;
 
                     feverCycle -= 1;
@@ -73,6 +80,7 @@ public class LevelManager : MonoBehaviour
                         feverCycle = 3;
                     }
                 }
+                DeleteRain();
                 DeleteEnemy();
                 DeleteFever();
             }
@@ -135,5 +143,23 @@ public class LevelManager : MonoBehaviour
 
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
+    }
+
+    public void DeleteRain()
+    {
+        int ranEnemy = 0;
+        objectManager.DelObj(rainObjs[ranEnemy]);
+    }
+
+    public void SpawnRain()
+    {
+        int ranEnemy = 0;
+        int ranPoint = Random.Range(0, spawnPoints.Length);
+        GameObject rain = objectManager.MakeObj(rainObjs[ranEnemy]);
+        rain.transform.position = spawnPoints[ranPoint].position;
+
+        Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * speed[i];
+        
     }
 }

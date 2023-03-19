@@ -66,6 +66,11 @@ public class MovePet : MonoBehaviour
   
     }
 
+    public void ResetSpeed()
+    {
+        speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
+    }
+
 
     
 }

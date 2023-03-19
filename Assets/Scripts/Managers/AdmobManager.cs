@@ -136,7 +136,7 @@ public class AdmobManager
             player.GetComponent<Player>().StartScore();
             player.GetComponent<Player>().StartInvicible();
             gm.UpdateLife(1);
-            gm.Back.GetComponent<Background>().enabled = true;
+            gm.Back.GetComponent<Background2>().enabled = true;
             gm.gameObject.GetComponent<LevelManager>().stop = false;
             gm.gameObject.GetComponent<LevelManager>().StopEnemy();
         };

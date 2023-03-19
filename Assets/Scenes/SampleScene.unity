@@ -2512,7 +2512,7 @@ MonoBehaviour:
   - {fileID: 1175831489}
   - {fileID: 1380319219}
   Panel: {fileID: 651126219}
-  Back: {fileID: 1769926725}
+  Back: {fileID: 665415418}
   feverSlider: {fileID: 695573758}
   feverState: 0
   ReAd: {fileID: 1297493547}
@@ -2548,6 +2548,7 @@ MonoBehaviour:
   enemyObjs:
   - enemy
   feverObjs: []
+  rainObjs: []
   spawnPoints:
   - {fileID: 1134209563}
   - {fileID: 429405383}
@@ -3751,6 +3752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 348350634115200825, guid: f807b3f7958c2844c84681aa39781d41, type: 3}
   feverPrefab: {fileID: 348350634115200825, guid: 6488a8e6499975a428c378130e4a1a49, type: 3}
+  rainPrefab: {fileID: 4896841169726672449, guid: 60308a283242a406dbb12495abdc67c7, type: 3}
 --- !u!4 &1063556439
 Transform:
   m_ObjectHideFlags: 0

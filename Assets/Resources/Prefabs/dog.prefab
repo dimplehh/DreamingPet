@@ -120,6 +120,7 @@ MonoBehaviour:
   score: 0
   life: 5
   feverScore: 0
+  isSlow: 0
 --- !u!60 &6778064726427118010
 PolygonCollider2D:
   m_ObjectHideFlags: 0

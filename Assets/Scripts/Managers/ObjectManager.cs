@@ -8,9 +8,12 @@ public class ObjectManager : MonoBehaviour
     GameObject enemyPrefab;
     [SerializeField]
     GameObject feverPrefab;
+    [SerializeField]
+    GameObject rainPrefab;
 
     GameObject[] enemy;
     GameObject[] fever;
+    GameObject[] rain;
     //GameObject[] coin;
     GameObject[] targetPool;
 
@@ -18,6 +21,7 @@ public class ObjectManager : MonoBehaviour
     {
         enemy = new GameObject[10];
         fever = new GameObject[5];
+        rain = new GameObject[5];
         //coin = new GameObject[10];
         Generate();
     }
@@ -27,14 +31,20 @@ public class ObjectManager : MonoBehaviour
         for(int index = 0; index < enemy.Length; index++)
         {
             enemy[index] = Instantiate(enemyPrefab);
-            //Managers.Resource.Instantiate(); //Â÷ÈÄ ÀÌ ÄÚµå·Î ¹Ù²Ù±â
+            //Managers.Resource.Instantiate(); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Ù²Ù±ï¿½
             enemy[index].SetActive(false);
         }
         for (int index = 0; index < fever.Length; index++)
         {
             fever[index] = Instantiate(feverPrefab);
-            //Managers.Resource.Instantiate(); //Â÷ÈÄ ÀÌ ÄÚµå·Î ¹Ù²Ù±â
+            //Managers.Resource.Instantiate(); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Ù²Ù±ï¿½
             fever[index].SetActive(false);
+        }
+        for (int index = 0; index < rain.Length; index++)
+        {
+            rain[index] = Instantiate(rainPrefab);
+            //Managers.Resource.Instantiate(); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Ù²Ù±ï¿½
+            rain[index].SetActive(false);
         }
     }
 
@@ -47,6 +57,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "fever":
                 targetPool = fever;
+                break;
+            case "rain":
+                targetPool = rain;
                 break;
         }
         return targetPool;
@@ -62,9 +75,14 @@ public class ObjectManager : MonoBehaviour
             case "fever":
                 targetPool = fever;
                 break;
+            case "rain":
+                targetPool = rain;
+                break;
         }
+        
         for (int index = 0; index < targetPool.Length; index++)
         {
+            
             if (!targetPool[index].activeSelf)
             {
                 targetPool[index].SetActive(true);
@@ -84,7 +102,11 @@ public class ObjectManager : MonoBehaviour
             case "fever":
                 targetPool = fever;
                 break;
+            case "rain":
+                targetPool = rain;
+                break;
         }
+        
         for (int index = 0; index < targetPool.Length; index++)
         {
             if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.3)

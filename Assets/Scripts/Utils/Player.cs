@@ -8,19 +8,14 @@ public class Player : MonoBehaviour
     public int score;
     public int life;
     public int feverScore;
-    
+    public bool isSlow = false;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("ScoreUpdate");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     
     /* 시간의 흐름에 따른 점수 증가 */
     IEnumerator ScoreUpdate(){
@@ -48,4 +43,6 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(InvicibleTime());
     }
+
+
 }
