@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] feverObjs;
     [SerializeField]
-    string[] rainObjs;
+    string[] lightningObjs;
     [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     {
         enemyObjs = new string[] { "enemy" };
         feverObjs = new string[] { "fever" };
-        rainObjs = new string[] { "rain" };
+        lightningObjs = new string[] { "lightning" };
     }
     void Start()
     {//Level Design
@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
                 {
                     enemyCnt++;
                     
-                    if (enemyCnt % 5 == 0) SpawnRain();
+                    if (enemyCnt % 5 == 0) SpawnLightning();
                     else SpawnEnemy();
 
                     curSpawnDelay = 0;
@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
                         feverCycle = 3;
                     }
                 }
-                DeleteRain();
+                DeleteLightning();
                 DeleteEnemy();
                 DeleteFever();
             }
@@ -145,20 +145,20 @@ public class LevelManager : MonoBehaviour
         rigid.velocity = Vector2.up * speed[i];
     }
 
-    public void DeleteRain()
+    public void DeleteLightning()
     {
         int ranEnemy = 0;
-        objectManager.DelObj(rainObjs[ranEnemy]);
+        objectManager.DelObj(lightningObjs[ranEnemy]);
     }
 
-    public void SpawnRain()
+    public void SpawnLightning()
     {
         int ranEnemy = 0;
         int ranPoint = Random.Range(0, spawnPoints.Length);
-        GameObject rain = objectManager.MakeObj(rainObjs[ranEnemy]);
-        rain.transform.position = spawnPoints[ranPoint].position;
+        GameObject lightning = objectManager.MakeObj(lightningObjs[ranEnemy]);
+        lightning.transform.position = spawnPoints[ranPoint].position;
 
-        Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigid = lightning.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
         
     }

@@ -9,11 +9,11 @@ public class ObjectManager : MonoBehaviour
     [SerializeField]
     GameObject feverPrefab;
     [SerializeField]
-    GameObject rainPrefab;
+    GameObject lightningPrefab;
 
     GameObject[] enemy;
     GameObject[] fever;
-    GameObject[] rain;
+    GameObject[] lightning;
     //GameObject[] coin;
     GameObject[] targetPool;
 
@@ -21,7 +21,7 @@ public class ObjectManager : MonoBehaviour
     {
         enemy = new GameObject[10];
         fever = new GameObject[5];
-        rain = new GameObject[5];
+        lightning = new GameObject[5];
         //coin = new GameObject[10];
         Generate();
     }
@@ -40,11 +40,11 @@ public class ObjectManager : MonoBehaviour
             //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             fever[index].SetActive(false);
         }
-        for (int index = 0; index < rain.Length; index++)
+        for (int index = 0; index < lightning.Length; index++)
         {
-            rain[index] = Instantiate(rainPrefab);
+            lightning[index] = Instantiate(lightningPrefab);
             //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
-            rain[index].SetActive(false);
+            lightning[index].SetActive(false);
         }
     }
 
@@ -58,8 +58,8 @@ public class ObjectManager : MonoBehaviour
             case "fever":
                 targetPool = fever;
                 break;
-            case "rain":
-                targetPool = rain;
+            case "lightning":
+                targetPool = lightning;
                 break;
         }
         return targetPool;
@@ -75,8 +75,8 @@ public class ObjectManager : MonoBehaviour
             case "fever":
                 targetPool = fever;
                 break;
-            case "rain":
-                targetPool = rain;
+            case "lightning":
+                targetPool = lightning;
                 break;
         }
         
@@ -102,8 +102,8 @@ public class ObjectManager : MonoBehaviour
             case "fever":
                 targetPool = fever;
                 break;
-            case "rain":
-                targetPool = rain;
+            case "lightning":
+                targetPool = lightning;
                 break;
         }
         

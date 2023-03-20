@@ -2548,7 +2548,7 @@ MonoBehaviour:
   enemyObjs:
   - enemy
   feverObjs: []
-  rainObjs: []
+  lightningObjs: []
   spawnPoints:
   - {fileID: 1134209563}
   - {fileID: 429405383}
@@ -3752,7 +3752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 348350634115200825, guid: f807b3f7958c2844c84681aa39781d41, type: 3}
   feverPrefab: {fileID: 348350634115200825, guid: 6488a8e6499975a428c378130e4a1a49, type: 3}
-  rainPrefab: {fileID: 4896841169726672449, guid: 60308a283242a406dbb12495abdc67c7, type: 3}
+  lightningPrefab: {fileID: 3211642719566215270, guid: e6659d3337f354aa1969f40f0c7a6787, type: 3}
 --- !u!4 &1063556439
 Transform:
   m_ObjectHideFlags: 0

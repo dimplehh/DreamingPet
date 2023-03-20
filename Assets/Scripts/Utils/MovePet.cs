@@ -31,11 +31,13 @@ public class MovePet : MonoBehaviour
             {
                 //transform.Translate(new Vector2(-distanceX, 0) * Time.deltaTime * speed);
                 transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
             }
             else if (distanceX < -0.1)
             {
                 //transform.Translate(new Vector2(distanceX, 0) * Time.deltaTime * speed);
                 transform.eulerAngles = new Vector3(0, 180, 0);
+                transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
             }
             transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.deltaTime * speed);
 
@@ -71,6 +73,11 @@ public class MovePet : MonoBehaviour
         speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
     }
 
+    public void SlowSpeed()
+    {
+        speed = boneObject.GetComponent<MoveBone>().speed * 0.15f;
+    }
 
     
+
 }
