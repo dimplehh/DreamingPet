@@ -48,12 +48,10 @@ public class Enemy : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player" && GameObject.Find("GameManager").GetComponent<GameManager>().feverState)
         {
-            //vector = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
-            //Vector2 vector2 = new Vector2(transform.position.x + vector.x * 10, transform.position.y + vector.y * 10);
-            //Debug.Log(vector2);
-            //transform.position = Vector2.Lerp(transform.position, vector2, 0.001f);
-            //gameObject.SetActive(false); //구름 튕겨내기 고쳐야 할 부분
+            Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
+            gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 2 + vectA;
             collision.GetComponent<Player>().score += 50;
+            StartCoroutine(DestroyEnemy(collision));
         }
     }
     IEnumerator InvicibleTime(Collider2D collision)
@@ -65,4 +63,9 @@ public class Enemy : MonoBehaviour
         collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
     
+    IEnumerator DestroyEnemy(Collider2D collision)
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+    }
 }
