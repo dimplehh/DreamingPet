@@ -49,7 +49,8 @@ public class Enemy : MonoBehaviour
         else if(collision.gameObject.tag == "Player" && GameObject.Find("GameManager").GetComponent<GameManager>().feverState)
         {
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
-            gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 2 + vectA;
+            Debug.Log(vectA);
+            gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity + 3 * vectA;
             collision.GetComponent<Player>().score += 50;
             StartCoroutine(DestroyEnemy(collision));
         }
