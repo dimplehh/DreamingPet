@@ -16,7 +16,7 @@ public class Background2 : MonoBehaviour
 
     private void Awake()
     {
-        viewHeight = 55.5f;
+        viewHeight = 56.0f;
     }
     void Update()
     {
