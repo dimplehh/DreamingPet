@@ -17,7 +17,7 @@ public class GameManager:MonoBehaviour
     public bool feverState;
     GameObject player;
     GameObject bone;
-    float feverTime = 1.3f;
+    float feverTime = 1.6f;
 
     public GameObject ReAd;
     [SerializeField]
