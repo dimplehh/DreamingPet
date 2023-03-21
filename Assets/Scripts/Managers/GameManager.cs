@@ -24,6 +24,10 @@ public class GameManager:MonoBehaviour
     TMP_Text Timer;
     public bool EndPoint;
 
+    public SpriteRenderer feverPanel;
+    float time = 0f;
+    float F_time = 1f;
+
     public void gamePause(float timescale)
     {
         if (Time.timeScale == 0)
@@ -92,6 +96,7 @@ public class GameManager:MonoBehaviour
         {
             feverState = true;
             StartCoroutine(FeverTime());
+            //StartCoroutine(FadeFlow());
         }
     }
     IEnumerator FeverTime()
@@ -110,6 +115,30 @@ public class GameManager:MonoBehaviour
         feverSlider.GetComponent<SliderTimer>().enabled = false;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
     }
+
+    //IEnumerator FadeFlow()
+    //{
+    //    feverPanel.gameObject.SetActive(true);
+    //    Color alpha = feverPanel.color;
+    //    while (alpha.a < 1f)
+    //    {
+    //        time += Time.deltaTime / F_time;
+    //        alpha.a = Mathf.Lerp(0, 1f, time);
+    //        feverPanel.color = alpha;
+    //        yield return null;
+    //    }
+    //    time = 0f;
+    //    yield return new WaitForSeconds(10f);
+    //    while (alpha.a > 0f)
+    //    {
+    //        time += Time.deltaTime / F_time;
+    //        alpha.a = Mathf.Lerp(1f, 0, time);
+    //        feverPanel.color = alpha;
+    //        yield return null;
+    //    }
+    //    feverPanel.gameObject.SetActive(false);
+    //    yield return null;
+    //}
 
     IEnumerator EndAd()
     {
