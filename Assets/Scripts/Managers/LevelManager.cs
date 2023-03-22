@@ -14,8 +14,6 @@ public class LevelManager : MonoBehaviour
     Transform[] spawnPoints;
     [SerializeField]
     ObjectManager objectManager;
-    [SerializeField]
-    GameObject Panel;
     public bool stop;
     int enemyCnt=0;
     float[] t;
@@ -53,50 +51,43 @@ public class LevelManager : MonoBehaviour
             curSpawnDelay = 0;
 
 
-        if (Panel.activeSelf)
+        if (t[i] > 0)
         {
-            stop = true;
-            StopEnemy();
+            t[i] -= Time.deltaTime;
+            if (curSpawnDelay > maxSpawnDelay[i])
+            {
+                enemyCnt++;
+                    
+                if (enemyCnt % 5 == 0) SpawnLightning();
+                else SpawnEnemy();
+
+                curSpawnDelay = 0;
+
+                feverCycle -= 1;
+                if(feverCycle == 0)
+                {
+                    if(!GetComponent<GameManager>().feverState)
+                        SpawnFever();
+                    feverCycle = 3;
+                }
+            }
+            DeleteLightning();
+            DeleteEnemy();
+            DeleteFever();
         }
         else
         {
-            if (t[i] > 0)
-            {
-                t[i] -= Time.deltaTime;
-                if (curSpawnDelay > maxSpawnDelay[i])
-                {
-                    enemyCnt++;
-                    
-                    if (enemyCnt % 5 == 0) SpawnLightning();
-                    else SpawnEnemy();
-
-                    curSpawnDelay = 0;
-
-                    feverCycle -= 1;
-                    if(feverCycle == 0)
-                    {
-                        if(!GetComponent<GameManager>().feverState)
-                            SpawnFever();
-                        feverCycle = 3;
-                    }
-                }
-                DeleteLightning();
-                DeleteEnemy();
-                DeleteFever();
-            }
+            if (i < t.Length - 1)
+                i++;
             else
             {
-                if (i < t.Length - 1)
-                    i++;
-                else
-                {
-                    t[i] = maxT;
-                    speed[i] += 0.2f;
-                }
-                level++;
-                Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
+                t[i] = maxT;
+                speed[i] += 0.2f;
             }
+            level++;
+            Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
         }
+        
     }
 
     public void DeleteFever()

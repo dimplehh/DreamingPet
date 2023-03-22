@@ -8,9 +8,8 @@ public class GameManager:MonoBehaviour
 {
     public float score;
     public int life;
-    public Image[] lifeImage;
-    [SerializeField]
-    GameObject Panel;
+    public TMP_Text lifeText;
+    public GameObject OverPanel;
     public GameObject Back;
     [SerializeField]
     public Slider feverSlider;
@@ -67,25 +66,28 @@ public class GameManager:MonoBehaviour
 
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife){
-        /*life 초기화*/
-        for(int i = 0; i < 5; i++){
-            lifeImage[i].color = new Color(1,1,1,0);
-        }
-        /*life 적용*/
-        for(int i = 0; i < curlife; i++){
-            lifeImage[i].color = new Color(1,1,1,1);
-        }
+        lifeText.text = player.GetComponent<Player>().life.ToString();
         if (curlife <= 0)
         {
             if (EndPoint == false)
             {
-                gameObject.GetComponent<LevelManager>().stop = true;
-                gameObject.GetComponent<LevelManager>().StopEnemy();
-                StartCoroutine("RestartAd");
+                StopAll();
+                OverPanel.SetActive(true);
+                OverPanel.transform.Find("Menu2").gameObject.SetActive(false);
+                OverPanel.transform.Find("Menu1").gameObject.SetActive(true);
+                EndPoint = true;
+                int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
+                endAdCount++;
+                PlayerPrefs.SetInt("EndAdCount", endAdCount);
+                PlayerPrefs.Save();
+                if (endAdCount % 3 == 0) StartCoroutine(EndAd());
             }
             else
             {
-                NoRewardAd();
+                StopAll();
+                OverPanel.SetActive(true);
+                OverPanel.transform.Find("Menu2").gameObject.SetActive(true);
+                OverPanel.transform.Find("Menu1").gameObject.SetActive(false);
             }
         }
     }
@@ -181,7 +183,7 @@ public class GameManager:MonoBehaviour
         if (EndPoint == false) StopCoroutine("RestartAd");
         Back.GetComponent<Background2>().enabled = false;
         ReAd.SetActive(false);
-        Panel.SetActive(true);
+        OverPanel.SetActive(true);
         int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
         endAdCount++;
         PlayerPrefs.SetInt("EndAdCount", endAdCount);
@@ -189,6 +191,15 @@ public class GameManager:MonoBehaviour
         if (endAdCount % 3 == 0) StartCoroutine(EndAd());
     }
 
-    
-    
+    public void StopAll()
+    {
+        gameObject.GetComponent<LevelManager>().stop = true;
+        gameObject.GetComponent<LevelManager>().StopEnemy();
+        Back.GetComponent<Background2>().enabled = false;
+    }
+
+    public void OverAd()
+    {
+        Managers.Ad.ShowRewardAd(player, bone, this);
+    }
 }

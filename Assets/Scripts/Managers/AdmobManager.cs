@@ -9,7 +9,7 @@ using TMPro;
 public class AdmobManager
 {
     private List<string> deviceId = new List<string>();
-
+    
     private void TestId()
     {
         deviceId.Add("52d9018a2fd6eefd");
@@ -141,9 +141,7 @@ public class AdmobManager
             gm.gameObject.GetComponent<LevelManager>().StopEnemy();
         };
         rewardAd.Show();
-        gm.ReAd.SetActive(false);
-        gm.StopCoroutine("RestartAd");
-        
+        gm.OverPanel.SetActive(false);
         LoadRewardAd();
     }
 

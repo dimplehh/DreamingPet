@@ -10,7 +10,7 @@ public class MoveBone : MonoBehaviour
 
     private void Start()
     {
-        Panel = GameObject.Find("Canvas").transform.Find("Panel");
+        Panel = GameObject.Find("Canvas").transform.Find("PausePanel");
     }
     void Update()
     {
@@ -22,9 +22,14 @@ public class MoveBone : MonoBehaviour
     void CalTargetPos(){
         mousePos = Input.mousePosition; 
         transPos = Camera.main.ScreenToWorldPoint(mousePos);
-        if(transPos.y<3&&Panel.gameObject.activeSelf==false)
-            targetPos = new Vector2(transPos.x, transPos.y);
-        
+        if (Panel.gameObject.activeSelf == false)
+        {
+            if ((transPos.y < 3.4 && transPos.y > -5.0)&&(transPos.x > -2.8 && transPos.x<2.8))
+            {
+                targetPos = new Vector2(transPos.x, transPos.y);
+            }
+        }
+
     }
     
     void MoveToTarget(){

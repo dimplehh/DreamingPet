@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Setting : MonoBehaviour
 {
@@ -10,21 +11,25 @@ public class Setting : MonoBehaviour
     LevelManager lv;
     public void ClickSetting()
     {
-        panel.transform.GetChild(3).gameObject.SetActive(true);
-        panel.transform.GetChild(1).gameObject.SetActive(false);
+        gamePause(0f);
         panel.SetActive(true);
     }
     public void ClickClose()
     {
-        panel.transform.GetChild(3).gameObject.SetActive(false);
-        panel.transform.GetChild(1).gameObject.SetActive(true);
-        lv.stop = false;
-        lv.StopEnemy();
-        
+        //lv.stop = false;
+        //lv.StopEnemy();
+        gamePause(1f);
         panel.SetActive(false);
     }
     public void gamePause(float timescale)
     {
         Time.timeScale=timescale;
     }
+
+    public void ChangeScene(string sceneName)
+    {
+        gamePause(1f);
+        SceneManager.LoadScene(sceneName);
+    }
+    
 }

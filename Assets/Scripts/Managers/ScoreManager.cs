@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
     {
         savedScore = PlayerPrefs.GetInt(KeyString);
         PlayerPrefs.Save();
-        highScoreText.text = "BEST : " + savedScore.ToString();
+        highScoreText.text = savedScore.ToString();
         highScoreText2.text = savedScore.ToString();
     }
 
@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
         PlayerPrefs.SetInt(KeyString, 0);
         savedScore = PlayerPrefs.GetInt(KeyString);
         PlayerPrefs.Save();
-        highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+        highScoreText.text = string.Format("{0:n0}", savedScore);
         highScoreText2.text = string.Format("{0:n0}", savedScore);
     }
     
@@ -33,9 +33,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (player != null)
         {
-            scoreText.text = "Score : " + string.Format("{0:n0}", player.GetComponent<Player>().score);
+            scoreText.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
             scoreText2.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
-            highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+            highScoreText.text = string.Format("{0:n0}", savedScore);
             highScoreText2.text = string.Format("{0:n0}", savedScore);
 
             if (player.GetComponent<Player>().score > savedScore)
@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
                 savedScore = player.GetComponent<Player>().score;
                 PlayerPrefs.SetInt(KeyString, player.GetComponent<Player>().score);
                 PlayerPrefs.Save();
-                highScoreText.text = "BEST : " + string.Format("{0:n0}", savedScore);
+                highScoreText.text = string.Format("{0:n0}", savedScore);
                 highScoreText2.text = string.Format("{0:n0}", savedScore);
             }
 
