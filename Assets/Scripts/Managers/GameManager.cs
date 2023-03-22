@@ -91,8 +91,8 @@ public class GameManager:MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 10.0f / 2);
-        if (feverSlider.value == 10.0f)
+        feverSlider.value = (feverScore * 15.0f / 5);
+        if (feverSlider.value == 15.0f)
         {
             feverState = true;
             StartCoroutine(FeverTime());
@@ -106,7 +106,7 @@ public class GameManager:MonoBehaviour
         Time.timeScale = feverTime;
         feverSlider.GetComponent<SliderTimer>().enabled = true;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(15f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
@@ -114,6 +114,16 @@ public class GameManager:MonoBehaviour
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.GetComponent<SliderTimer>().enabled = false;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
+        StartCoroutine(InvicibleTime(player));
+    }
+
+    IEnumerator InvicibleTime(GameObject gm)
+    {
+        gm.layer = 7;
+        gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        yield return new WaitForSeconds(3f);
+        gm.layer = 0;
+        gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     //IEnumerator FadeFlow()
