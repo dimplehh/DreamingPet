@@ -36,8 +36,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {//Level Design
         t = new float[6] { 10.0f, 20.0f, 30.0f, 40.0f, 50.0f, 60.0f };
-        maxSpawnDelay = new float[6] { 5f, 4f, 4f, 3f, 2f, 2f };
-        speed = new float[6] { 2.0f, 2.2f, 2.2f, 2.4f, 2.4f, 2.6f };
+        maxSpawnDelay = new float[6] { 5f, 4f, 3f, 2f, 1f, 1f };
+        speed = new float[6] { 2.0f, 2.2f, 2.4f, 2.6f, 2.8f, 3.0f };
 
         maxT = t[t.Length - 1];
         level = 0;

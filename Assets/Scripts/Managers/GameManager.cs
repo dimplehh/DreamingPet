@@ -106,7 +106,7 @@ public class GameManager:MonoBehaviour
         Time.timeScale = feverTime;
         feverSlider.GetComponent<SliderTimer>().enabled = true;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(30f);
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
