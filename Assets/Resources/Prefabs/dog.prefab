@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 810638032536294260}
   - component: {fileID: 6778064726427118010}
   - component: {fileID: -1774447871442214286}
+  - component: {fileID: -3152119509933188408}
   m_Layer: 0
   m_Name: dog
   m_TagString: Player
@@ -177,6 +178,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToChange: 0.1
+--- !u!95 &-3152119509933188408
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250622110166275249}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b45a0c2ff1fb44486b8149cd5e8a5e64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7741140411460728219
 GameObject:
   m_ObjectHideFlags: 0
