@@ -15,42 +15,115 @@ public class MovePet : MonoBehaviour
     [SerializeField] float distanceX, distanceY;
     GameObject boneObject;
     Color color;
+    private float maxAngle = 30f;
+    private Vector3 moveDirection;
+    private Animator animator;
+
     void Start(){
         boneObject = GameObject.Find("bone");//���߿� ���� ���̴� �ڵ�� �ٲ�� �� ��..
         bone = boneObject.transform;
         speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
         color = boneObject.GetComponent<SpriteRenderer>().color;
+        animator = GetComponent<Animator>();
     }
     void Update(){
-        distanceX = transform.position.x - bone.position.x;
-        distanceY = transform.position.y - bone.position.y;
+        moveDirection = transform.position - bone.position;
+        distanceX = moveDirection.x;
+        distanceY = moveDirection.y;
+        if (distanceX != 0 || distanceY != 0)
+        {
+            animator.SetBool("walking", true);
+        }
+        else
+        {
+            animator.SetBool("walking", false);
+        }
+        float angle = Vector3.Angle(moveDirection, Vector3.up);
+        angle = Mathf.Abs(90f - angle);
+
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            // 기존 간식과의 거리에 비례하여 속도가 조절되던 것을 거리 상관없이 일정하게 바꾸었다.
-            if (distanceX > 0.1)
+            
+            if (distanceX > 0)
             {
-                //transform.Translate(new Vector2(-distanceX, 0) * Time.deltaTime * speed);
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                if (angle > maxAngle)
+                {
+                    if (distanceY > 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, maxAngle);
+                    }
+                    else if (distanceY < 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, -maxAngle);
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+                }
+                else
+                {
+                    if (distanceY > 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, angle);
+                    }
+                    else if (distanceY < 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, -angle);
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                    }
+
+                }
                 transform.GetChild(1).eulerAngles = new Vector3(0, 0, 0);
             }
-            else if (distanceX < -0.1)
+            else if (distanceX < 0)
             {
-                //transform.Translate(new Vector2(distanceX, 0) * Time.deltaTime * speed);
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                if (angle > maxAngle)
+                {
+                    if (distanceY > 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, maxAngle);
+                    }
+                    else if (distanceY < 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, -maxAngle);
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
+
+                }
+                else
+                {
+                    if (distanceY > 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, angle);
+                    }
+                    else if (distanceY < 0)
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, -angle);
+                    }
+                    else
+                    {
+                        transform.eulerAngles = new Vector3(0, 180, 0);
+
+                    }
+
+                }
                 transform.GetChild(1).eulerAngles = new Vector3(0, 180, 0);
             }
+
+
+
             transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.deltaTime * speed);
 
-            /*
-            if (distanceY > 0.1)
-            {
-                transform.Translate(new Vector2(0, -distanceY) * Time.deltaTime * speed);
-            }
-            else if (distanceY < -0.1)
-            {
-                transform.Translate(new Vector2(0, -distanceY) * Time.deltaTime * speed);
-            }
-            */
+
+
+
 
             if (Mathf.Abs(distanceX) < 0.15 && Mathf.Abs(distanceY) < 0.15)
             {
@@ -65,6 +138,7 @@ public class MovePet : MonoBehaviour
                 boneObject.GetComponent<SpriteRenderer>().color = color;
             }
         }
+        
   
     }
 
