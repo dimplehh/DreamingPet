@@ -24,8 +24,6 @@ public class GameManager:MonoBehaviour
     [SerializeField]
     TMP_Text Timer;
     public bool EndPoint;
-
-    public SpriteRenderer feverPanel;
     float time = 0f;
     float F_time = 1f;
 

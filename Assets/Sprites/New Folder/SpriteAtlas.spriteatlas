@@ -57,6 +57,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 42f82552898ce994e805e81cf7acdc05, type: 3}
   - {fileID: 21300000, guid: aea165d2c9d6f5a4e94454cf614a9eec, type: 3}
   - {fileID: 21300000, guid: 969c3fb90ea712f44ad098cafa226b76, type: 3}
+  - {fileID: 21300000, guid: fafe0b0d367fcbc49aa044652862e006, type: 3}
+  - {fileID: 21300000, guid: 51d26c1ff03c5fd4ca57d8c9380de6d9, type: 3}
   - {fileID: 21300000, guid: 68a698bf1009a9c45b2dffb6772943f9, type: 3}
   - {fileID: 21300000, guid: 1511acdfab419ab4bb73d5be58c48140, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -65,6 +67,8 @@ SpriteAtlas:
   - blackcloud
   - cloud
   - KakaoTalk_20230317_093705091_01
+  - Group 57
+  - Group 55
   - KakaoTalk_20230315_201603393_01
   - KakaoTalk_20230317_093705091
   m_RenderDataMap: {}
