@@ -95,7 +95,7 @@ public class GameManager:MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 15.0f / 5);
+        feverSlider.value = (feverScore * 15.0f / 5) + 0.12f;
         if (feverSlider.value == 15.0f)
         {
             feverState = true;
