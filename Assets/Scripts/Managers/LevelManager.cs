@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
             {
                 enemyCnt++;
                     
-                if (enemyCnt % 5 == 0) SpawnLightning();
+                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnLightning();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
