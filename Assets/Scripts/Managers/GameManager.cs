@@ -113,6 +113,7 @@ public class GameManager:MonoBehaviour
         gameObject.GetComponent<FadeScript>().Fade();
         backSpeed = Back.GetComponent<Background2>().speed;
         Back.GetComponent<Background2>().speed = 0.0f;
+        Back.SetActive(false);
         feverBack.SetActive(true);
 
         yield return new WaitForSeconds(30f);
@@ -126,6 +127,7 @@ public class GameManager:MonoBehaviour
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
         gameObject.GetComponent<FadeScript>().Fade();
         Back.GetComponent<Background2>().speed = backSpeed;
+        Back.SetActive(true);
         feverBack.SetActive(false);
         feverBack.transform.position = new Vector3(0.0f,-5.0f,0.0f);
 
