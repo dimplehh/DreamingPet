@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FadeScript : MonoBehaviour
 {
-    public Image Panel;
+    public SpriteRenderer Panel;
     float time = 0f;
     float F_time = 0.3f;
     public void Fade()
