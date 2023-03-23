@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class FadeScript : MonoBehaviour
 {
-    public SpriteRenderer Panel;
+    public Image Panel;
     float time = 0f;
-    float F_time = 1f;
+    float F_time = 0.3f;
     public void Fade()
     {
         StartCoroutine(FadeFlow());
@@ -24,7 +24,7 @@ public class FadeScript : MonoBehaviour
             yield return null;
         }
         time = 0f;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         while(alpha.a > 0f)
         {
             time += Time.deltaTime / F_time;

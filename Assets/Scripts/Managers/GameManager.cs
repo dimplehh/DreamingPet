@@ -14,6 +14,8 @@ public class GameManager:MonoBehaviour
     [SerializeField]
     public Slider feverSlider;
     public bool feverState;
+    [SerializeField]
+    GameObject feverBack;
     GameObject player;
     GameObject bone;
     float feverTime = 1.6f;
@@ -26,6 +28,8 @@ public class GameManager:MonoBehaviour
     public SpriteRenderer feverPanel;
     float time = 0f;
     float F_time = 1f;
+
+    float backSpeed;
 
     public void gamePause(float timescale)
     {
@@ -93,7 +97,7 @@ public class GameManager:MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 15.0f / 5);
+        feverSlider.value = (feverScore * 15.0f / 2);
         if (feverSlider.value == 15.0f)
         {
             feverState = true;
@@ -108,7 +112,13 @@ public class GameManager:MonoBehaviour
         Time.timeScale = feverTime;
         feverSlider.GetComponent<SliderTimer>().enabled = true;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        gameObject.GetComponent<FadeScript>().Fade();
+        backSpeed = Back.GetComponent<Background2>().speed;
+        Back.GetComponent<Background2>().speed = 0.0f;
+        feverBack.SetActive(true);
+
         yield return new WaitForSeconds(30f);
+
         feverState = false;
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
@@ -116,6 +126,11 @@ public class GameManager:MonoBehaviour
         player.GetComponent<Player>().feverScore = 0;
         feverSlider.GetComponent<SliderTimer>().enabled = false;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
+        gameObject.GetComponent<FadeScript>().Fade();
+        Back.GetComponent<Background2>().speed = backSpeed;
+        feverBack.SetActive(false);
+        feverBack.transform.position = new Vector3(0.0f,-5.0f,0.0f);
+
         StartCoroutine(InvicibleTime(player));
     }
 
@@ -127,30 +142,6 @@ public class GameManager:MonoBehaviour
         gm.layer = 0;
         gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
-
-    //IEnumerator FadeFlow()
-    //{
-    //    feverPanel.gameObject.SetActive(true);
-    //    Color alpha = feverPanel.color;
-    //    while (alpha.a < 1f)
-    //    {
-    //        time += Time.deltaTime / F_time;
-    //        alpha.a = Mathf.Lerp(0, 1f, time);
-    //        feverPanel.color = alpha;
-    //        yield return null;
-    //    }
-    //    time = 0f;
-    //    yield return new WaitForSeconds(10f);
-    //    while (alpha.a > 0f)
-    //    {
-    //        time += Time.deltaTime / F_time;
-    //        alpha.a = Mathf.Lerp(1f, 0, time);
-    //        feverPanel.color = alpha;
-    //        yield return null;
-    //    }
-    //    feverPanel.gameObject.SetActive(false);
-    //    yield return null;
-    //}
 
     IEnumerator EndAd()
     {

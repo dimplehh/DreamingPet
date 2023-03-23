@@ -5,7 +5,7 @@ using UnityEngine;
 public class Background2 : MonoBehaviour
 {
     [SerializeField]
-    float speed;
+    public float speed;
     [SerializeField]
     int startIndex;
     [SerializeField]
