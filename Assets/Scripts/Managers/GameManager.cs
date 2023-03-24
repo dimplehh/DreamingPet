@@ -20,6 +20,12 @@ public class GameManager:MonoBehaviour
     GameObject bone;
     float feverTime = 1.6f;
 
+    [SerializeField]
+    SoundManager soundManager;
+    [SerializeField]
+    AudioClip feverBGM;
+    [SerializeField]
+    AudioClip mainBGM;
     public GameObject ReAd;
     [SerializeField]
     TMP_Text Timer;
@@ -115,6 +121,7 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
+        soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(30f);
 
@@ -130,6 +137,8 @@ public class GameManager:MonoBehaviour
         Back.SetActive(true);
         feverBack.SetActive(false);
         feverBack.transform.position = new Vector3(0.0f,-5.0f,0.0f);
+        soundManager.BgSoundStop(feverBGM);
+        soundManager.BgSoundPlay(mainBGM);
 
         StartCoroutine(InvicibleTime(player));
     }
