@@ -121,6 +121,7 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
+        soundManager.BgSoundPlay(mainBGM);
         soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(30f);
