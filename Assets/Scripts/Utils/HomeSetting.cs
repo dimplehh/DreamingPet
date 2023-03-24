@@ -10,6 +10,11 @@ public class HomeSetting : MonoBehaviour
     GameObject settingPanel;
     [SerializeField]
     Image[] images;
+    GameObject sound;
+    private void Start()
+    {
+        sound = GameObject.Find("soundManager");
+    }
     public void Play()
     {
         SceneManager.LoadScene("SampleScene");
@@ -19,6 +24,16 @@ public class HomeSetting : MonoBehaviour
     public void OpenSetting()
     {
         settingPanel.SetActive(true);
+        if (sound.GetComponent<SoundManager>().soundOn)
+        {
+            images[0].gameObject.SetActive(true);
+            images[1].gameObject.SetActive(false);
+        }
+        else
+        {
+            images[0].gameObject.SetActive(false);
+            images[1].gameObject.SetActive(true);
+        }
     }
 
     public void CloseSetting()
@@ -28,21 +43,23 @@ public class HomeSetting : MonoBehaviour
 
     public void BackOnButton()
     {
-        //if (!backmusic.isPlaying)
-        //{
-        //    backmusic.Play();
+        if (!sound.GetComponent<SoundManager>().soundOn)
+        {
+            sound.GetComponent<AudioSource>().Play();
+            sound.GetComponent<SoundManager>().soundOn = true;
             images[0].gameObject.SetActive(true);
             images[1].gameObject.SetActive(false);
-        //}
+        }
     }
 
     public void BackOffButton()
     {
-        //if (backmusic.isPlaying)
-        //{
-        //    backmusic.Pause();
+        if (sound.GetComponent<SoundManager>().soundOn)
+        {
+            sound.GetComponent<AudioSource>().Pause();
+            sound.GetComponent<SoundManager>().soundOn = false;
             images[0].gameObject.SetActive(false);
             images[1].gameObject.SetActive(true);
-        //}
+        }
     }
 }

@@ -9,13 +9,15 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource bgSound;
     public AudioClip[] bgList;
-
+    public bool soundOn;
     private void Awake()
     {
         if(_instance == null)
         {
             _instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
+            soundOn = true;
+            Debug.Log("A");
         }
         else if(_instance != this)
         {
@@ -30,7 +32,10 @@ public class SoundManager : MonoBehaviour
         {
             if(arg0.name == bgList[i].name)
             {
-                BgSoundPlay(bgList[i]);
+                if (soundOn)
+                    BgSoundPlay(bgList[i]);
+                else
+                    BgSoundStop(bgList[i]);
             }
         }
     }
