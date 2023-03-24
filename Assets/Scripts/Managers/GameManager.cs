@@ -186,6 +186,8 @@ public class GameManager:MonoBehaviour
     {
         gameObject.GetComponent<LevelManager>().stop = true;
         gameObject.GetComponent<LevelManager>().StopEnemy();
+        gameObject.GetComponent<LevelManager>().StopFever();
+        gameObject.GetComponent<LevelManager>().StopRain();
         Back.GetComponent<Background2>().enabled = false;
     }
 

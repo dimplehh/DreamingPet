@@ -4,27 +4,19 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
-    public float rainSlow = 0.5f;
-    public float slowTime = 3.0f;
-    
-    IEnumerator ResetSpeed(GameObject player)
-    {   
-        yield return new WaitForSeconds(slowTime);
-        player.GetComponent<MovePet>().speed /= rainSlow;
-        player.GetComponent<Player>().isSlow = false;
-    }
 
-    private void OnParticleCollision(GameObject other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player")&&other.GetComponent<Player>().isSlow==false)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<MovePet>().speed *= rainSlow;
-            other.GetComponent<Player>().isSlow = true;
-            StartCoroutine(ResetSpeed(other));
+            collision.gameObject.GetComponent<MovePet>().speed *= 0.5f;
         }
-    
-        
     }
-
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<MovePet>().speed *= 2f;
+        }
+    }
 }

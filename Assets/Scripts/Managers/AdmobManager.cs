@@ -139,6 +139,8 @@ public class AdmobManager
             gm.Back.GetComponent<Background2>().enabled = true;
             gm.gameObject.GetComponent<LevelManager>().stop = false;
             gm.gameObject.GetComponent<LevelManager>().StopEnemy();
+            gm.gameObject.GetComponent<LevelManager>().StopFever();
+            gm.gameObject.GetComponent<LevelManager>().StopRain();
         };
         rewardAd.Show();
         gm.OverPanel.SetActive(false);

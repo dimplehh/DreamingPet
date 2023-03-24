@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] feverObjs;
     [SerializeField]
-    string[] lightningObjs;
+    string[] rainObjs;
     [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         enemyObjs = new string[] { "enemy" };
         feverObjs = new string[] { "fever" };
-        lightningObjs = new string[] { "lightning" };
+        rainObjs = new string[] { "rain" };
     }
     void Start()
     {//Level Design
@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
             {
                 enemyCnt++;
                     
-                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnLightning();
+                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
                     feverCycle = 3;
                 }
             }
-            DeleteLightning();
+            DeleteRain();
             DeleteEnemy();
             DeleteFever();
         }
@@ -118,6 +118,34 @@ public class LevelManager : MonoBehaviour
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
         }
     }
+    public void StopRain()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(rainObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (stop)
+            {
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                targetPool[index].transform.Find("Particle System").GetComponent<ParticleSystem>().Stop();
+            }
+            else
+            {
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+                targetPool[index].transform.Find("Particle System").GetComponent<ParticleSystem>().Play();
+            }
+        }
+    }
+    public void StopFever()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(feverObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (stop)
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            else
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+        }
+    }
 
     public void DeleteEnemy()
     {
@@ -136,20 +164,20 @@ public class LevelManager : MonoBehaviour
         rigid.velocity = Vector2.up * speed[i];
     }
 
-    public void DeleteLightning()
+    public void DeleteRain()
     {
         int ranEnemy = 0;
-        objectManager.DelObj(lightningObjs[ranEnemy]);
+        objectManager.DelObj(rainObjs[ranEnemy]);
     }
 
-    public void SpawnLightning()
+    public void SpawnRain()
     {
         int ranEnemy = 0;
         int ranPoint = Random.Range(0, spawnPoints.Length);
-        GameObject lightning = objectManager.MakeObj(lightningObjs[ranEnemy]);
-        lightning.transform.position = spawnPoints[ranPoint].position;
+        GameObject rain = objectManager.MakeObj(rainObjs[ranEnemy]);
+        rain.transform.position = spawnPoints[ranPoint].position;
 
-        Rigidbody2D rigid = lightning.GetComponent<Rigidbody2D>();
+        Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
         
     }
