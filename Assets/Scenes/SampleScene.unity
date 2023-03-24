@@ -1003,17 +1003,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519939786 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
-  m_PrefabInstance: {fileID: 1025723155}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c483a82cae608a24f9c26a4ec56b6136, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &532419438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,9 +1817,8 @@ MonoBehaviour:
   feverSlider: {fileID: 695573758}
   feverState: 0
   feverBack: {fileID: 1175514657}
-  soundManager: {fileID: 519939786}
   feverBGM: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
-  mainBGM: {fileID: 8300000, guid: 2cebe5ef59f447d4d803665e3ecf1a2f, type: 3}
+  mainBGM: {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
   ReAd: {fileID: 0}
   Timer: {fileID: 0}
   EndPoint: 0
