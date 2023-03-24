@@ -19,9 +19,8 @@ public class GameManager:MonoBehaviour
     GameObject player;
     GameObject bone;
     float feverTime = 1.6f;
-
-    [SerializeField]
     SoundManager soundManager;
+
     [SerializeField]
     AudioClip feverBGM;
     [SerializeField]
@@ -70,6 +69,7 @@ public class GameManager:MonoBehaviour
         EndPoint = false;
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
+        soundManager = GameObject.Find("soundManager").GetComponent<SoundManager>();
     }
 
     /* 플레이어의 목숨 업데이트 */
@@ -121,8 +121,7 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
-        soundManager.BgSoundPlay(mainBGM);
-        soundManager.BgSoundPlay(feverBGM);
+        if(soundManager.soundOn)soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(30f);
 
@@ -139,7 +138,11 @@ public class GameManager:MonoBehaviour
         feverBack.SetActive(false);
         feverBack.transform.position = new Vector3(0.0f,-5.0f,0.0f);
         soundManager.BgSoundStop(feverBGM);
-        soundManager.BgSoundPlay(mainBGM);
+        if (soundManager.soundOn)
+        {
+            soundManager.BgSoundStop(feverBGM);
+            soundManager.BgSoundPlay(mainBGM);
+        }
 
         StartCoroutine(InvicibleTime(player));
     }
