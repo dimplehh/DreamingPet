@@ -25,12 +25,7 @@ public class Managers : MonoBehaviour
         //init();
     }
 
-    void Update()
-    {
-
-    }
-
-    static void init()
+    static void init()//int함수 시행 되는거..?
     {
         if (s_instance == null)
         {

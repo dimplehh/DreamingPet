@@ -7,9 +7,6 @@ public class Fever : MonoBehaviour
     [SerializeField]
     Sprite[] sprites;
 
-    void Awake()
-    {
-    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

@@ -20,7 +20,7 @@ public class MovePet : MonoBehaviour
     private Animator animator;
 
     void Start(){
-        boneObject = GameObject.Find("bone");//���߿� ���� ���̴� �ڵ�� �ٲ�� �� ��..
+        boneObject = GameObject.Find("bone");
         bone = boneObject.transform;
         speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
         color = boneObject.GetComponent<SpriteRenderer>().color;
@@ -43,7 +43,6 @@ public class MovePet : MonoBehaviour
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            
             if (distanceX > 0)
             {
                 if (angle > maxAngle)

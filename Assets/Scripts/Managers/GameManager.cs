@@ -18,7 +18,8 @@ public class GameManager:MonoBehaviour
     GameObject feverBack;
     GameObject player;
     GameObject bone;
-    float feverTime = 1.6f;
+    [SerializeField]
+    float feverTime = 2.5f;
     SoundManager soundManager;
 
     [SerializeField]
