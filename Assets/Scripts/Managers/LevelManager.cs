@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
             {
                 enemyCnt++;
 
-                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
+                if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else SpawnEnemy();
 

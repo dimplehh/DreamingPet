@@ -47,11 +47,11 @@ public class MovePet : MonoBehaviour
             {
                 if (angle > maxAngle)
                 {
-                    if (distanceY > 0)
+                    if (distanceY > 0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 0, maxAngle);
                     }
-                    else if (distanceY < 0)
+                    else if (distanceY < -0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 0, -maxAngle);
                     }
@@ -62,11 +62,11 @@ public class MovePet : MonoBehaviour
                 }
                 else
                 {
-                    if (distanceY > 0)
+                    if (distanceY > 0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 0, angle);
                     }
-                    else if (distanceY < 0)
+                    else if (distanceY < -0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 0, -angle);
                     }
@@ -82,11 +82,11 @@ public class MovePet : MonoBehaviour
             {
                 if (angle > maxAngle)
                 {
-                    if (distanceY > 0)
+                    if (distanceY > 0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 180, maxAngle);
                     }
-                    else if (distanceY < 0)
+                    else if (distanceY < -0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 180, -maxAngle);
                     }
@@ -98,11 +98,11 @@ public class MovePet : MonoBehaviour
                 }
                 else
                 {
-                    if (distanceY > 0)
+                    if (distanceY > 0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 180, angle);
                     }
-                    else if (distanceY < 0)
+                    else if (distanceY < -0.2)
                     {
                         transform.eulerAngles = new Vector3(0, 180, -angle);
                     }
@@ -118,13 +118,14 @@ public class MovePet : MonoBehaviour
 
 
 
-            transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.smoothDeltaTime * speed);
+            
 
 
 
 
 
-            if (Mathf.Abs(distanceX) < 0.15 && Mathf.Abs(distanceY) < 0.15)
+            if (Mathf.Abs(distanceX) < 0.1 && Mathf.Abs(distanceY) < 0.1)
             {
                 GetComponent<SpriteRenderer>().sprite = biteDog;
                 color.a = 0.0f;
