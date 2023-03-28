@@ -202,6 +202,7 @@ public class GameManager:MonoBehaviour
         gameObject.GetComponent<LevelManager>().StopEnemy();
         gameObject.GetComponent<LevelManager>().StopFever();
         gameObject.GetComponent<LevelManager>().StopRain();
+        gameObject.GetComponent<LevelManager>().StopSpaceShip();
         Back.GetComponent<Background2>().enabled = false;
     }
 
