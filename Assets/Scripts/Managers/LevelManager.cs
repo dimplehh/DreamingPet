@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
                 enemyCnt++;
 
                 if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
-                else if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
@@ -136,11 +136,21 @@ public class LevelManager : MonoBehaviour
     {
         int ranEnemy = 0;
         int ranPoint = Random.Range(0, spawnPoints.Length);
+        int ranPoint2 = Random.Range(0, spawnPoints.Length);
+
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
-
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
+
+        if (Mathf.Abs(ranPoint - ranPoint2) >= 3)
+        {
+            Debug.Log(Mathf.Abs(ranPoint - ranPoint2));
+            GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
+            enemy2.transform.position = spawnPoints[ranPoint2].position;
+            Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
+            rigid2.velocity = Vector2.up * speed[i];
+        }
     }
 
     public void StopEnemy()
