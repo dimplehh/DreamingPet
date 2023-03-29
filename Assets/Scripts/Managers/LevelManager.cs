@@ -28,7 +28,6 @@ public class LevelManager : MonoBehaviour
     float curSpawnDelay;
     int i;
     int level;
-    int feverCycle;
     void Awake()
     {
         enemyObjs = new string[] { "enemy" };
@@ -44,7 +43,6 @@ public class LevelManager : MonoBehaviour
 
         maxT = t[t.Length - 1];
         level = 0;
-        feverCycle = 3;
     }
 
     // Update is called once per frame
@@ -65,17 +63,10 @@ public class LevelManager : MonoBehaviour
 
                 if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
-
-                feverCycle -= 1;
-                if (feverCycle == 0)
-                {
-                    if (!GetComponent<GameManager>().feverState)
-                        SpawnFever();
-                    feverCycle = 3;
-                }
             }
             DeleteRain();
             DeleteEnemy();
@@ -108,7 +99,7 @@ public class LevelManager : MonoBehaviour
         int ranEnemy = 0;
         int ranPoint = Random.Range(0, spawnPoints.Length);
         GameObject fever = objectManager.MakeObj(feverObjs[ranEnemy]);
-        fever.transform.position = new Vector2(spawnPoints[ranPoint].position.x, spawnPoints[ranPoint].position.y - 3.0f);
+        fever.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid = fever.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
