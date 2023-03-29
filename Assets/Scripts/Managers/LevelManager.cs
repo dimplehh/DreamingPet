@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] spaceshipObjs;
     [SerializeField]
+    string[] heartObjs;
+    [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
     Transform[] spacespawnPoints;
@@ -34,6 +36,7 @@ public class LevelManager : MonoBehaviour
         feverObjs = new string[] { "fever" };
         rainObjs = new string[] { "rain" };
         spaceshipObjs = new string[] { "spaceship" };
+        heartObjs = new string[] { "heart" };
     }
     void Start()
     {//Level Design
@@ -64,6 +67,7 @@ public class LevelManager : MonoBehaviour
                 if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
+                else if (enemyCnt % 7 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
@@ -72,6 +76,7 @@ public class LevelManager : MonoBehaviour
             DeleteEnemy();
             DeleteFever();
             DeleteSpaceShip();
+            DeleteHeart();
         }
         else
         {
@@ -212,6 +217,35 @@ public class LevelManager : MonoBehaviour
     public void StopSpaceShip()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(spaceshipObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (stop)
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            else
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+        }
+    }
+
+    public void DeleteHeart()
+    {
+        int ranEnemy = 0;
+        objectManager.DelObj(heartObjs[ranEnemy]);
+    }
+
+    public void SpawnHeart()
+    {
+        int ranEnemy = 0;
+        int ranPoint = Random.Range(0, spawnPoints.Length);
+        GameObject heart = objectManager.MakeObj(heartObjs[ranEnemy]);
+        heart.transform.position = spawnPoints[ranPoint].position;
+
+        Rigidbody2D rigid = heart.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * speed[i];
+    }
+
+    public void StopHeart()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(heartObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
             if (stop)

@@ -203,6 +203,7 @@ public class GameManager:MonoBehaviour
         gameObject.GetComponent<LevelManager>().StopFever();
         gameObject.GetComponent<LevelManager>().StopRain();
         gameObject.GetComponent<LevelManager>().StopSpaceShip();
+        gameObject.GetComponent<LevelManager>().StopHeart();
         Back.GetComponent<Background2>().enabled = false;
     }
 

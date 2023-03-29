@@ -12,11 +12,14 @@ public class ObjectManager : MonoBehaviour
     GameObject rainPrefab;
     [SerializeField]
     GameObject spaceshipPrefab;
+    [SerializeField]
+    GameObject heartPrefab;
 
     GameObject[] enemy;
     GameObject[] fever;
     GameObject[] rain;
     GameObject[] spaceship;
+    GameObject[] heart;
     //GameObject[] coin;
     GameObject[] targetPool;
 
@@ -26,6 +29,7 @@ public class ObjectManager : MonoBehaviour
         fever = new GameObject[5];
         rain = new GameObject[5];
         spaceship = new GameObject[5];
+        heart = new GameObject[5];
         //coin = new GameObject[10];
         Generate();
     }
@@ -56,6 +60,12 @@ public class ObjectManager : MonoBehaviour
             //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             spaceship[index].SetActive(false);
         }
+        for (int index = 0; index < heart.Length; index++)
+        {
+            heart[index] = Instantiate(heartPrefab);
+            //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
+            heart[index].SetActive(false);
+        }
     }
 
     public GameObject[] GetTargetPool(string type)
@@ -73,6 +83,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "spaceship":
                 targetPool = spaceship;
+                break;
+            case "heart":
+                targetPool = heart;
                 break;
         }
         return targetPool;
@@ -93,6 +106,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "spaceship":
                 targetPool = spaceship;
+                break;
+            case "heart":
+                targetPool = heart;
                 break;
         }
         
@@ -123,6 +139,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "spaceship":
                 targetPool = spaceship;
+                break;
+            case "heart":
+                targetPool = heart;
                 break;
         }
         

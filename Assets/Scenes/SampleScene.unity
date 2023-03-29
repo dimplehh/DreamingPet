@@ -1771,6 +1771,7 @@ MonoBehaviour:
   feverObjs: []
   rainObjs: []
   spaceshipObjs: []
+  heartObjs: []
   spawnPoints:
   - {fileID: 1134209563}
   - {fileID: 429405383}
@@ -2329,6 +2330,7 @@ MonoBehaviour:
   feverPrefab: {fileID: 348350634115200825, guid: 6488a8e6499975a428c378130e4a1a49, type: 3}
   rainPrefab: {fileID: 4896841169726672449, guid: 60308a283242a406dbb12495abdc67c7, type: 3}
   spaceshipPrefab: {fileID: 4206425847588163697, guid: 6e999a4a6d1d0304e9a8c33aaabd304a, type: 3}
+  heartPrefab: {fileID: 7606161174787751674, guid: 2e7f4f0af9f7eea44acb036420be6ef7, type: 3}
 --- !u!4 &1063556439
 Transform:
   m_ObjectHideFlags: 0
