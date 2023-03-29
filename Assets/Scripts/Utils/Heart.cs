@@ -11,8 +11,8 @@ public class Heart : MonoBehaviour
             if (collision.gameObject.GetComponent<Player>().life < 5)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(++collision.gameObject.GetComponent<Player>().life);
-                gameObject.SetActive(false);
             }
+            gameObject.SetActive(false);
         }
     }
 }
