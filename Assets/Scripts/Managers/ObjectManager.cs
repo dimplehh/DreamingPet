@@ -148,7 +148,7 @@ public class ObjectManager : MonoBehaviour
         for (int index = 0; index < targetPool.Length; index++)
         {
             if(targetPool[index].activeSelf && type == "spaceship"
-                && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.1)
+                && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.5f)
                 targetPool[index].SetActive(false);
             else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.3)
                 targetPool[index].SetActive(false);

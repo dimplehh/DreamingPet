@@ -56,11 +56,13 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator InvicibleTime(Collider2D collision)
     {
+        Debug.Log("반투명");
         collision.gameObject.layer = 7;
         collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         yield return new WaitForSeconds(1f);
         collision.gameObject.layer = 0;
         collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        Debug.Log("불투명");
     }
     
     IEnumerator DestroyEnemy(Collider2D collision)
