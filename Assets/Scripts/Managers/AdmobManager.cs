@@ -6,10 +6,10 @@ using GoogleMobileAds.Api;
 using System;
 using TMPro;
 
-public class AdmobManager
+public class AdmobManager : MonoBehaviour
 {
     private List<string> deviceId = new List<string>();
-    
+
     private void TestId()
     {
         deviceId.Add("52d9018a2fd6eefd");

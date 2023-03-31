@@ -29,6 +29,8 @@ public class GameManager:MonoBehaviour
     public GameObject ReAd;
     [SerializeField]
     TMP_Text Timer;
+    [SerializeField]
+    TMP_Text Timers;
     public bool EndPoint;
     float time = 0f;
     float F_time = 1f;
@@ -183,6 +185,7 @@ public class GameManager:MonoBehaviour
         Managers.Ad.ShowRewardAd(player,bone,this);
     }
 
+    
     public void NoRewardAd()
     {
         if (EndPoint == false) StopCoroutine("RestartAd");
@@ -210,5 +213,17 @@ public class GameManager:MonoBehaviour
     public void OverAd()
     {
         Managers.Ad.ShowRewardAd(player, bone, this);
+        StartCoroutine(restartTimer());
+    }
+    IEnumerator restartTimer()
+    {
+        StopAll();
+        Timers.gameObject.SetActive(true);
+        for (int i = 1; i <= 3; i++)
+        {
+            Timers.text = (4 - i).ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        Timers.gameObject.SetActive(false);
     }
 }

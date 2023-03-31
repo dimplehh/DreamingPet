@@ -17,7 +17,7 @@ public class HomeSetting : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Loading");
     }
 
 
