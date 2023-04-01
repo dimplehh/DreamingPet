@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -1013755720297152077}
   - component: {fileID: 4487418091931721772}
   - component: {fileID: -1690462974135745494}
-  - component: {fileID: 6249746808437664564}
   - component: {fileID: -2446361891757264756}
+  - component: {fileID: -1604101675250129593}
   m_Layer: 3
   m_Name: spaceship
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4206425847588163697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1569539917
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 110c4f5592abc684f9ba0a8c2ced10de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77ee6ee035c1de243aeea9b7035fa289, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.416667, y: 9.5}
+    oldSize: {x: 62.5, y: 62.5}
     newSize: {x: 9.416667, y: 9.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -192,26 +192,6 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
---- !u!95 &6249746808437664564
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4206425847588163697}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 957057441367de64f94332626eebcb50, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!82 &-2446361891757264756
 AudioSource:
   m_ObjectHideFlags: 0
@@ -308,3 +288,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-1604101675250129593
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206425847588163697}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 957057441367de64f94332626eebcb50, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

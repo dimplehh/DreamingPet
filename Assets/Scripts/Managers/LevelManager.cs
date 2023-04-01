@@ -210,8 +210,12 @@ public class LevelManager : MonoBehaviour
         GameObject spaceship = objectManager.MakeObj(spaceshipObjs[ranEnemy]);
         spaceship.transform.position = spacespawnPoints[ranPoint].position;
 
+        Debug.Log(spaceship.transform.position);
         Rigidbody2D rigid = spaceship.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.left * speed[i];
+        if (spaceship.transform.position.x > 0)
+            rigid.velocity = Vector2.left * speed[i];
+        else
+            rigid.velocity = Vector2.right * speed[i];
     }
 
     public void StopSpaceShip()

@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
         {
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
             gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 5 + 5 * vectA;
-            collision.GetComponent<Player>().score += 50;
             StartCoroutine(DestroyEnemy(collision));
         }
     }
@@ -80,5 +79,6 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
+        collision.GetComponent<Player>().score += 50;
     }
 }
