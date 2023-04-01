@@ -1738,7 +1738,6 @@ MonoBehaviour:
   mainBGM: {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
   ReAd: {fileID: 0}
   Timer: {fileID: 0}
-  Timers: {fileID: 1179990720}
   EndPoint: 0
 --- !u!4 &729785373
 Transform:

@@ -29,7 +29,7 @@ public class GameManager:MonoBehaviour
     public GameObject ReAd;
     [SerializeField]
     TMP_Text Timer;
-    [SerializeField]
+
     TMP_Text Timers;
     public bool EndPoint;
     float time = 0f;
@@ -73,6 +73,7 @@ public class GameManager:MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
         soundManager = GameObject.Find("soundManager").GetComponent<SoundManager>();
+        Timers = GameObject.Find("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
     }
 
     /* 플레이어의 목숨 업데이트 */
@@ -213,17 +214,26 @@ public class GameManager:MonoBehaviour
     public void OverAd()
     {
         Managers.Ad.ShowRewardAd(player, bone, this);
+        //Timers.gameObject.SetActive(true);
+        //startTimer();
+    }
+    public void startTimer()
+    {
         StartCoroutine(restartTimer());
     }
     IEnumerator restartTimer()
     {
-        StopAll();
-        Timers.gameObject.SetActive(true);
+        Debug.Log("DDDD");
         for (int i = 1; i <= 3; i++)
         {
             Timers.text = (4 - i).ToString();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
+            Debug.Log(i);
         }
+        Debug.Log("AAAA");
         Timers.gameObject.SetActive(false);
+        Debug.Log("BBBB");
+        Time.timeScale = 1f;
+        Debug.Log("CCCC");
     }
 }

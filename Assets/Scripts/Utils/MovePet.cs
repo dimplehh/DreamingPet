@@ -30,6 +30,15 @@ public class MovePet : MonoBehaviour
         moveDirection = transform.position - bone.position;
         distanceX = moveDirection.x;
         distanceY = moveDirection.y;
+        if (distanceX == 0 && distanceY == 0)
+        {
+            animator.SetBool("bite", true);
+        }
+        else
+        {
+            animator.SetBool("bite", false);
+        }
+
         if (distanceX != 0 || distanceY != 0)
         {
             animator.SetBool("walking", true);

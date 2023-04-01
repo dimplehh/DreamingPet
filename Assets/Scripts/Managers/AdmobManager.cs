@@ -128,6 +128,7 @@ public class AdmobManager : MonoBehaviour
     }
     public void ShowRewardAd(GameObject player,GameObject bone, GameManager gm)
     {
+        Managers mg = Managers.Instance;
         rewardAd.OnUserEarnedReward += (sender, e) =>
         {
             player.GetComponent<Player>().life++;
@@ -147,6 +148,7 @@ public class AdmobManager : MonoBehaviour
         rewardAd.Show();
         gm.OverPanel.SetActive(false);
         LoadRewardAd();
+        
     }
 
     
