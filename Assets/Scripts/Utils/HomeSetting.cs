@@ -11,15 +11,39 @@ public class HomeSetting : MonoBehaviour
     [SerializeField]
     Image[] images;
     GameObject sound;
+    public float size; //원하는 사이즈
+    public float speed; //커질 때의 속도
+
+    private float time = 0;
+    private Vector2 originScale; //원래 크기
+    private void Awake()
+    {
+        originScale = transform.localScale; //원래 크기 저장
+    }
     private void Start()
     {
         sound = GameObject.Find("soundManager");
     }
     public void Play()
     {
+        StartCoroutine(Up());
+    }
+    IEnumerator Up()
+    {
+        while (transform.localScale.x < size)
+        {
+            transform.localScale = originScale * (1f + time * speed);
+            time += Time.deltaTime;
+
+            if (transform.localScale.x >= size)
+            {
+                time = 0;
+                break;
+            }
+            yield return null;
+        }
         SceneManager.LoadScene("Loading");
     }
-
 
     public void OpenSetting()
     {
