@@ -38,7 +38,7 @@ public class MovePet : MonoBehaviour
         {
             animator.SetBool("bite", false);
         }
-
+        /*
         if (distanceX != 0 || distanceY != 0)
         {
             animator.SetBool("walking", true);
@@ -47,6 +47,7 @@ public class MovePet : MonoBehaviour
         {
             animator.SetBool("walking", false);
         }
+        */
         float angle = Vector3.Angle(moveDirection, Vector3.up);
         angle = Mathf.Abs(90f - angle);
 
