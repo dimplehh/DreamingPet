@@ -191,12 +191,10 @@ public class LevelManager : MonoBehaviour
             if (stop)
             {
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                targetPool[index].transform.Find("Particle System").GetComponent<ParticleSystem>().Stop();
             }
             else
             {
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
-                targetPool[index].transform.Find("Particle System").GetComponent<ParticleSystem>().Play();
             }
         }
     }
