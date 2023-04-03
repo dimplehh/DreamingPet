@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class LevelManager : MonoBehaviour
     Transform[] spacespawnPoints;
     [SerializeField]
     ObjectManager objectManager;
+    [SerializeField]
+    GameObject warnImage;
+    [SerializeField]
+    GameObject surpriseImage;
     public bool stop;
     int enemyCnt = 0;
     float[] t;
@@ -64,7 +69,7 @@ public class LevelManager : MonoBehaviour
             {
                 enemyCnt++;
 
-                if (enemyCnt % 2 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
+                if (enemyCnt % 4 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                 else if (enemyCnt % 7 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
@@ -141,7 +146,6 @@ public class LevelManager : MonoBehaviour
 
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3)
         {
-            Debug.Log(Mathf.Abs(ranPoint - ranPoint2));
             GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
@@ -205,12 +209,30 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnSpaceShip()
     {
+        StartCoroutine(startWarning());
+    }
+
+    IEnumerator startWarning()
+    {
         int ranEnemy = 0;
         int ranPoint = Random.Range(0, spacespawnPoints.Length);
         GameObject spaceship = objectManager.MakeObj(spaceshipObjs[ranEnemy]);
         spaceship.transform.position = spacespawnPoints[ranPoint].position;
 
-        Debug.Log(spaceship.transform.position);
+        warnImage.transform.position = new Vector3(0.0f, spaceship.transform.position.y,0.0f);
+        if (0 <= ranPoint && ranPoint < 3)
+        {
+            warnImage.transform.rotation = Quaternion.Euler(0,0,0);
+            surpriseImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            warnImage.transform.rotation = Quaternion.Euler(0, 0, 180);
+            surpriseImage.transform.localRotation = Quaternion.Euler(0, 0, 180);
+        }
+        warnImage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        warnImage.SetActive(false);
         Rigidbody2D rigid = spaceship.GetComponent<Rigidbody2D>();
         if (spaceship.transform.position.x > 0)
             rigid.velocity = Vector2.left * speed[i];

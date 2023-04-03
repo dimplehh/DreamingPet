@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  life: 5
+  life: 3
   feverScore: 0
   isSlow: 0
 --- !u!60 &6778064726427118010

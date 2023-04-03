@@ -8,7 +8,7 @@ public class Heart : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !(GameObject.Find("GameManager").GetComponent<GameManager>().feverState))
         {
-            if (collision.gameObject.GetComponent<Player>().life < 5)
+            if (collision.gameObject.GetComponent<Player>().life < 3)
             {
                 GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(++collision.gameObject.GetComponent<Player>().life);
             }

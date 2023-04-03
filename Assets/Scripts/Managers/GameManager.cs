@@ -8,7 +8,7 @@ public class GameManager:MonoBehaviour
 {
     public float score;
     public int life;
-    public TMP_Text lifeText;
+    public GameObject[] lifeImages;
     public GameObject OverPanel;
     public GameObject Back;
     [SerializeField]
@@ -78,7 +78,16 @@ public class GameManager:MonoBehaviour
 
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife){
-        lifeText.text = player.GetComponent<Player>().life.ToString();
+        for (int i = 0; i <curlife; i++)
+        {
+            if (!lifeImages[i].activeSelf)
+                lifeImages[i].SetActive(true);
+        }
+        for (int i = curlife; i < 3;i++)
+        {
+            if (lifeImages[i].activeSelf)
+                lifeImages[i].SetActive(false);
+        }
         if (curlife <= 0)
         {
             if (EndPoint == false)
