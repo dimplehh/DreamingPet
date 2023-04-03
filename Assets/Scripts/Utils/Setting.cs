@@ -16,13 +16,13 @@ public class Setting : MonoBehaviour
     }
     public void ClickClose()
     {
-        //lv.stop = false;
-        //lv.StopEnemy();
         gamePause(1f);
         panel.SetActive(false);
     }
     public void gamePause(float timescale)
     {
+        if (GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().feverState && timescale != 0f)
+            timescale = 2.5f;
         Time.timeScale=timescale;
     }
 

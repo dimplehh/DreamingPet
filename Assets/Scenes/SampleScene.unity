@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 729785375}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1824,7 +1824,6 @@ MonoBehaviour:
   - {fileID: 1749009692}
   objectManager: {fileID: 1063556438}
   warnImage: {fileID: 294150857}
-  warnBack: {fileID: 1962307506}
   surpriseImage: {fileID: 1944451196}
   stop: 0
 --- !u!114 &729785375

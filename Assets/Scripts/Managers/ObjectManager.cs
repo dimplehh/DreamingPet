@@ -147,7 +147,9 @@ public class ObjectManager : MonoBehaviour
         
         for (int index = 0; index < targetPool.Length; index++)
         {
-            if(targetPool[index].activeSelf && type == "spaceship"
+            if(targetPool[index].activeSelf && type != "enemy" && GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().feverState)
+                targetPool[index].SetActive(false);
+            else if(targetPool[index].activeSelf && type == "spaceship"
                 && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.3f ||
                 Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x >= 1.3f))
                 targetPool[index].SetActive(false);
