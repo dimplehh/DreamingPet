@@ -1628,7 +1628,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1323620815}
   m_FillRect: {fileID: 1323620814}
   m_HandleRect: {fileID: 0}
@@ -1824,7 +1824,6 @@ MonoBehaviour:
   - {fileID: 1749009692}
   objectManager: {fileID: 1063556438}
   warnImage: {fileID: 294150857}
-  warnBack: {fileID: 1962307506}
   surpriseImage: {fileID: 1944451196}
   stop: 0
 --- !u!114 &729785375

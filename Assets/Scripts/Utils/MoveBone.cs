@@ -18,8 +18,8 @@ public class MoveBone : MonoBehaviour
         if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             CalTargetPos();
-            MoveToTarget();
         }
+        MoveToTarget();
     }
 
     void CalTargetPos(){
