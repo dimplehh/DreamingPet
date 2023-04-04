@@ -119,7 +119,6 @@ public class GameManager:MonoBehaviour
         {
             feverState = true;
             StartCoroutine(FeverTime());
-            //StartCoroutine(FadeFlow());
         }
     }
     IEnumerator FeverTime()

@@ -25,7 +25,7 @@ public class ObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        enemy = new GameObject[10];
+        enemy = new GameObject[20];
         fever = new GameObject[5];
         rain = new GameObject[5];
         spaceship = new GameObject[5];

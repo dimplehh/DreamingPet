@@ -35,6 +35,8 @@ public class LevelManager : MonoBehaviour
     float curSpawnDelay;
     int i;
     int level;
+
+    float realSpawnDelay;
     void Awake()
     {
         enemyObjs = new string[] { "enemy" };
@@ -65,7 +67,10 @@ public class LevelManager : MonoBehaviour
         if (t[i] > 0)
         {
             t[i] -= Time.deltaTime;
-            if (curSpawnDelay > maxSpawnDelay[i])
+            if (GetComponent<GameManager>().feverState)realSpawnDelay = 1f;
+            else realSpawnDelay = maxSpawnDelay[i];
+
+            if (curSpawnDelay > realSpawnDelay)
             {
                 enemyCnt++;
 
@@ -77,6 +82,7 @@ public class LevelManager : MonoBehaviour
 
                 curSpawnDelay = 0;
             }
+
             DeleteRain();
             DeleteEnemy();
             DeleteFever();
@@ -150,6 +156,17 @@ public class LevelManager : MonoBehaviour
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
             rigid2.velocity = Vector2.up * speed[i];
+        }
+        if(GetComponent<GameManager>().feverState)
+        {
+            int ranPoint3 = Random.Range(0, spawnPoints.Length);
+            if(ranPoint3 != ranPoint && ranPoint3 != ranPoint2)
+            {
+                GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
+                enemy3.transform.position = spawnPoints[ranPoint3].position;
+                Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
+                rigid3.velocity = Vector2.up * speed[i];
+            }
         }
     }
 
