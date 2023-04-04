@@ -47,9 +47,9 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {//Level Design
-        t = new float[6] { 0.0f, 10.0f, 20.0f, 30.0f, 30.0f, 40.0f };
-        maxSpawnDelay = new float[6] { 5f, 4f, 3f, 2f, 1f, 1f };
-        speed = new float[6] { 2.2f, 2.4f, 2.6f, 2.8f, 3.0f, 3.2f };
+        t = new float[8] { 0.0f, 10.0f, 20.0f, 30.0f, 30.0f, 40.0f, 40.0f, 40.0f };
+        maxSpawnDelay = new float[8] { 5f, 4f, 3f, 2f, 1f, 1f, 0.8f, 0.6f };
+        speed = new float[8] { 2.2f, 2.4f, 2.6f, 2.8f, 3.0f, 3.2f, 3.4f, 3.6f };
 
         maxT = t[t.Length - 1];
         level = 0;
@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
         if (t[i] > 0)
         {
             t[i] -= Time.deltaTime;
-            if (GetComponent<GameManager>().feverState)realSpawnDelay = 1f;
+            if (GetComponent<GameManager>().feverState)realSpawnDelay = 0.6f;
             else realSpawnDelay = maxSpawnDelay[i];
 
             if (curSpawnDelay > realSpawnDelay)
@@ -75,8 +75,8 @@ public class LevelManager : MonoBehaviour
                 enemyCnt++;
 
                 if (enemyCnt % 4 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
-                else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
-                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
+                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                 else if (enemyCnt % 7 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                 else SpawnEnemy();
 
