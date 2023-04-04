@@ -36,7 +36,7 @@ public class GameManager:MonoBehaviour
     float F_time = 1f;
 
     float backSpeed;
-
+    public bool clean;
     public void gamePause(float timescale)
     {
         if (Time.timeScale == 0)
@@ -69,6 +69,7 @@ public class GameManager:MonoBehaviour
     {
         Managers mg = Managers.Instance;///이걸 나중에 사용할 수 있을 것(싱글톤 클래스)- 코드 깔끔히 하는 용  
         feverState = false;
+        clean = false;
         EndPoint = false;
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
@@ -138,17 +139,19 @@ public class GameManager:MonoBehaviour
         yield return new WaitForSeconds(30f);
 
         feverState = false;
+        clean = true;
+        player.GetComponent<Player>().feverScore = 0;
+        gameObject.GetComponent<LevelManager>().DeleteEnemy();
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
         Time.timeScale = 1.0f;
-        player.GetComponent<Player>().feverScore = 0;
         feverSlider.GetComponent<SliderTimer>().enabled = false;
         player.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
         gameObject.GetComponent<FadeScript>().Fade();
         Back.GetComponent<Background2>().speed = backSpeed;
         Back.SetActive(true);
         feverBack.SetActive(false);
-        feverBack.transform.position = new Vector3(0.0f,-5.0f,0.0f);
+        feverBack.transform.position = new Vector3(0.0f,-23.0f,0.0f);
         soundManager.BgSoundStop(feverBGM);
         if (soundManager.soundOn)
         {
@@ -161,6 +164,7 @@ public class GameManager:MonoBehaviour
 
     IEnumerator InvicibleTime(GameObject gm)
     {
+        clean = false;
         gm.layer = 7;
         gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         yield return new WaitForSeconds(3f);
