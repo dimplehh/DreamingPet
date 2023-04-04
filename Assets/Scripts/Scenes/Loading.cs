@@ -24,7 +24,7 @@ public class Loading : MonoBehaviour
             yield return null;
             if (progressbar.value < 0.9f)
             {
-                progressbar.value = Mathf.MoveTowards(progressbar.value, 0.9f, Time.deltaTime*0.3f);
+                progressbar.value = Mathf.MoveTowards(progressbar.value, 0.9f, Time.deltaTime*0.7f);
                 if (progressbar.value < 0.3) loadingText.text = "Loading.";
                 else if (progressbar.value >=0.3 && progressbar.value < 0.6) loadingText.text = "Loading..";
                 else loadingText.text = "Loading...";

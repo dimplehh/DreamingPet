@@ -30,14 +30,7 @@ public class MovePet : MonoBehaviour
         moveDirection = transform.position - bone.position;
         distanceX = moveDirection.x;
         distanceY = moveDirection.y;
-        if (distanceX == 0 && distanceY == 0)
-        {
-            animator.SetBool("bite", true);
-        }
-        else
-        {
-            animator.SetBool("bite", false);
-        }
+        
         /*
         if (distanceX != 0 || distanceY != 0)
         {
@@ -129,9 +122,6 @@ public class MovePet : MonoBehaviour
 
 
             transform.position = Vector2.MoveTowards(transform.position, bone.position, Time.smoothDeltaTime * speed);
-            
-
-
 
 
 
@@ -140,12 +130,14 @@ public class MovePet : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = biteDog;
                 color.a = 0.0f;
                 boneObject.GetComponent<SpriteRenderer>().color = color;
+                animator.SetBool("bite", true);
             }
             else
             {
                 GetComponent<SpriteRenderer>().sprite = Dog;
                 color.a = 1.0f;
                 boneObject.GetComponent<SpriteRenderer>().color = color;
+                animator.SetBool("bite", false);
             }
         }
         
