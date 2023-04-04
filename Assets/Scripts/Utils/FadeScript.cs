@@ -16,8 +16,9 @@ public class FadeScript : MonoBehaviour
     IEnumerator FadeFlow()
     {
         Panel.gameObject.SetActive(true);
-        if(this.GetComponent<GameManager>().feverState)
-            Logo.SetActive(true);
+        if(Logo)
+            if(this.GetComponent<GameManager>().feverState)
+                Logo.SetActive(true);
         Color alpha = Panel.color;
         while (alpha.a < 1f)
         {
@@ -36,7 +37,8 @@ public class FadeScript : MonoBehaviour
             yield return null;
         }
         Panel.gameObject.SetActive(false);
-        Logo.SetActive(false);
+        if(Logo)
+            Logo.SetActive(false);
         yield return null;
     }
 }

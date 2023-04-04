@@ -26,6 +26,7 @@ public class HomeSetting : MonoBehaviour
     }
     public void Play()
     {
+        this.GetComponent<FadeScript>().Fade();
         StartCoroutine(Up());
     }
     IEnumerator Up()
