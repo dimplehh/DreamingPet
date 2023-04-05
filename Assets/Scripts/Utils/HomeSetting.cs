@@ -27,22 +27,6 @@ public class HomeSetting : MonoBehaviour
     public void Play()
     {
         this.GetComponent<FadeScript>().Fade();
-        StartCoroutine(Up());
-    }
-    IEnumerator Up()
-    {
-        while (transform.localScale.x < size)
-        {
-            transform.localScale = originScale * (1f + time * speed);
-            time += Time.deltaTime;
-
-            if (transform.localScale.x >= size)
-            {
-                time = 0;
-                break;
-            }
-            yield return null;
-        }
         SceneManager.LoadScene("Loading");
     }
 
