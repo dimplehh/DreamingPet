@@ -23,6 +23,8 @@ public class ObjectManager : MonoBehaviour
     //GameObject[] coin;
     GameObject[] targetPool;
 
+    GameManager gameManager;
+
     private void Awake()
     {
         enemy = new GameObject[20];
@@ -30,6 +32,7 @@ public class ObjectManager : MonoBehaviour
         rain = new GameObject[5];
         spaceship = new GameObject[5];
         heart = new GameObject[5];
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         //coin = new GameObject[10];
         Generate();
     }
@@ -147,14 +150,17 @@ public class ObjectManager : MonoBehaviour
         
         for (int index = 0; index < targetPool.Length; index++)
         {
-            if(targetPool[index].activeSelf && GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().clean)
+            if(targetPool[index].activeSelf && gameManager.clean)
                 targetPool[index].SetActive(false);
-            else if(targetPool[index].activeSelf && type != "enemy" && GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().feverState)
+            else if(targetPool[index].activeSelf && type != "enemy" && gameManager.feverState)
                 targetPool[index].SetActive(false);
             else if(targetPool[index].activeSelf && type == "spaceship"
                 && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.3f ||
                 Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x >= 1.3f))
+            {
+                gameManager.EffectSoundStop(gameManager.GetComponent<LevelManager>().bgList[0]);
                 targetPool[index].SetActive(false);
+            }
             else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.3)
                 targetPool[index].SetActive(false);
         }

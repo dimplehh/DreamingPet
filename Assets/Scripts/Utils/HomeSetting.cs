@@ -11,6 +11,7 @@ public class HomeSetting : MonoBehaviour
     [SerializeField]
     Image[] images;
     GameObject sound;
+    GameObject sound2;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
 
@@ -22,7 +23,8 @@ public class HomeSetting : MonoBehaviour
     }
     private void Start()
     {
-        sound = GameObject.Find("soundManager");
+        sound = GameObject.Find("soundManager"); //find 함수 차후 수정
+        sound2 = GameObject.Find("soundManager2");
     }
     public void Play()
     {
@@ -69,6 +71,28 @@ public class HomeSetting : MonoBehaviour
             sound.GetComponent<SoundManager>().soundOn = false;
             images[0].gameObject.SetActive(false);
             images[1].gameObject.SetActive(true);
+        }
+    }
+
+    public void EffectOnButton()
+    {
+        if (!sound2.GetComponent<SoundManager2>().soundOn)
+        {
+            sound2.GetComponent<AudioSource>().Play(); //여기서 audioSource에 설정된 소리남 필요하면 고칠 필요 ㅇ
+            sound2.GetComponent<SoundManager2>().soundOn = true;
+            images[2].gameObject.SetActive(true);
+            images[3].gameObject.SetActive(false);
+        }
+    }
+
+    public void EffectOffButton()
+    {
+        if (sound2.GetComponent<SoundManager2>().soundOn)
+        {
+            sound2.GetComponent<AudioSource>().Pause();
+            sound2.GetComponent<SoundManager2>().soundOn = false;
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(true);
         }
     }
 }
