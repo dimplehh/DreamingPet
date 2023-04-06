@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager:MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public float score;
     public int life;
@@ -21,6 +21,7 @@ public class GameManager:MonoBehaviour
     [SerializeField]
     float feverTime = 2.5f;
     SoundManager soundManager;
+    SoundManager2 soundManager2;
 
     [SerializeField]
     AudioClip feverBGM;
@@ -74,17 +75,19 @@ public class GameManager:MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
         soundManager = GameObject.Find("soundManager").GetComponent<SoundManager>();
+        soundManager2 = GameObject.Find("soundManager2").GetComponent<SoundManager2>();
         Timers = GameObject.Find("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
     }
 
     /* 플레이어의 목숨 업데이트 */
-    public void UpdateLife(int curlife){
-        for (int i = 0; i <curlife; i++)
+    public void UpdateLife(int curlife)
+    {
+        for (int i = 0; i < curlife; i++)
         {
             if (!lifeImages[i].activeSelf)
                 lifeImages[i].SetActive(true);
         }
-        for (int i = curlife; i < 3;i++)
+        for (int i = curlife; i < 3; i++)
         {
             if (lifeImages[i].activeSelf)
                 lifeImages[i].SetActive(false);
@@ -134,7 +137,7 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
-        if(soundManager.soundOn)soundManager.BgSoundPlay(feverBGM);
+        if (soundManager.soundOn) soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(30f);
 
@@ -151,7 +154,7 @@ public class GameManager:MonoBehaviour
         Back.GetComponent<Background2>().speed = backSpeed;
         Back.SetActive(true);
         feverBack.SetActive(false);
-        feverBack.transform.position = new Vector3(0.0f,-23.0f,0.0f);
+        feverBack.transform.position = new Vector3(0.0f, -23.0f, 0.0f);
         soundManager.BgSoundStop(feverBGM);
         if (soundManager.soundOn)
         {
@@ -187,7 +190,7 @@ public class GameManager:MonoBehaviour
         EndPoint = true;
         for (int i = 1; i <= 10; i++)
         {
-            Timer.text = (10-i).ToString();
+            Timer.text = (10 - i).ToString();
             yield return new WaitForSeconds(1f);
         }
         NoRewardAd();
@@ -195,10 +198,10 @@ public class GameManager:MonoBehaviour
 
     public void showReward()
     {
-        Managers.Ad.ShowRewardAd(player,bone,this);
+        Managers.Ad.ShowRewardAd(player, bone, this);
     }
 
-    
+
     public void NoRewardAd()
     {
         if (EndPoint == false) StopCoroutine("RestartAd");
@@ -247,5 +250,15 @@ public class GameManager:MonoBehaviour
         Debug.Log("BBBB");
         Time.timeScale = 1f;
         Debug.Log("CCCC");
+    }
+
+    public void EffectSoundPlay(AudioClip clip)
+    {
+        if (soundManager2.soundOn)
+        {
+            soundManager2.effectSound.clip = clip;
+            soundManager2.effectSound.volume = 0.1f;
+            soundManager2.effectSound.Play();
+        }
     }
 }
