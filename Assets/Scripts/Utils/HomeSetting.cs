@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HomeSetting : MonoBehaviour
 {
     [SerializeField]
-    GameObject settingPanel;
+    GameObject settingPanel, GuidePanel;
     [SerializeField]
     Image[] images;
     GameObject sound;
@@ -94,5 +94,14 @@ public class HomeSetting : MonoBehaviour
             images[2].gameObject.SetActive(false);
             images[3].gameObject.SetActive(true);
         }
+    }
+
+    public void GuideOnButton()
+    {
+        GuidePanel.gameObject.SetActive(true);
+    }
+    public void GuideOffButton()
+    {
+        GuidePanel.gameObject.SetActive(false);
     }
 }
