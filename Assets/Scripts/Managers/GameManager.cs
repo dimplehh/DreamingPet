@@ -261,4 +261,14 @@ public class GameManager : MonoBehaviour
             soundManager2.effectSound.Play();
         }
     }
+
+    public void EffectSoundStop(AudioClip clip)
+    {
+        if (soundManager2.soundOn)
+        {
+            soundManager2.effectSound.clip = clip;
+            soundManager2.effectSound.volume = 0.1f;
+            soundManager2.effectSound.Stop();
+        }
+    }
 }

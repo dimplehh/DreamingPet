@@ -535,7 +535,7 @@ Transform:
   m_GameObject: {fileID: 294150857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1944451197}
@@ -1850,6 +1850,8 @@ MonoBehaviour:
   objectManager: {fileID: 1063556438}
   warnImage: {fileID: 294150857}
   surpriseImage: {fileID: 1944451196}
+  bgList:
+  - {fileID: 8300000, guid: 1a3bc2497a443b74cb5a1ef22aa83e34, type: 3}
   stop: 0
 --- !u!114 &729785375
 MonoBehaviour:
@@ -4828,7 +4830,7 @@ Transform:
   m_GameObject: {fileID: 1944451196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.83, y: 0, z: 0}
-  m_LocalScale: {x: 0.075, y: 0.075, z: 0.05}
+  m_LocalScale: {x: 0.07, y: 0.075, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 294150858}

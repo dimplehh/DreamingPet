@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
     GameObject warnImage;
     [SerializeField]
     GameObject surpriseImage;
+    public AudioClip[] bgList;
+
     public bool stop;
     int enemyCnt = 0;
     float[] t;
@@ -248,6 +250,7 @@ public class LevelManager : MonoBehaviour
         warnImage.SetActive(true);
         yield return new WaitForSeconds(2f);
         warnImage.SetActive(false);
+        GetComponent<GameManager>().EffectSoundPlay(bgList[0]);
         Rigidbody2D rigid = spaceship.GetComponent<Rigidbody2D>();
         if (spaceship.transform.position.x > 0)
             rigid.velocity = Vector2.left * speed[i];
