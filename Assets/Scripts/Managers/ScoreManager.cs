@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text highScoreText2;
     public int savedScore = 0;
     private string KeyString = "HighScore";
+    public Image img;
+    private bool best=false;
 
     public void GenerateScore()
     {
@@ -45,9 +48,20 @@ public class ScoreManager : MonoBehaviour
                 PlayerPrefs.Save();
                 highScoreText.text = string.Format("{0:n0}", savedScore);
                 highScoreText2.text = string.Format("{0:n0}", savedScore);
+                if (!best)
+                {
+                    StartCoroutine(bestscoreImage());
+                }
             }
 
             Managers.Game.score = player.GetComponent<Player>().score;
         }
+    }
+    IEnumerator bestscoreImage()
+    {
+        best = true;
+        img.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(3f);
+        img.gameObject.SetActive(false);
     }
 }
