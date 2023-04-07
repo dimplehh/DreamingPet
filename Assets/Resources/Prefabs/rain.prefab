@@ -167,6 +167,9 @@ MonoBehaviour:
   health: 0
   sprites: []
   spriteRenderer: {fileID: 0}
+  bgList:
+  - {fileID: 8300000, guid: 687950f8997e44d38848b27edf9af400, type: 3}
+  - {fileID: 8300000, guid: 6db687c4e6e06204293c2d2f3f232585, type: 3}
 --- !u!1 &4896841169726672449
 GameObject:
   m_ObjectHideFlags: 0

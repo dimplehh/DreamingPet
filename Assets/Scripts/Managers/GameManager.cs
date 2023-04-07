@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     AudioClip feverBGM;
     [SerializeField]
     AudioClip mainBGM;
+    [SerializeField]
+    AudioClip effectSound;
     public GameObject ReAd;
     [SerializeField]
     TMP_Text Timer;
@@ -142,6 +144,7 @@ public class GameManager : MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
+        EffectSoundPlay(effectSound);
         if (soundManager.soundOn) soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(30f);

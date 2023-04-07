@@ -223,7 +223,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1315,6 +1315,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 729785372}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1931,6 +1943,7 @@ MonoBehaviour:
   feverTime: 2.5
   feverBGM: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
   mainBGM: {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
+  effectSound: {fileID: 8300000, guid: fe79a296241334099b9622427a36a916, type: 3}
   ReAd: {fileID: 0}
   Timer: {fileID: 0}
   EndPoint: 0
@@ -1985,7 +1998,9 @@ MonoBehaviour:
   warnImage: {fileID: 294150857}
   surpriseImage: {fileID: 1944451196}
   bgList:
-  - {fileID: 8300000, guid: 1a3bc2497a443b74cb5a1ef22aa83e34, type: 3}
+  - {fileID: 8300000, guid: 8ab1140fd9a9540e49bc349f4a53780e, type: 3}
+  - {fileID: 8300000, guid: 36a9d39c97d918642a7109c1aa2d615f, type: 3}
+  - {fileID: 8300000, guid: fc1842804a835e442be1e5bc3d9c98ba, type: 3}
   stop: 0
 --- !u!114 &729785375
 MonoBehaviour:
@@ -2374,7 +2389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868327396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 7.48, z: 0}
+  m_LocalPosition: {x: -3.7, y: 7.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3475,7 +3490,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3755,7 +3770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255942142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 3.06, z: 0}
+  m_LocalPosition: {x: 3.7, y: 3.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3862,7 +3877,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4405,7 +4420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510968796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 4.85, z: 0}
+  m_LocalPosition: {x: 3.7, y: 4.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4725,7 +4740,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4870,7 +4885,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5070,7 +5085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749009691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 7.48, z: 0}
+  m_LocalPosition: {x: -3.7, y: 7.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5273,7 +5288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828704046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 7.48, z: 0}
+  m_LocalPosition: {x: 3.7, y: 7.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5380,7 +5395,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5449,7 +5464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1920408589}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 7.48, z: 0}
+  m_LocalPosition: {x: -3.7, y: 7.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

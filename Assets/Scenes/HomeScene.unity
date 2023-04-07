@@ -553,6 +553,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &417500819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +706,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ab949178d72ed5744b3acbc68ec99950, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -956,6 +968,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &579076655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,6 +1109,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1293,7 +1329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98353133b40938748bd428028e043b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0.7
+  _size: 0.5
   _upSizeTime: 1
 --- !u!1 &719558617
 GameObject:
@@ -1454,7 +1490,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 785714177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &785714177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1980,6 +2028,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1239671993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2219,6 +2279,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1649060221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2347,6 +2419,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1570079794}
+        m_TargetAssemblyTypeName: SoundManager2, Assembly-CSharp
+        m_MethodName: EffectSoundPlay
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2555,7 +2639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98353133b40938748bd428028e043b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: -0.7
+  _size: -0.5
   _upSizeTime: 1
 --- !u!1 &1786562237
 GameObject:
@@ -3064,7 +3148,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 77ead67f78f98964ba7b9cc6ddfbb290, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

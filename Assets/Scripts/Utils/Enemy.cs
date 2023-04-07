@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Vector2 vector;
     private Animator animator;
+    [SerializeField]
+    AudioClip[] bgList;
 
     void Awake()
     {
@@ -32,14 +34,16 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !(GameObject.Find("GameManager").GetComponent<GameManager>().feverState))
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (collision.gameObject.tag == "Player" && !(gm.feverState))
         {//find 함수 나중에 고치기
-            GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(--collision.gameObject.GetComponent<Player>().life);
+            gm.EffectSoundPlay(bgList[0]);
+            gm.UpdateLife(--collision.gameObject.GetComponent<Player>().life);
             if (collision.gameObject.GetComponent<Player>().life <= 0)
             {
                 collision.gameObject.SetActive(false);
                 GameObject.FindGameObjectsWithTag("Bone")[0].SetActive(false);
-                
+                gm.EffectSoundPlay(bgList[1]);
             }
             else
             {
@@ -51,6 +55,7 @@ public class Enemy : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player" && GameObject.Find("GameManager").GetComponent<GameManager>().feverState)
         {
+            gm.EffectSoundPlay(bgList[2]);
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
             gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 5 + 5 * vectA;
             StartCoroutine(DestroyEnemy(collision));

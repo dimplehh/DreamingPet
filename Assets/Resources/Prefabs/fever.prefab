@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites: []
+  effectSound: {fileID: 8300000, guid: 3aa3ab3c3d5f24f4da6be38fa605a5e2, type: 3}
 --- !u!60 &1427826673604221296
 PolygonCollider2D:
   m_ObjectHideFlags: 0

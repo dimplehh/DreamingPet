@@ -78,7 +78,7 @@ public class HomeSetting : MonoBehaviour
     {
         if (!sound2.GetComponent<SoundManager2>().soundOn)
         {
-            sound2.GetComponent<AudioSource>().Play(); //여기서 audioSource에 설정된 소리남 필요하면 고칠 필요 ㅇ
+            sound2.GetComponent<AudioSource>().Play();
             sound2.GetComponent<SoundManager2>().soundOn = true;
             images[2].gameObject.SetActive(true);
             images[3].gameObject.SetActive(false);

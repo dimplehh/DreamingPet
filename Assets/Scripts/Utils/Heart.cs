@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
+    [SerializeField]
+    AudioClip effectSound;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !(GameObject.Find("GameManager").GetComponent<GameManager>().feverState))
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (collision.gameObject.tag == "Player" && !(gm.feverState))
         {
+            gm.EffectSoundPlay(effectSound);
             if (collision.gameObject.GetComponent<Player>().life < 3)
             {
-                GameObject.Find("GameManager").GetComponent<GameManager>().UpdateLife(++collision.gameObject.GetComponent<Player>().life);
+                gm.UpdateLife(++collision.gameObject.GetComponent<Player>().life);
             }
             gameObject.SetActive(false);
         }

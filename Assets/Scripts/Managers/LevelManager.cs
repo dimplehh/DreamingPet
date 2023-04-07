@@ -197,6 +197,7 @@ public class LevelManager : MonoBehaviour
         GameObject rain = objectManager.MakeObj(rainObjs[ranEnemy]);
         rain.transform.position = spawnPoints[ranPoint].position;
 
+        GetComponent<GameManager>().EffectSoundPlay(bgList[1]);
         Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
 
@@ -235,7 +236,7 @@ public class LevelManager : MonoBehaviour
         int ranPoint = Random.Range(0, spacespawnPoints.Length);
         GameObject spaceship = objectManager.MakeObj(spaceshipObjs[ranEnemy]);
         spaceship.transform.position = spacespawnPoints[ranPoint].position;
-
+        GetComponent<GameManager>().EffectSoundPlay(bgList[2]);
         warnImage.transform.position = new Vector3(0.0f, spaceship.transform.position.y,0.0f);
         if (0 <= ranPoint && ranPoint < 3)
         {
