@@ -27,10 +27,11 @@ public class GameScene : BaseScene
         {
             GuidePanel.gameObject.SetActive(true);
         }
+        /*
         guide++;
         PlayerPrefs.SetInt("guideAdCount", guide);
         PlayerPrefs.Save();
-
+        */
         Managers.Game.gamePause(0f); //게임 시작 전 일시정
         gameState = false;
         player = Managers.Game.Spawn("dog");

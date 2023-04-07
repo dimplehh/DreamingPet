@@ -9,6 +9,7 @@ public class Setting : MonoBehaviour
     GameObject panel,guidepanel;
     [SerializeField]
     LevelManager lv;
+
     public void ClickSetting()
     {
         gamePause(0f);

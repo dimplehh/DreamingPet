@@ -114,6 +114,11 @@ public class GameManager : MonoBehaviour
                 OverPanel.transform.Find("Menu2").gameObject.SetActive(true);
                 OverPanel.transform.Find("Menu1").gameObject.SetActive(false);
             }
+
+            int guide = PlayerPrefs.GetInt("guideAdCount", 0);
+            guide++;
+            PlayerPrefs.SetInt("guideAdCount", guide);
+            PlayerPrefs.Save();
         }
     }
     public void UpdateFeverScore(int feverScore)
