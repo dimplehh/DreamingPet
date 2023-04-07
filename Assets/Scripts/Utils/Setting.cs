@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Setting : MonoBehaviour
 {
     public
-    GameObject panel;
+    GameObject panel,guidepanel;
     [SerializeField]
     LevelManager lv;
     public void ClickSetting()
@@ -31,5 +31,8 @@ public class Setting : MonoBehaviour
         gamePause(1f);
         SceneManager.LoadScene(sceneName);
     }
-    
+    public void CloseGuide()
+    {
+        guidepanel.gameObject.SetActive(false);
+    }
 }

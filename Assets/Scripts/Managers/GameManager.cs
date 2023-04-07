@@ -213,6 +213,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("EndAdCount", endAdCount);
         PlayerPrefs.Save();
         if (endAdCount % 3 == 0) StartCoroutine(EndAd());
+        
     }
 
     public void StopAll()
