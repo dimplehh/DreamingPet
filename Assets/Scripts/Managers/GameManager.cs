@@ -126,8 +126,8 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 15.0f / 5) + 0.12f;
-        if (feverSlider.value == 15.0f)
+        feverSlider.value = (feverScore * 10.0f / 5) + 0.12f;
+        if (feverSlider.value == 10.0f)
         {
             feverState = true;
             StartCoroutine(FeverTime());
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         EffectSoundPlay(effectSound);
         if (soundManager.soundOn) soundManager.BgSoundPlay(feverBGM);
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(20f);
 
         feverState = false;
         clean = true;

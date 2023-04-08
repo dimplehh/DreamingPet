@@ -49,9 +49,9 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {//Level Design
-        t = new float[8] { 0.0f, 10.0f, 20.0f, 30.0f, 30.0f, 40.0f, 40.0f, 40.0f };
+        t = new float[8] { 0.0f, 5.0f, 15.0f, 30.0f, 30.0f, 40.0f, 40.0f, 40.0f };
         maxSpawnDelay = new float[8] { 5f, 4f, 3f, 2f, 1f, 1f, 0.8f, 0.6f };
-        speed = new float[8] { 2.2f, 2.4f, 2.6f, 2.8f, 3.0f, 3.2f, 3.4f, 3.6f };
+        speed = new float[8] { 2.4f, 2.7f, 3.0f, 3.3f, 3.6f, 3.9f, 4.2f, 4.5f };
 
         maxT = t[t.Length - 1];
         level = 0;
@@ -78,8 +78,8 @@ public class LevelManager : MonoBehaviour
 
                 if (enemyCnt % 4 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
-                else if (enemyCnt % 3 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
-                else if (enemyCnt % 7 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
+                else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
+                else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                 else SpawnEnemy();
 
                 curSpawnDelay = 0;
@@ -98,7 +98,7 @@ public class LevelManager : MonoBehaviour
             else
             {
                 t[i] = maxT;
-                speed[i] += 0.2f;
+                speed[i] += 0.3f;
             }
             level++;
             Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
