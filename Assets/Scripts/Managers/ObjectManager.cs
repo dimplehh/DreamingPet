@@ -155,13 +155,13 @@ public class ObjectManager : MonoBehaviour
             else if(targetPool[index].activeSelf && type != "enemy" && gameManager.feverState)
                 targetPool[index].SetActive(false);
             else if(targetPool[index].activeSelf && type == "spaceship"
-                && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.3f ||
-                Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x >= 1.3f))
+                && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.5f ||
+                Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x >= 1.5f))
             {
                 gameManager.EffectSoundStop(gameManager.GetComponent<LevelManager>().bgList[0]);
                 targetPool[index].SetActive(false);
             }
-            else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.3)
+            else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.1)
                 targetPool[index].SetActive(false);
         }
     }

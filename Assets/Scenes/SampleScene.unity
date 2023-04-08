@@ -1941,6 +1941,7 @@ MonoBehaviour:
   feverState: 0
   feverBack: {fileID: 1175514657}
   feverTime: 2.5
+  soundManager2: {fileID: 0}
   feverBGM: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
   mainBGM: {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
   effectSound: {fileID: 8300000, guid: fe79a296241334099b9622427a36a916, type: 3}
@@ -3020,7 +3021,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 348350634115200825, guid: f807b3f7958c2844c84681aa39781d41, type: 3}
   feverPrefab: {fileID: 348350634115200825, guid: 6488a8e6499975a428c378130e4a1a49, type: 3}
   rainPrefab: {fileID: 4896841169726672449, guid: 60308a283242a406dbb12495abdc67c7, type: 3}
-  spaceshipPrefab: {fileID: 4206425847588163697, guid: 6e999a4a6d1d0304e9a8c33aaabd304a, type: 3}
+  spaceshipPrefab: {fileID: 6682875402657944398, guid: 6e999a4a6d1d0304e9a8c33aaabd304a, type: 3}
   heartPrefab: {fileID: 7606161174787751674, guid: 2e7f4f0af9f7eea44acb036420be6ef7, type: 3}
 --- !u!4 &1063556439
 Transform:
@@ -5497,7 +5498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944451196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.83, y: 0, z: 0}
+  m_LocalPosition: {x: 1.6, y: 0, z: 0}
   m_LocalScale: {x: 0.07, y: 0.075, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []

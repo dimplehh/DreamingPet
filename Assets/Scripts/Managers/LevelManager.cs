@@ -197,7 +197,10 @@ public class LevelManager : MonoBehaviour
         GameObject rain = objectManager.MakeObj(rainObjs[ranEnemy]);
         rain.transform.position = spawnPoints[ranPoint].position;
 
-        GetComponent<GameManager>().EffectSoundPlay(bgList[1]);
+        AudioSource audioSource = rain.GetComponent<AudioSource>();
+        if (GetComponent<GameManager>().soundManager2.soundOn)
+            audioSource.Play();
+        //GetComponent<GameManager>().EffectSoundPlay(bgList[1]);
         Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
 

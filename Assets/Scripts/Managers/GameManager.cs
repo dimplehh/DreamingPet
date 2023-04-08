@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float feverTime = 2.5f;
     SoundManager soundManager;
-    SoundManager2 soundManager2;
+    public SoundManager2 soundManager2;
 
     [SerializeField]
     AudioClip feverBGM;
