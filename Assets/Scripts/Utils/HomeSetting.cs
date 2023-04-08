@@ -13,7 +13,7 @@ public class HomeSetting : MonoBehaviour
     [SerializeField]
     Sprite cutSceneSprite;
     [SerializeField]
-    GameObject playButton;
+    GameObject exitButton;
     GameObject sound;
     GameObject sound2;
     public float size; //원하는 사이즈
@@ -117,6 +117,11 @@ public class HomeSetting : MonoBehaviour
     public void StoryNextButton()
     {
         StoryPanel.GetComponent<Image>().sprite= cutSceneSprite;
-        playButton.SetActive(true);
+        exitButton.SetActive(true);
+    }
+
+    public void StoryExitButton()
+    {
+        StoryPanel.SetActive(false);
     }
 }

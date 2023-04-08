@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomeScene : MonoBehaviour
+public class HomeScene : BaseScene
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject StoryPanel;
 
-    // Update is called once per frame
-    void Update()
+    protected override void Init()
     {
-        
+        base.Init();
+
+        int story = PlayerPrefs.GetInt("StoryCount", 0);
+        if (story == 0)
+        {
+            StoryPanel.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("StoryCount", 1);
+            PlayerPrefs.Save();
+        }
+    }
+    public override void Clear()
+    {
+
     }
 }
