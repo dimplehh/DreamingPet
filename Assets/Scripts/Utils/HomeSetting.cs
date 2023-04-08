@@ -11,7 +11,7 @@ public class HomeSetting : MonoBehaviour
     [SerializeField]
     Image[] images;
     [SerializeField]
-    Sprite cutSceneSprite;
+    Sprite[] cutSceneSprite;
     [SerializeField]
     GameObject exitButton;
     GameObject sound;
@@ -116,12 +116,14 @@ public class HomeSetting : MonoBehaviour
 
     public void StoryNextButton()
     {
-        StoryPanel.GetComponent<Image>().sprite= cutSceneSprite;
-        exitButton.SetActive(true);
-    }
-
-    public void StoryExitButton()
-    {
-        StoryPanel.SetActive(false);
+        if(StoryPanel.GetComponent<Image>().sprite == cutSceneSprite[1])
+        {
+            StoryPanel.GetComponent<Image>().sprite = cutSceneSprite[0];
+            StoryPanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            StoryPanel.GetComponent<Image>().sprite = cutSceneSprite[1];
+        }
     }
 }
