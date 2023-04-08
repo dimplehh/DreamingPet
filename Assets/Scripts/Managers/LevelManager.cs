@@ -214,6 +214,8 @@ public class LevelManager : MonoBehaviour
             if (stop)
             {
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                if (GetComponent<GameManager>().soundManager2.soundOn)
+                    targetPool[index].GetComponent<AudioSource>().Stop();
             }
             else
             {
