@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class HomeSetting : MonoBehaviour
 {
     [SerializeField]
-    GameObject settingPanel, GuidePanel;
+    GameObject settingPanel, GuidePanel, StoryPanel;
     [SerializeField]
     Image[] images;
+    [SerializeField]
+    Sprite cutSceneSprite;
+    [SerializeField]
+    GameObject playButton;
     GameObject sound;
     GameObject sound2;
     public float size; //원하는 사이즈
@@ -103,5 +107,16 @@ public class HomeSetting : MonoBehaviour
     public void GuideOffButton()
     {
         GuidePanel.gameObject.SetActive(false);
+    }
+
+    public void StoryButton()
+    {
+        StoryPanel.gameObject.SetActive(true);
+    }
+
+    public void StoryNextButton()
+    {
+        StoryPanel.GetComponent<Image>().sprite= cutSceneSprite;
+        playButton.SetActive(true);
     }
 }
