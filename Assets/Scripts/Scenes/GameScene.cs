@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameScene : BaseScene
 {
@@ -44,11 +45,12 @@ public class GameScene : BaseScene
 
     void Update(){
         /*터치 시 게임 시작*/
-        if (gameState == false && Input.GetMouseButton(0) && !GuidePanel.gameObject.activeSelf)
+        if (gameState == false && Input.GetMouseButton(0) &&
+            (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 3.4f) && !GuidePanel.activeSelf)
         {
-            GameObject.Find("Touch").SetActive(false);
-            Managers.Game.gamePause(1f);
-            gameState = true;
+                GameObject.Find("Touch").SetActive(false);
+                Managers.Game.gamePause(1f);
+                gameState = true;
         }
 
         /*Score Update*/
