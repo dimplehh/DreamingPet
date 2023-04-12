@@ -7,17 +7,20 @@ using UnityEngine.UI;
 public class HomeSetting : MonoBehaviour
 {
     [SerializeField]
-    GameObject settingPanel, GuidePanel, StoryPanel;
+    GameObject settingPanel, GuidePanel, StoryPanel, StoryPanel2;
     [SerializeField]
     Image[] images;
     [SerializeField]
-    Sprite[] cutSceneSprite;
+    GameObject[] cutSceneSprite;
+    [SerializeField]
+    GameObject[] cutSceneSprite2;
     [SerializeField]
     GameObject exitButton;
     GameObject sound;
     GameObject sound2;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
+    static int index = 0;
 
     private float time = 0;
     private Vector2 originScale; //원래 크기
@@ -111,19 +114,38 @@ public class HomeSetting : MonoBehaviour
 
     public void StoryButton()
     {
+        for (int i = 0; i < cutSceneSprite.Length; i++)
+        {
+            cutSceneSprite[i].SetActive(false);
+        }
+        for (int i = 0; i < cutSceneSprite2.Length; i++)
+        {
+            cutSceneSprite2[i].SetActive(false);
+        }
         StoryPanel.gameObject.SetActive(true);
     }
 
     public void StoryNextButton()
     {
-        if(StoryPanel.GetComponent<Image>().sprite == cutSceneSprite[1])
+        if (index >= cutSceneSprite.Length)
         {
-            StoryPanel.GetComponent<Image>().sprite = cutSceneSprite[0];
-            StoryPanel.gameObject.SetActive(false);
+            StoryPanel.SetActive(false);
+            StoryPanel2.SetActive(true);
+            index = 0;
+            return;
         }
-        else
+        cutSceneSprite[index].SetActive(true);
+        index++;
+    }
+    public void StoryNextButton2()
+    {
+        if (index >= cutSceneSprite2.Length)
         {
-            StoryPanel.GetComponent<Image>().sprite = cutSceneSprite[1];
+            StoryPanel2.SetActive(false);
+            index = 0;
+            return;
         }
+        cutSceneSprite2[index].SetActive(true);
+        index++;
     }
 }
