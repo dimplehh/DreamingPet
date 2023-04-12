@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Border
   - Bone
+  - FeverHeart
   layers:
   - Default
   - TransparentFX

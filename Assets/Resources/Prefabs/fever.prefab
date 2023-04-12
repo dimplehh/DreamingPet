@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8364207207649532060}
   - component: {fileID: -7758273879831583731}
   - component: {fileID: 1427826673604221296}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: fever
-  m_TagString: Enemy
+  m_TagString: FeverHeart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

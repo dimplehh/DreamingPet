@@ -69,15 +69,15 @@ public class LevelManager : MonoBehaviour
         if (t[i] > 0)
         {
             t[i] -= Time.deltaTime;
-            if (GetComponent<GameManager>().feverState)realSpawnDelay = 0.6f;
+            if (GetComponent<GameManager>().feverState) realSpawnDelay = 0.6f;
             else realSpawnDelay = maxSpawnDelay[i];
 
             if (curSpawnDelay > realSpawnDelay)
             {
                 enemyCnt++;
 
-                if (enemyCnt % 4 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
-                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
+                else if (enemyCnt % 8 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                 else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                 else SpawnEnemy();
@@ -150,7 +150,11 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * speed[i];
+
+        int a = Random.Range(0, 6);
+        if (a == 4) rigid.velocity = Vector2.up * speed[i] * 1.5f;//일정 확률로 빠른 구름 생성
+        else rigid.velocity = Vector2.up * speed[i];
+        if (a == 5) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
 
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3)
         {
@@ -169,6 +173,25 @@ public class LevelManager : MonoBehaviour
                 Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
                 rigid3.velocity = Vector2.up * speed[i];
             }
+        }
+    }
+    IEnumerator InvicibleTime(GameObject gm)
+    {
+        float a = 1f;
+        while (a > 0f)
+        {
+            a -= Time.deltaTime / 1;
+            gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, a);
+            yield return null;
+        }
+        gm.layer = 7;
+        yield return new WaitForSeconds(1f);
+        gm.layer = 3;
+        while (a < 1f)
+        {
+            a += Time.deltaTime / 1;
+            gm.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, a);
+            yield return null;
         }
     }
 

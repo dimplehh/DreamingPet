@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  Panel: {fileID: 0}
 --- !u!60 &3157624181160090363
 PolygonCollider2D:
   m_ObjectHideFlags: 0
