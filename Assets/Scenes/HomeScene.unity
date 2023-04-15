@@ -306,9 +306,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -345,7 +345,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: d3be2f22e22ac4946895daf753ff6005, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 359c97fbe09c1e148bf0fd5e13e1c432, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 5e56845b3eece7446941c97b61ba5873, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 36c8060a3eee11b46a1321ab0ae67098, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1485,7 +1485,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 36c8060a3eee11b46a1321ab0ae67098, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2029,7 +2029,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 5e56845b3eece7446941c97b61ba5873, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2278,9 +2278,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2317,7 +2317,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: e8a27091901014e3bb7a1944a03921fa, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: d3be2f22e22ac4946895daf753ff6005, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2834,7 +2834,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: c1530dc46df761c4282ec6132df05aae, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3174,7 +3174,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 36c8060a3eee11b46a1321ab0ae67098, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3319,7 +3319,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 359c97fbe09c1e148bf0fd5e13e1c432, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4284,7 +4284,7 @@ MonoBehaviour:
         m_MethodName: EffectSoundPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: c1530dc46df761c4282ec6132df05aae, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

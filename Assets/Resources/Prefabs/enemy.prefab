@@ -125,9 +125,9 @@ MonoBehaviour:
   sprites: []
   spriteRenderer: {fileID: 0}
   bgList:
-  - {fileID: 8300000, guid: 687950f8997e44d38848b27edf9af400, type: 3}
-  - {fileID: 8300000, guid: 6db687c4e6e06204293c2d2f3f232585, type: 3}
-  - {fileID: 8300000, guid: 83ffb5b9fca90084581d28bfdaa533e9, type: 3}
+  - {fileID: 8300000, guid: 46c4119bd5c263a4d9809798dc851ddb, type: 3}
+  - {fileID: 8300000, guid: c8cd36e0074d443ae96c151786fae93c, type: 3}
+  - {fileID: 8300000, guid: 8a23239be9de14838884a763327af51e, type: 3}
 --- !u!60 &4791160830562126556
 PolygonCollider2D:
   m_ObjectHideFlags: 0
