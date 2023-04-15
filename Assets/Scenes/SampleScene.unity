@@ -1943,8 +1943,8 @@ MonoBehaviour:
   feverBack: {fileID: 1175514657}
   feverTime: 2.5
   soundManager2: {fileID: 0}
-  feverBGM: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
-  mainBGM: {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
+  feverBGM: {fileID: 8300000, guid: fe575871cb9614512a1a63f323bc2683, type: 3}
+  mainBGM: {fileID: 8300000, guid: 75572861997f64202965f6ed92eb64ba, type: 3}
   effectSound: {fileID: 8300000, guid: fe79a296241334099b9622427a36a916, type: 3}
   ReAd: {fileID: 0}
   Timer: {fileID: 0}
@@ -2864,6 +2864,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
+      propertyPath: bgList.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6cfd25f8bddd54190b9071ff6bdee29e, type: 3}
+    - target: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
+      propertyPath: bgList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 75572861997f64202965f6ed92eb64ba, type: 3}
     - target: {fileID: 4754320340337091046, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
       propertyPath: m_Name
       value: soundManager

@@ -16,23 +16,14 @@ public class HomeSetting : MonoBehaviour
     GameObject[] cutSceneSprite2;
     [SerializeField]
     GameObject exitButton;
+    [SerializeField]
     GameObject sound;
+    [SerializeField]
     GameObject sound2;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
     static int index = 0;
 
-    private float time = 0;
-    private Vector2 originScale; //원래 크기
-    private void Awake()
-    {
-        originScale = transform.localScale; //원래 크기 저장
-    }
-    private void Start()
-    {
-        sound = GameObject.Find("soundManager"); //find 함수 차후 수정
-        sound2 = GameObject.Find("soundManager2");
-    }
     public void Play()
     {
         this.GetComponent<FadeScript>().Fade();
@@ -143,6 +134,7 @@ public class HomeSetting : MonoBehaviour
         {
             StoryPanel2.SetActive(false);
             index = 0;
+            sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[0]);
             return;
         }
         cutSceneSprite2[index].SetActive(true);

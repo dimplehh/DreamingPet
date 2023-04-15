@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour
 
     TMP_Text Timers;
     public bool EndPoint;
-    float time = 0f;
-    float F_time = 1f;
 
     float backSpeed;
     public bool clean;
