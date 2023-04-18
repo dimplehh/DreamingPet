@@ -37,8 +37,17 @@ public class Enemy : MonoBehaviour
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (collision.gameObject.tag == "Player" && !(gm.feverState))
         {//find 함수 나중에 고치기
-            gm.EffectSoundPlay(bgList[0]);
-            gm.UpdateLife(--collision.gameObject.GetComponent<Player>().life);
+            if (gm.shieldState)
+            {
+                gm.EffectSoundPlay(bgList[3]);
+                collision.gameObject.transform.Find("bubble").gameObject.SetActive(false);
+                gm.shieldState = false;
+            }
+            else
+            {
+                gm.EffectSoundPlay(bgList[0]);
+                gm.UpdateLife(--collision.gameObject.GetComponent<Player>().life);
+            }
             if (collision.gameObject.GetComponent<Player>().life <= 0)
             {
                 collision.gameObject.SetActive(false);

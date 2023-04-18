@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] heartObjs;
     [SerializeField]
+    string[] shieldpieceObjs;
+    [SerializeField]
     Transform[] spawnPoints;
     [SerializeField]
     Transform[] spacespawnPoints;
@@ -46,6 +48,7 @@ public class LevelManager : MonoBehaviour
         rainObjs = new string[] { "rain" };
         spaceshipObjs = new string[] { "spaceship" };
         heartObjs = new string[] { "heart" };
+        shieldpieceObjs = new string[] { "shieldpiece" };
     }
     void Start()
     {//Level Design
@@ -75,8 +78,8 @@ public class LevelManager : MonoBehaviour
             if (curSpawnDelay > realSpawnDelay)
             {
                 enemyCnt++;
-
-                if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
+                if (enemyCnt % 3 == 0 && GetComponent<GameManager>().feverState) SpawnShieldPiece();
+                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
                 else if (enemyCnt % 8 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
                 else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                 else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
@@ -90,6 +93,7 @@ public class LevelManager : MonoBehaviour
             DeleteFever();
             DeleteSpaceShip();
             DeleteHeart();
+            DeleteShieldPiece();
         }
         else
         {
@@ -103,7 +107,35 @@ public class LevelManager : MonoBehaviour
             level++;
             Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
         }
+    }
 
+    public void DeleteShieldPiece()
+    {
+        int ranEnemy = 0;
+        objectManager.DelObj(shieldpieceObjs[ranEnemy]);
+    }
+
+    public void SpawnShieldPiece()
+    {
+        int ranEnemy = 0;
+        int ranPoint = Random.Range(0, spawnPoints.Length);
+        GameObject shieldPiece = objectManager.MakeObj(shieldpieceObjs[ranEnemy]);
+        shieldPiece.transform.position = spawnPoints[ranPoint].position;
+
+        Rigidbody2D rigid = shieldPiece.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * speed[i];
+    }
+
+    public void StopShieldPiece()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(shieldpieceObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (stop)
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            else
+                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+        }
     }
 
     public void DeleteFever()
@@ -150,11 +182,26 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-
-        int a = Random.Range(0, 6);
-        if (a == 4) rigid.velocity = Vector2.up * speed[i] * 1.5f;//일정 확률로 빠른 구름 생성
-        else rigid.velocity = Vector2.up * speed[i];
-        if (a == 5) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
+        if(!GetComponent<GameManager>().feverState)
+        {
+            int a = Random.Range(0, 6);
+            if (a == 4) rigid.velocity = Vector2.up * speed[i] * 1.5f;//일정 확률로 빠른 구름 생성
+            else
+                rigid.velocity = Vector2.up * speed[i];
+            if (a == 5) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
+        }
+        else
+        {
+            rigid.velocity = Vector2.up * speed[i];
+            int ranPoint3 = Random.Range(0, spawnPoints.Length);
+            if (ranPoint3 != ranPoint && ranPoint3 != ranPoint2)
+            {
+                GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
+                enemy3.transform.position = spawnPoints[ranPoint3].position;
+                Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
+                rigid3.velocity = Vector2.up * speed[i];
+            }
+        }
 
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3)
         {
@@ -162,17 +209,6 @@ public class LevelManager : MonoBehaviour
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
             rigid2.velocity = Vector2.up * speed[i];
-        }
-        if(GetComponent<GameManager>().feverState)
-        {
-            int ranPoint3 = Random.Range(0, spawnPoints.Length);
-            if(ranPoint3 != ranPoint && ranPoint3 != ranPoint2)
-            {
-                GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
-                enemy3.transform.position = spawnPoints[ranPoint3].position;
-                Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
-                rigid3.velocity = Vector2.up * speed[i];
-            }
         }
     }
     IEnumerator InvicibleTime(GameObject gm)

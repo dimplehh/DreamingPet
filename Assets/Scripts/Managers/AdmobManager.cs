@@ -144,6 +144,7 @@ public class AdmobManager
             gm.gameObject.GetComponent<LevelManager>().StopRain();
             gm.gameObject.GetComponent<LevelManager>().StopSpaceShip();
             gm.gameObject.GetComponent<LevelManager>().StopHeart();
+            gm.gameObject.GetComponent<LevelManager>().StopShieldPiece();
         };
         rewardAd.Show();
         gm.OverPanel.SetActive(false);

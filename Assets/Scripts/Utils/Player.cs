@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int score;
     public int life;
     public int feverScore;
+    public int shieldScore;
     public bool isSlow = false;
     // Start is called before the first frame update
     void Start()

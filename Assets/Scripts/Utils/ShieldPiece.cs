@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fever : MonoBehaviour
+public class ShieldPiece : MonoBehaviour
 {
     public AudioClip effectSound;
 
@@ -11,9 +11,10 @@ public class Fever : MonoBehaviour
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if (collision.gameObject.tag == "Player")
-        {//GameObject.Find 차후 수정
+        {
             gm.EffectSoundPlay(effectSound);
-            gm.UpdateFeverScore(++collision.gameObject.GetComponent<Player>().feverScore);
+            gm.UpdateShieldScore(++collision.gameObject.GetComponent<Player>().shieldScore);
+            Debug.Log(collision.gameObject.GetComponent<Player>().shieldScore);
             gameObject.SetActive(false);
         }
     }

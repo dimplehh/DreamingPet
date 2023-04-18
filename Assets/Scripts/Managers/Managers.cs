@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Managers : MonoBehaviour
 {
-    static Managers s_instance; //�����Ѵٴ� �ǹ��� static�� �ٿ� Managers class�� instance����
-    public static Managers Instance { get { init(); return s_instance; } } //�ٸ� ��� class���� �������� ��� �����ϵ��� 
-                                                                           //public���� init()�Լ��� �����ϰ� �ν��Ͻ��� return�ϴ� ����ϴ� �ָ� ����
+    static Managers s_instance;
+    public static Managers Instance { get { init(); return s_instance; } }
     GameManager _game = new GameManager();
     ResourceManager _resource = new ResourceManager();
     ObjectManager _object = new ObjectManager();

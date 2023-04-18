@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Setting : MonoBehaviour
 {
     public
-    GameObject panel,guidepanel;
+    GameObject panel,guidepanel, feverPanel;
     [SerializeField]
     LevelManager lv;
 
@@ -35,5 +35,12 @@ public class Setting : MonoBehaviour
     public void CloseGuide()
     {
         guidepanel.gameObject.SetActive(false);
+    }
+
+    public void CloseFeverGuide()
+    {
+        GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        feverPanel.gameObject.SetActive(false);
+        gm.UpdateFeverScore(gm.fCount);
     }
 }

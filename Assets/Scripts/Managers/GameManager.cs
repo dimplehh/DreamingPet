@@ -8,12 +8,19 @@ public class GameManager : MonoBehaviour
 {
     public float score;
     public int life;
+    public int fCount;
     public GameObject[] lifeImages;
     public GameObject OverPanel;
+    public GameObject feverPanel;
     public GameObject Back;
     [SerializeField]
+    GameObject shieldIcon;
+    [SerializeField]
     public Slider feverSlider;
+    [SerializeField]
+    Slider shieldSlider;
     public bool feverState;
+    public bool shieldState;
     [SerializeField]
     GameObject feverBack;
     GameObject player;
@@ -70,8 +77,10 @@ public class GameManager : MonoBehaviour
     {
         Managers mg = Managers.Instance;///이걸 나중에 사용할 수 있을 것(싱글톤 클래스)- 코드 깔끔히 하는 용  
         feverState = false;
+        shieldState = false;
         clean = false;
         EndPoint = false;
+        fCount = 5;
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
         soundManager = GameObject.Find("soundManager").GetComponent<SoundManager>();
@@ -82,16 +91,16 @@ public class GameManager : MonoBehaviour
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife)
     {
-        for (int i = 0; i < curlife; i++)
-        {
-            if (!lifeImages[i].activeSelf)
-                lifeImages[i].SetActive(true);
-        }
-        for (int i = curlife; i < 3; i++)
-        {
-            if (lifeImages[i].activeSelf)
-                lifeImages[i].SetActive(false);
-        }
+            for (int i = 0; i < curlife; i++)
+            {
+                if (!lifeImages[i].activeSelf)
+                    lifeImages[i].SetActive(true);
+            }
+            for (int i = curlife; i < 3; i++)
+            {
+                if (lifeImages[i].activeSelf)
+                    lifeImages[i].SetActive(false);
+            }
         if (curlife <= 0)
         {
             if (EndPoint == false)
@@ -124,15 +133,39 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 10.0f / 5) + 0.12f;
+        feverSlider.value = (feverScore * 10.0f / fCount) + 0.12f;
         if (feverSlider.value == 10.0f)
         {
-            feverState = true;
-            StartCoroutine(FeverTime());
+            int story = PlayerPrefs.GetInt("feverPanelCount", 0);
+            if (story == 0)
+            {
+                feverPanel.gameObject.SetActive(true);
+                PlayerPrefs.SetInt("feverPanelCount", 1);
+                PlayerPrefs.Save();
+                Time.timeScale = 0f;
+            }
+            if(!feverPanel.gameObject.activeSelf)
+            {
+                feverState = true;
+                StartCoroutine(FeverTime());
+            }
         }
     }
+
+    public void UpdateShieldScore(int shieldScore)
+    {
+        shieldSlider.value = shieldScore;
+        if (shieldScore >= 5)
+            shieldState = true;
+        else
+            shieldState = false;
+    }
+
     IEnumerator FeverTime()
     {
+        shieldIcon.SetActive(true);
+        player.GetComponent<Player>().shieldScore = 0;
+        player.transform.Find("bubble").gameObject.SetActive(false);
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         player.GetComponent<ChangeColor>().enabled = true;
         Time.timeScale = feverTime;
@@ -150,8 +183,12 @@ public class GameManager : MonoBehaviour
 
         feverState = false;
         clean = true;
+        shieldIcon.SetActive(false);
+        if (shieldState)
+            player.transform.Find("bubble").gameObject.SetActive(true);
         player.GetComponent<Player>().feverScore = 0;
         gameObject.GetComponent<LevelManager>().DeleteEnemy();
+        gameObject.GetComponent<LevelManager>().DeleteShieldPiece();
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         player.GetComponent<ChangeColor>().enabled = false;
         Time.timeScale = 1.0f;
@@ -231,6 +268,7 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<LevelManager>().StopRain();
         gameObject.GetComponent<LevelManager>().StopSpaceShip();
         gameObject.GetComponent<LevelManager>().StopHeart();
+        gameObject.GetComponent<LevelManager>().StopShieldPiece();
         Back.GetComponent<Background2>().enabled = false;
     }
 

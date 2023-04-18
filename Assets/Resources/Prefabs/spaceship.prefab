@@ -194,6 +194,8 @@ MonoBehaviour:
   bgList:
   - {fileID: 8300000, guid: 687950f8997e44d38848b27edf9af400, type: 3}
   - {fileID: 8300000, guid: 6db687c4e6e06204293c2d2f3f232585, type: 3}
+  - {fileID: 8300000, guid: 6db687c4e6e06204293c2d2f3f232585, type: 3}
+  - {fileID: 8300000, guid: b747e8f9321857e4fb5e59c33fc8ce23, type: 3}
 --- !u!95 &8911498237733184233
 Animator:
   serializedVersion: 4

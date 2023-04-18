@@ -14,12 +14,15 @@ public class ObjectManager : MonoBehaviour
     GameObject spaceshipPrefab;
     [SerializeField]
     GameObject heartPrefab;
+    [SerializeField]
+    GameObject shieldpiecePrefab;
 
     GameObject[] enemy;
     GameObject[] fever;
     GameObject[] rain;
     GameObject[] spaceship;
     GameObject[] heart;
+    GameObject[] shieldpiece;
     //GameObject[] coin;
     GameObject[] targetPool;
 
@@ -32,6 +35,7 @@ public class ObjectManager : MonoBehaviour
         rain = new GameObject[5];
         spaceship = new GameObject[5];
         heart = new GameObject[5];
+        shieldpiece = new GameObject[10];
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         //coin = new GameObject[10];
         Generate();
@@ -48,26 +52,27 @@ public class ObjectManager : MonoBehaviour
         for (int index = 0; index < fever.Length; index++)
         {
             fever[index] = Instantiate(feverPrefab);
-            //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             fever[index].SetActive(false);
         }
         for (int index = 0; index < rain.Length; index++)
         {
             rain[index] = Instantiate(rainPrefab);
-            //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             rain[index].SetActive(false);
         }
         for (int index = 0; index < spaceship.Length; index++)
         {
             spaceship[index] = Instantiate(spaceshipPrefab);
-            //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             spaceship[index].SetActive(false);
         }
         for (int index = 0; index < heart.Length; index++)
         {
             heart[index] = Instantiate(heartPrefab);
-            //Managers.Resource.Instantiate(); //���� �� �ڵ�� �ٲٱ�
             heart[index].SetActive(false);
+        }
+        for (int index = 0; index < shieldpiece.Length; index++)
+        {
+            shieldpiece[index] = Instantiate(shieldpiecePrefab);
+            shieldpiece[index].SetActive(false);
         }
     }
 
@@ -89,6 +94,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "heart":
                 targetPool = heart;
+                break;
+            case "shieldpiece":
+                targetPool = shieldpiece;
                 break;
         }
         return targetPool;
@@ -112,6 +120,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "heart":
                 targetPool = heart;
+                break;
+            case "shieldpiece":
+                targetPool = shieldpiece;
                 break;
         }
         
@@ -146,13 +157,16 @@ public class ObjectManager : MonoBehaviour
             case "heart":
                 targetPool = heart;
                 break;
+            case "shieldpiece":
+                targetPool = shieldpiece;
+                break;
         }
         
         for (int index = 0; index < targetPool.Length; index++)
         {
             if(targetPool[index].activeSelf && gameManager.clean)
                 targetPool[index].SetActive(false);
-            else if(targetPool[index].activeSelf && type != "enemy" && gameManager.feverState)
+            else if(targetPool[index].activeSelf &&( type != "enemy" && type != "shieldpiece") && gameManager.feverState)
                 targetPool[index].SetActive(false);
             else if(targetPool[index].activeSelf && type == "spaceship"
                 && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.5f ||
