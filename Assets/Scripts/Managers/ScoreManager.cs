@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
                 PlayerPrefs.Save();
                 highScoreText.text = string.Format("{0:n0}", savedScore);
                 highScoreText2.text = string.Format("{0:n0}", savedScore);
-                if (!best /*&& PlayerPrefs.GetInt("guideAdCount", 0) !=0*/)
+                if (!best && PlayerPrefs.GetInt("guideAdCount", 0) !=0)
                 {
                     Debug.Log(PlayerPrefs.GetInt("guideAdCount", 0));
                     StartCoroutine(bestscoreImage());

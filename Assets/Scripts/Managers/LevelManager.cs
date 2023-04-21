@@ -68,44 +68,46 @@ public class LevelManager : MonoBehaviour
         else
             curSpawnDelay = 0;
 
-
-        if (t[i] > 0)
+        if(!stop)
         {
-            t[i] -= Time.deltaTime;
-            if (GetComponent<GameManager>().feverState) realSpawnDelay = 0.6f;
-            else realSpawnDelay = maxSpawnDelay[i];
-
-            if (curSpawnDelay > realSpawnDelay)
+            if (t[i] > 0)
             {
-                enemyCnt++;
-                if (enemyCnt % 3 == 0 && GetComponent<GameManager>().feverState) SpawnShieldPiece();
-                else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
-                else if (enemyCnt % 8 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
-                else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
-                else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
-                else SpawnEnemy();
+                t[i] -= Time.deltaTime;
+                if (GetComponent<GameManager>().feverState) realSpawnDelay = 0.6f;
+                else realSpawnDelay = maxSpawnDelay[i];
 
-                curSpawnDelay = 0;
+                if (curSpawnDelay > realSpawnDelay)
+                {
+                    enemyCnt++;
+                    if (enemyCnt % 3 == 0 && GetComponent<GameManager>().feverState) SpawnShieldPiece();
+                    else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
+                    else if (enemyCnt % 8 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                    else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
+                    else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
+                    else SpawnEnemy();
+
+                    curSpawnDelay = 0;
+                }
+
+                DeleteRain();
+                DeleteEnemy();
+                DeleteFever();
+                DeleteSpaceShip();
+                DeleteHeart();
+                DeleteShieldPiece();
             }
-
-            DeleteRain();
-            DeleteEnemy();
-            DeleteFever();
-            DeleteSpaceShip();
-            DeleteHeart();
-            DeleteShieldPiece();
-        }
-        else
-        {
-            if (i < t.Length - 1)
-                i++;
             else
             {
-                t[i] = maxT;
-                speed[i] += 0.3f;
+                if (i < t.Length - 1)
+                    i++;
+                else
+                {
+                    t[i] = maxT;
+                    speed[i] += 0.3f;
+                }
+                level++;
+                Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
             }
-            level++;
-            Debug.Log("Level:" + level + " (Time:" + t[i] + " / SpawnDelay:" + maxSpawnDelay[i] + " / Speed:" + speed[i] + ")");
         }
     }
 

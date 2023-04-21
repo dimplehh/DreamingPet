@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public bool shieldState;
     [SerializeField]
     GameObject feverBack;
-    GameObject player;
+    public GameObject player;
     GameObject bone;
     [SerializeField]
     float feverTime = 2.5f;

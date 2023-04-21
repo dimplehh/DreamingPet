@@ -44,8 +44,6 @@ public class MovePet : MonoBehaviour
         float angle = Vector3.Angle(moveDirection, Vector3.up);
         angle = Mathf.Abs(90f - angle);
 
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
             if (distanceX > 0)
             {
                 if (angle > maxAngle)
@@ -139,7 +137,6 @@ public class MovePet : MonoBehaviour
                 boneObject.GetComponent<SpriteRenderer>().color = color;
                 animator.SetBool("bite", false);
             }
-        }
         
   
     }
