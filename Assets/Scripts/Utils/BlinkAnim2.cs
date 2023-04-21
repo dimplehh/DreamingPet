@@ -24,5 +24,6 @@ public class BlinkAnim2 : MonoBehaviour
             }
             time += Time.deltaTime;
         }
+        i = 3;
     }
 }

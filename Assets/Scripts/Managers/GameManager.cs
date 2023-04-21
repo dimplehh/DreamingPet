@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
                 StopAll();
                 if (soundManager.soundOn) soundManager.BgSoundStop(mainBGM);
                 OverPanel.SetActive(true);
-                OverPanel.transform.Find("Menu2").gameObject.SetActive(false);
                 OverPanel.transform.Find("Menu1").gameObject.SetActive(true);
                 EndPoint = true;
                 int endAdCount = PlayerPrefs.GetInt("EndAdCount", 0);
