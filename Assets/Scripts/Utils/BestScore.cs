@@ -29,7 +29,7 @@ public class BestScore : MonoBehaviour
 
             float xPos2 = text2.rectTransform.anchoredPosition.x - textWidth2 / 2f - imageWidth2 / 2f;
             float yPos2 = image2.rectTransform.anchoredPosition.y;
-            image2.rectTransform.anchoredPosition = new Vector2(xPos2 - 10.0f, yPos2);
+            image2.rectTransform.anchoredPosition = new Vector2(xPos2, yPos2);
         }
         
     }
