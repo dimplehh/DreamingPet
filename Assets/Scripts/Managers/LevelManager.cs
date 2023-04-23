@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {//Level Design
         t = new float[8] { 0.0f, 5.0f, 15.0f, 30.0f, 30.0f, 40.0f, 40.0f, 40.0f };
-        maxSpawnDelay = new float[8] { 5f, 4f, 3f, 2f, 1f, 1f, 0.8f, 0.6f };
+        maxSpawnDelay = new float[8] { 5f, 3f, 1.5f, 1f, 1f, 0.8f, 0.8f, 0.6f };
         speed = new float[8] { 2.4f, 2.7f, 3.0f, 3.3f, 3.6f, 3.9f, 4.2f, 4.5f };
 
         maxT = t[t.Length - 1];
@@ -80,8 +80,8 @@ public class LevelManager : MonoBehaviour
                 {
                     enemyCnt++;
                     if (enemyCnt % 3 == 0 && GetComponent<GameManager>().feverState) SpawnShieldPiece();
-                    else if (enemyCnt % 5 == 0 && !GetComponent<GameManager>().feverState) SpawnRain();
-                    else if (enemyCnt % 8 == 0 && !GetComponent<GameManager>().feverState) SpawnSpaceShip();
+                    if (enemyCnt % 9 == 0 && !GetComponent<GameManager>().feverState && level >=3) SpawnRain();
+                    else if (enemyCnt % 13 == 0 && !GetComponent<GameManager>().feverState && level >= 4) SpawnSpaceShip();
                     else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
                     else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                     else SpawnEnemy();
@@ -184,17 +184,14 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        if(!GetComponent<GameManager>().feverState)
+        rigid.velocity = Vector2.up * speed[i];
+        if (!GetComponent<GameManager>().feverState)
         {
             int a = Random.Range(0, 6);
-            if (a == 4) rigid.velocity = Vector2.up * speed[i] * 1.5f;//일정 확률로 빠른 구름 생성
-            else
-                rigid.velocity = Vector2.up * speed[i];
-            if (a == 5) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
+            if (a == 5 && level >=7) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
         }
         else
         {
-            rigid.velocity = Vector2.up * speed[i];
             int ranPoint3 = Random.Range(0, spawnPoints.Length);
             if (ranPoint3 != ranPoint && ranPoint3 != ranPoint2)
             {
@@ -204,8 +201,14 @@ public class LevelManager : MonoBehaviour
                 rigid3.velocity = Vector2.up * speed[i];
             }
         }
-
-        if (Mathf.Abs(ranPoint - ranPoint2) >= 3)
+        if (Mathf.Abs(ranPoint - ranPoint2) >= 3 && level >=5)
+        {
+            GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
+            enemy2.transform.position = spawnPoints[ranPoint2].position;
+            Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
+            rigid2.velocity = Vector2.up * speed[i];
+        }
+        else if(Mathf.Abs(ranPoint - ranPoint2) >= 4 && level >= 3)
         {
             GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
             enemy2.transform.position = spawnPoints[ranPoint2].position;

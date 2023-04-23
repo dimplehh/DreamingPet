@@ -16,13 +16,17 @@ public class HomeSetting : MonoBehaviour
     GameObject[] cutSceneSprite2;
     [SerializeField]
     GameObject exitButton;
-    [SerializeField]
-    GameObject sound;
-    [SerializeField]
-    GameObject sound2;
+    SoundManager sound;
+    SoundManager2 sound2;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
     static int index = 0;
+
+    public void Start()
+    {
+        sound = GameObject.Find("soundManager").GetComponent<SoundManager>();
+        sound2 = GameObject.Find("soundManager2").GetComponent<SoundManager2>();
+    }
 
     public void Play()
     {

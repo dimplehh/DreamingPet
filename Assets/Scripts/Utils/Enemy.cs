@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
             {
                 gm.EffectSoundPlay(bgList[0]);
                 gm.UpdateLife(--collision.gameObject.GetComponent<Player>().life);
+                collision.gameObject.layer = 0;
             }
             if (collision.gameObject.GetComponent<Player>().life <= 0)
             {
@@ -62,8 +63,13 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(InvicibleTime(collision));
             }
         }
-        else if(collision.gameObject.tag == "Player" && GameObject.Find("GameManager").GetComponent<GameManager>().feverState)
+        else if(collision.gameObject.tag == "Player" && gm.feverState)
         {
+            if(collision.gameObject.layer == 7)
+            {
+                collision.gameObject.layer = 0;
+                collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
             gm.EffectSoundPlay(bgList[2]);
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
             gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 5 + 5 * vectA;
@@ -74,7 +80,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("반투명");
         collision.gameObject.layer = 7;
-        //collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
 
         for (int i = 0; i < 3; i++)
         {

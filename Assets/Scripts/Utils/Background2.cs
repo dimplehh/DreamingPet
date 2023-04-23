@@ -13,16 +13,24 @@ public class Background2 : MonoBehaviour
     [SerializeField]
     Transform[] sprites;
     float viewHeight;
+    [SerializeField]
+    GameObject spaceReturn;
 
     private void Awake()
     {
-        viewHeight = 56.0f;
+        viewHeight = 55.99f;
     }
     void Update()
     {
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
         transform.position = curPos + nextPos;
+        if (transform.position.y % (viewHeight * 3) <= 1 && transform.position.y / (viewHeight % 3) >= 1)
+        {
+            spaceReturn.SetActive(true);
+        }
+        else
+            spaceReturn.SetActive(false);
 
         if (sprites[endIndex].position.y > 0)
         {

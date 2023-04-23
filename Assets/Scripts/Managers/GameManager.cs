@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife)
     {
+        Debug.Log(curlife);
             for (int i = 0; i < curlife; i++)
             {
                 if (!lifeImages[i].activeSelf)
@@ -146,6 +147,7 @@ public class GameManager : MonoBehaviour
             if(!feverPanel.gameObject.activeSelf)
             {
                 feverState = true;
+                player.gameObject.layer = 0;
                 StartCoroutine(FeverTime());
             }
         }
@@ -183,6 +185,7 @@ public class GameManager : MonoBehaviour
         feverState = false;
         clean = true;
         shieldIcon.SetActive(false);
+        shieldSlider.value = 0;
         if (shieldState)
             player.transform.Find("bubble").gameObject.SetActive(true);
         player.GetComponent<Player>().feverScore = 0;
