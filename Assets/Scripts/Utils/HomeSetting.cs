@@ -47,6 +47,16 @@ public class HomeSetting : MonoBehaviour
             images[0].gameObject.SetActive(false);
             images[1].gameObject.SetActive(true);
         }
+        if (sound2.GetComponent<SoundManager2>().soundOn)
+        {
+            images[2].gameObject.SetActive(true);
+            images[3].gameObject.SetActive(false);
+        }
+        else
+        {
+            images[2].gameObject.SetActive(false);
+            images[3].gameObject.SetActive(true);
+        }
     }
 
     public void CloseSetting()

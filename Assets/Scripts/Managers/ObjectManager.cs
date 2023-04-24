@@ -175,7 +175,7 @@ public class ObjectManager : MonoBehaviour
                 gameManager.EffectSoundStop(gameManager.GetComponent<LevelManager>().bgList[0]);
                 targetPool[index].SetActive(false);
             }
-            else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 1.1)
+            else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 2.5)
                 targetPool[index].SetActive(false);
         }
     }

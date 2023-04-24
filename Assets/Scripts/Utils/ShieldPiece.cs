@@ -14,7 +14,6 @@ public class ShieldPiece : MonoBehaviour
         {
             gm.EffectSoundPlay(effectSound);
             gm.UpdateShieldScore(++collision.gameObject.GetComponent<Player>().shieldScore);
-            Debug.Log(collision.gameObject.GetComponent<Player>().shieldScore);
             gameObject.SetActive(false);
         }
     }
