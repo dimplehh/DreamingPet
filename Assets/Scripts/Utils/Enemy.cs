@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour
             gm.EffectSoundPlay(bgList[2]);
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
             gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 5 + 5 * vectA;
+            gameObject.GetComponent<Rotate>().time = 0;
             StartCoroutine(DestroyEnemy(collision));
         }
     }

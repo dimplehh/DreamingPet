@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BounceAnim : MonoBehaviour
+public class Rotate : MonoBehaviour
 {
     public float _size = 2;
 
@@ -13,16 +13,11 @@ public class BounceAnim : MonoBehaviour
     {
         if (time <= _upSizeTime)
         {
-            transform.localScale = Vector3.one * (1 + _size * time);
-        }
-        else if (time <= _upSizeTime * 2)
-        {
-            transform.localScale = Vector3.one * (2 * _size * _upSizeTime + 1 - time * _size);
+            transform.rotation = Quaternion.Euler(0, 0, 500 * time);
         }
         else
         {
-            transform.localScale = Vector3.one;
-            //time = 0;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         time += Time.deltaTime;
     }

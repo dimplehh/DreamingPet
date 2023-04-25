@@ -3889,6 +3889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _size: 1
   _upSizeTime: 0.8
+  time: 0
 --- !u!1 &1134209562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5415,6 +5416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1473348076}
+  - component: {fileID: 1473348077}
   m_Layer: 5
   m_Name: Shield
   m_TagString: Untagged
@@ -5443,6 +5445,21 @@ RectTransform:
   m_AnchoredPosition: {x: -134, y: -567}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1473348077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473348075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650a7eb8ae77064439990b65d87acc4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 2
+  _upSizeTime: 0.3
+  time: 0.3
 --- !u!224 &1487260633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6566707761849780604, guid: 58e9352f4767df54395f34867ac642b2, type: 3}

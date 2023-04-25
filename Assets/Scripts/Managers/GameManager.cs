@@ -157,7 +157,10 @@ public class GameManager : MonoBehaviour
     {
         shieldSlider.value = shieldScore;
         if (shieldScore >= 5)
+        {
             shieldState = true;
+            shieldIcon.GetComponent<BounceAnim>().time = 0;
+        }
         else
             shieldState = false;
     }
