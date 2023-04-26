@@ -41,7 +41,10 @@ public class GameManager : MonoBehaviour
     TMP_Text Timer;
 
     TMP_Text Timers;
-    public bool EndPoint;  
+    public bool EndPoint;
+
+    public TMP_Text adtest;
+
 
     float backSpeed;
     public bool clean;

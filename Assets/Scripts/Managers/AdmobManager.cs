@@ -6,7 +6,7 @@ using GoogleMobileAds.Api;
 using System;
 using TMPro;
 
-public class AdmobManager
+public class AdmobManager : MonoBehaviour
 {
     private List<string> deviceId = new List<string>();
 
@@ -146,6 +146,18 @@ public class AdmobManager
             gm.gameObject.GetComponent<LevelManager>().StopSpaceShip();
             gm.gameObject.GetComponent<LevelManager>().StopHeart();
             gm.gameObject.GetComponent<LevelManager>().StopShieldPiece();
+            gm.adtest.text = "Success";
+            
+        };
+        rewardAd.OnAdFailedToLoad += (sender, args) =>
+        {
+            // 광고 로드 실패 시 처리
+            gm.adtest.GetComponent<GameManager>().adtest.text = "Fail1";
+        };
+        rewardAd.OnAdFailedToShow += (sender, args) =>
+        {
+            // 광고 로드 실패 시 처리
+            gm.adtest.GetComponent<GameManager>().adtest.text = "Fail2";
         };
         rewardAd.Show();
         
