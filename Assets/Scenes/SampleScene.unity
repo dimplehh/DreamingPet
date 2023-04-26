@@ -3236,7 +3236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"\uC6B0\uC8FC 1\uBC14\uD034\""
+  m_text: "''\uC6B0\uC8FC 1\uBC14\uD034''"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f32de0311be0f94e9bcafb6aa80ad36, type: 2}
   m_sharedMaterial: {fileID: -3177122553242775072, guid: 5f32de0311be0f94e9bcafb6aa80ad36, type: 2}
@@ -5221,6 +5221,7 @@ GameObject:
   - component: {fileID: 1385413907}
   - component: {fileID: 1385413906}
   - component: {fileID: 1385413908}
+  - component: {fileID: 1385413909}
   m_Layer: 5
   m_Name: NewBestScore
   m_TagString: Untagged
@@ -5382,6 +5383,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1385413909
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385413904}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8371d0f4abe2e4c40880aa3a2851f81f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1394575367
 GameObject:
   m_ObjectHideFlags: 0
