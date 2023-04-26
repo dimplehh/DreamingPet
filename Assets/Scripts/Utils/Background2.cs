@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
+using System;
 
 public class Background2 : MonoBehaviour
 {
@@ -13,24 +16,37 @@ public class Background2 : MonoBehaviour
     [SerializeField]
     Transform[] sprites;
     float viewHeight;
+    private int cyclecnt;
     [SerializeField]
-    GameObject spaceReturn;
+    TMP_Text cycle;
+    private int tmp;
 
     private void Awake()
     {
         viewHeight = 55.99f;
+        cyclecnt = 0;
+        tmp = 0;
     }
     void Update()
     {
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
         transform.position = curPos + nextPos;
+
         if (transform.position.y % (viewHeight * 3) <= 1 && transform.position.y / (viewHeight % 3) >= 1)
         {
-            spaceReturn.SetActive(true);
+            if (tmp == 0)
+            {
+                cyclecnt++;
+                cycle.text = string.Format("\"¿ìÁÖ {0}¹ÙÄû\"", cyclecnt);
+                StartCoroutine(cycles());
+                tmp = 1;
+
+            }
         }
         else
-            spaceReturn.SetActive(false);
+            tmp = 0;
+
 
         if (sprites[endIndex].position.y > 0)
         {
@@ -44,4 +60,12 @@ public class Background2 : MonoBehaviour
 
         }
     }
+    IEnumerator cycles()
+    {
+        cycle.gameObject.SetActive(true);
+        yield return new WaitForSecondsRealtime(3f);
+        cycle.gameObject.SetActive(false);
+    }
 }
+
+

@@ -245,10 +245,7 @@ public class GameManager : MonoBehaviour
         NoRewardAd();
     }
 
-    public void showReward()
-    {
-        Managers.Ad.ShowRewardAd(player, bone, this);
-    }
+
 
 
     public void NoRewardAd()

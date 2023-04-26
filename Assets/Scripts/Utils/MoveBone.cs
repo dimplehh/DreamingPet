@@ -27,7 +27,7 @@ public class MoveBone : MonoBehaviour
         transPos = Camera.main.ScreenToWorldPoint(mousePos);
         if (Panel.gameObject.activeSelf == false)
         {
-            if ((transPos.y < 3.4 && transPos.y > -5.0)&&(transPos.x > -2.8 && transPos.x<2.8))
+            if ((transPos.y < 3.0 && transPos.y > -5.0)&&(transPos.x > -2.8 && transPos.x<2.8))
             {
                 targetPos = new Vector2(transPos.x, transPos.y);
             }

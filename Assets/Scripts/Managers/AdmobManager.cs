@@ -131,6 +131,7 @@ public class AdmobManager
         Managers mg = Managers.Instance;
         rewardAd.OnUserEarnedReward += (sender, e) =>
         {
+            gm.OverPanel.SetActive(false);
             player.GetComponent<Player>().life++;
             player.SetActive(true);
             bone.SetActive(true);
@@ -147,7 +148,7 @@ public class AdmobManager
             gm.gameObject.GetComponent<LevelManager>().StopShieldPiece();
         };
         rewardAd.Show();
-        gm.OverPanel.SetActive(false);
+        
         LoadRewardAd();
         
     }
