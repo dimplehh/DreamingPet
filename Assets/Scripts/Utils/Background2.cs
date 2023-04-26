@@ -32,8 +32,8 @@ public class Background2 : MonoBehaviour
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
         transform.position = curPos + nextPos;
-
-        if (transform.position.y % (viewHeight * 3) <= 1 && transform.position.y / (viewHeight % 3) >= 1)
+        Debug.Log(transform.position.y);
+        if ((transform.position.y+40+200) % 202 <= 1 && transform.position.y / (viewHeight % 3) >= 1)
         {
             if (tmp == 0)
             {
@@ -41,12 +41,11 @@ public class Background2 : MonoBehaviour
                 cycle.text = string.Format("\"¿ìÁÖ {0}¹ÙÄû\"", cyclecnt);
                 StartCoroutine(cycles());
                 tmp = 1;
-
             }
         }
         else
             tmp = 0;
-
+        
 
         if (sprites[endIndex].position.y > 0)
         {
