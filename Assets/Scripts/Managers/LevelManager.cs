@@ -125,7 +125,7 @@ public class LevelManager : MonoBehaviour
         shieldPiece.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid = shieldPiece.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * 3;
+        rigid.velocity = Vector2.up * 4.5f;
     }
 
     public void StopShieldPiece()
@@ -184,11 +184,11 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
+        rigid.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.0f : Vector2.up * speed[i];
         if (!GetComponent<GameManager>().feverState)
         {
-            int a = Random.Range(0, 6);
-            if (a == 5 && level >=7) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
+            int a = Random.Range(0, 10);
+            if (a == 9 && level >=7) StartCoroutine(InvicibleTime(enemy));//일정 확률로 사라졌다가 나타나는 구름 생성
         }
         else
         {
@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
                 GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
                 enemy3.transform.position = spawnPoints[ranPoint3].position;
                 Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
-                rigid3.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
+                rigid3.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.5f : Vector2.up * speed[i];
             }
         }
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3 && level >=5)
@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour
             GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
-            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
+            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.5f : Vector2.up * speed[i];
         }
         else if(Mathf.Abs(ranPoint - ranPoint2) >= 4 && level >= 3)
         {
@@ -214,7 +214,7 @@ public class LevelManager : MonoBehaviour
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
             rigid2.velocity = Vector2.up * speed[i];
-            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
+            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.5f : Vector2.up * speed[i];
         }
     }
     IEnumerator InvicibleTime(GameObject gm)
@@ -318,7 +318,7 @@ public class LevelManager : MonoBehaviour
         }
         warnImage.SetActive(true);
         if (GetComponent<GameManager>().soundManager2.soundOn)
-            warnImage.GetComponent<AudioSource>().Play();
+            GetComponent<GameManager>().soundManager2.EffectSoundPlay(bgList[2]);
         yield return new WaitForSeconds(2f);
         warnImage.SetActive(false);
         GetComponent<GameManager>().soundManager2.EffectSoundPlay(bgList[0]);

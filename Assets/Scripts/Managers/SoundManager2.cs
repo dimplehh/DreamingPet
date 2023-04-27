@@ -27,7 +27,7 @@ public class SoundManager2 : MonoBehaviour
         if(soundOn)
         {
             effectSound.clip = clip;
-            effectSound.volume = 0.1f;
+            effectSound.volume = 1f;
             effectSound.PlayOneShot(effectSound.clip);
         }
     }
@@ -36,7 +36,7 @@ public class SoundManager2 : MonoBehaviour
         if (soundOn)
         {
             effectSound.clip = clip;
-            effectSound.volume = 0.1f;
+            effectSound.volume = 1f;
             effectSound.Stop();
         }
     }

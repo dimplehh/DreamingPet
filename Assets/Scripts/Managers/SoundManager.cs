@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
     {
         bgSound.clip = clip;
         bgSound.loop = true;
-        bgSound.volume = 0.1f;
+        bgSound.volume = 1f;
         bgSound.Play();
     }
 
@@ -56,7 +56,7 @@ public class SoundManager : MonoBehaviour
     {
         bgSound.clip = clip;
         bgSound.loop = true;
-        bgSound.volume = 0.1f;
+        bgSound.volume = 1f;
         bgSound.Stop();
     }
 }
