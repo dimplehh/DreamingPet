@@ -42,6 +42,10 @@ public class Setting : MonoBehaviour
     {
         gamePause(1f);
         sound2.EffectSoundPlay(bgList[1]);
+        int guide = PlayerPrefs.GetInt("guideAdCount", 0);
+        guide++;
+        PlayerPrefs.SetInt("guideAdCount", guide);
+        PlayerPrefs.Save();
         SceneManager.LoadScene(sceneName);
     }
     public void CloseGuide()
