@@ -31,13 +31,12 @@ public class Background2 : MonoBehaviour
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
         transform.position = curPos + nextPos;
-        Debug.Log(transform.position.y);
         if ((transform.position.y+40+200) % 202 <= 1 && transform.position.y / (viewHeight % 3) >= 1)
         {
             if (tmp == 0)
             {
                 cyclecnt++;
-                cycle.text = string.Format("\"快林 {0}官柠\"", cyclecnt);
+                cycle.text = string.Format("\'\'快林 {0}官柠\'\'", cyclecnt);
                 StartCoroutine(cycles());
                 tmp = 1;
             }
