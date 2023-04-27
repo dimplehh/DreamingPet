@@ -3846,6 +3846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: soundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4754320340337091046, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
+      propertyPath: m_TagString
+      value: Sound
+      objectReference: {fileID: 0}
     - target: {fileID: 4754320340337091047, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -4227,6 +4231,10 @@ PrefabInstance:
     - target: {fileID: 292400954110468418, guid: 4cd2c127e536b8f4aaa99430ecfbced6, type: 3}
       propertyPath: m_Name
       value: soundManager2
+      objectReference: {fileID: 0}
+    - target: {fileID: 292400954110468418, guid: 4cd2c127e536b8f4aaa99430ecfbced6, type: 3}
+      propertyPath: m_TagString
+      value: Sound2
       objectReference: {fileID: 0}
     - target: {fileID: 292400954110468419, guid: 4cd2c127e536b8f4aaa99430ecfbced6, type: 3}
       propertyPath: m_RootOrder
@@ -6344,7 +6352,7 @@ GameObject:
   - component: {fileID: 1630219972}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -83,9 +83,9 @@ public class GameManager : MonoBehaviour
         fCount = 5;
         player = GameObject.FindGameObjectWithTag("Player");
         bone = GameObject.FindGameObjectWithTag("Bone");
-        soundManager = GameObject.Find("soundManager").GetComponent<SoundManager>();
-        soundManager2 = GameObject.Find("soundManager2").GetComponent<SoundManager2>();
-        Timers = GameObject.Find("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
+        soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        soundManager2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
+        Timers = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
     }
 
     /* 플레이어의 목숨 업데이트 */

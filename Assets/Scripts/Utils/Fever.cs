@@ -8,10 +8,10 @@ public class Fever : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
 
         if (collision.gameObject.tag == "Player")
-        {//GameObject.Find 차후 수정
+        {
             gm.soundManager2.EffectSoundPlay(effectSound);
             gm.UpdateFeverScore(++collision.gameObject.GetComponent<Player>().feverScore);
             gameObject.SetActive(false);

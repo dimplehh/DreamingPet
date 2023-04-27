@@ -8,6 +8,9 @@ TagManager:
   - Border
   - Bone
   - FeverHeart
+  - Canvas
+  - Sound
+  - Sound2
   layers:
   - Default
   - TransparentFX

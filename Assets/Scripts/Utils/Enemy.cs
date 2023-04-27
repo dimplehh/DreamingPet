@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     {
         GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         if (collision.gameObject.tag == "Player" && !(gm.feverState))
-        {//find 함수 나중에 고치기
+        {
             if (gm.shieldState)
             {
                 gm.soundManager2.EffectSoundPlay(bgList[3]);

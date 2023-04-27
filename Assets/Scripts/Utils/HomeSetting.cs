@@ -26,8 +26,8 @@ public class HomeSetting : MonoBehaviour
 
     public void Start()
     {
-        sound = GameObject.Find("soundManager").GetComponent<SoundManager>();
-        sound2 = GameObject.Find("soundManager2").GetComponent<SoundManager2>();
+        sound = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        sound2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
     }
 
     public void Play()

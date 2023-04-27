@@ -11,7 +11,7 @@ public class MoveBone : MonoBehaviour
 
     private void Start()
     {
-        Panel = GameObject.Find("Canvas").transform.Find("PausePanel");
+        Panel = GameObject.FindGameObjectWithTag("Canvas").transform.Find("PausePanel");
     }
     void Update()
     {
