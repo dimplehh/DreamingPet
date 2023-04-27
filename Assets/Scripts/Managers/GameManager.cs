@@ -27,13 +27,12 @@ public class GameManager : MonoBehaviour
     GameObject bone;
     [SerializeField]
     float feverTime = 2.5f;
-    SoundManager soundManager;
+    public SoundManager soundManager;
     public SoundManager2 soundManager2;
 
     [SerializeField]
     AudioClip feverBGM;
-    [SerializeField]
-    AudioClip mainBGM;
+    public AudioClip mainBGM;
     [SerializeField]
     AudioClip effectSound;
     public GameObject ReAd;

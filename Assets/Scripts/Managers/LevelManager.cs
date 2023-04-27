@@ -245,7 +245,9 @@ public class LevelManager : MonoBehaviour
         for (int index = 0; index < targetPool.Length; index++)
         {
             if (stop)
+            {
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
             else
                 targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
         }

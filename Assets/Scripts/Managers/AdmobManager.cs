@@ -140,12 +140,15 @@ public class AdmobManager : MonoBehaviour
             gm.UpdateLife(1);
             gm.Back.GetComponent<Background2>().enabled = true;
             gm.gameObject.GetComponent<LevelManager>().stop = false;
+            
             gm.gameObject.GetComponent<LevelManager>().StopEnemy();
             gm.gameObject.GetComponent<LevelManager>().StopFever();
             gm.gameObject.GetComponent<LevelManager>().StopRain();
             gm.gameObject.GetComponent<LevelManager>().StopSpaceShip();
             gm.gameObject.GetComponent<LevelManager>().StopHeart();
             gm.gameObject.GetComponent<LevelManager>().StopShieldPiece();
+            if (gm.soundManager.soundOn) gm.soundManager.BgSoundPlay(gm.mainBGM);
+
         };
         rewardAd.OnAdFailedToLoad += (sender, args) =>
         {
