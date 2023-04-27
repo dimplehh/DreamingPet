@@ -184,7 +184,7 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = speed[i] >= 5.5f ? Vector2.up * 5.5f : Vector2.up * speed[i];
+        rigid.velocity = (speed[i] >= 5.5f && GetComponent<GameManager>().feverState)  ? Vector2.up * 5.5f : Vector2.up * speed[i];
         if (!GetComponent<GameManager>().feverState)
         {
             int a = Random.Range(0, 10);
@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
                 GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
                 enemy3.transform.position = spawnPoints[ranPoint3].position;
                 Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
-                rigid3.velocity = speed[i] >= 5.5f ? Vector2.up * 5.5f : Vector2.up * speed[i];
+                rigid3.velocity = (speed[i] >= 5.5f && GetComponent<GameManager>().feverState) ? Vector2.up * 5.5f : Vector2.up * speed[i];
             }
         }
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3 && level >=5)
@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour
             GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
-            rigid2.velocity = speed[i] >= 5.5f ? Vector2.up * 5.5f : Vector2.up * speed[i];
+            rigid2.velocity = (speed[i] >= 5.5f && GetComponent<GameManager>().feverState) ? Vector2.up * 5.5f : Vector2.up * speed[i];
         }
         else if(Mathf.Abs(ranPoint - ranPoint2) >= 4 && level >= 3)
         {
@@ -214,7 +214,7 @@ public class LevelManager : MonoBehaviour
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
             rigid2.velocity = Vector2.up * speed[i];
-            rigid2.velocity = speed[i] >= 5.5f ? Vector2.up * 5.5f : Vector2.up * speed[i];
+            rigid2.velocity = (speed[i] >= 5.5f && GetComponent<GameManager>().feverState) ? Vector2.up * 5.5f : Vector2.up * speed[i];
         }
     }
     IEnumerator InvicibleTime(GameObject gm)
