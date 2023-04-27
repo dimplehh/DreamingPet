@@ -184,7 +184,7 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.0f : Vector2.up * speed[i];
+        rigid.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 4.5f : Vector2.up * speed[i];
         if (!GetComponent<GameManager>().feverState)
         {
             int a = Random.Range(0, 10);
