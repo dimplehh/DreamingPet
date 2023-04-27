@@ -18,6 +18,10 @@ public class Background2 : MonoBehaviour
     private int cyclecnt;
     [SerializeField]
     TMP_Text cycle;
+    [SerializeField]
+    GameManager gm;
+    [SerializeField]
+    AudioClip audioClip;
     private int tmp;
 
     private void Awake()
@@ -37,6 +41,7 @@ public class Background2 : MonoBehaviour
             {
                 cyclecnt++;
                 cycle.text = string.Format("\'\'¿ìÁÖ {0}¹ÙÄû\'\'", cyclecnt);
+                gm.soundManager2.EffectSoundPlay(audioClip);
                 StartCoroutine(cycles());
                 tmp = 1;
             }

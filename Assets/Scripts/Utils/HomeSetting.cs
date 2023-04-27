@@ -18,6 +18,8 @@ public class HomeSetting : MonoBehaviour
     GameObject exitButton;
     SoundManager sound;
     SoundManager2 sound2;
+    [SerializeField]
+    AudioClip[] bgList;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
     static int index = 0;
@@ -30,12 +32,13 @@ public class HomeSetting : MonoBehaviour
 
     public void Play()
     {
-        this.GetComponent<FadeScript>().Fade();
         SceneManager.LoadScene("Loading");
+        sound2.EffectSoundPlay(bgList[0]);
     }
 
     public void OpenSetting()
     {
+        sound2.EffectSoundPlay(bgList[1]);
         settingPanel.SetActive(true);
         if (sound.GetComponent<SoundManager>().soundOn)
         {
@@ -62,10 +65,12 @@ public class HomeSetting : MonoBehaviour
     public void CloseSetting()
     {
         settingPanel.SetActive(false);
+        sound2.EffectSoundPlay(bgList[2]);
     }
 
     public void BackOnButton()
     {
+        sound2.EffectSoundPlay(bgList[3]);
         if (!sound.GetComponent<SoundManager>().soundOn)
         {
             sound.GetComponent<AudioSource>().Play();
@@ -77,6 +82,7 @@ public class HomeSetting : MonoBehaviour
 
     public void BackOffButton()
     {
+        sound2.EffectSoundPlay(bgList[3]);
         if (sound.GetComponent<SoundManager>().soundOn)
         {
             sound.GetComponent<AudioSource>().Pause();
@@ -88,6 +94,7 @@ public class HomeSetting : MonoBehaviour
 
     public void EffectOnButton()
     {
+        sound2.EffectSoundPlay(bgList[3]);
         if (!sound2.GetComponent<SoundManager2>().soundOn)
         {
             sound2.GetComponent<AudioSource>().Play();
@@ -111,14 +118,18 @@ public class HomeSetting : MonoBehaviour
     public void GuideOnButton()
     {
         GuidePanel.gameObject.SetActive(true);
+        sound2.EffectSoundPlay(bgList[1]);
     }
     public void GuideOffButton()
     {
         GuidePanel.gameObject.SetActive(false);
+        sound2.EffectSoundPlay(bgList[2]);
     }
 
     public void StoryButton()
     {
+        sound2.EffectSoundPlay(bgList[0]);
+        if (sound.soundOn) sound.BgSoundPlay(bgList[4]);
         for (int i = 0; i < cutSceneSprite.Length; i++)
         {
             cutSceneSprite[i].SetActive(false);
@@ -132,6 +143,7 @@ public class HomeSetting : MonoBehaviour
 
     public void StoryNextButton()
     {
+        sound2.EffectSoundPlay(bgList[5]);
         if (index >= cutSceneSprite.Length)
         {
             StoryPanel.SetActive(false);
@@ -144,6 +156,7 @@ public class HomeSetting : MonoBehaviour
     }
     public void StoryNextButton2()
     {
+        sound2.EffectSoundPlay(bgList[5]);
         if (index >= cutSceneSprite2.Length)
         {
             StoryPanel2.SetActive(false);

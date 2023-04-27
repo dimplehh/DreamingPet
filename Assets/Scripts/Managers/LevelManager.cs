@@ -125,7 +125,7 @@ public class LevelManager : MonoBehaviour
         shieldPiece.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid = shieldPiece.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * speed[i];
+        rigid.velocity = Vector2.up * 3;
     }
 
     public void StopShieldPiece()
@@ -184,7 +184,7 @@ public class LevelManager : MonoBehaviour
         GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
         enemy.transform.position = spawnPoints[ranPoint].position;
         Rigidbody2D rigid = enemy.GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.up * speed[i];
+        rigid.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
         if (!GetComponent<GameManager>().feverState)
         {
             int a = Random.Range(0, 6);
@@ -198,7 +198,7 @@ public class LevelManager : MonoBehaviour
                 GameObject enemy3 = objectManager.MakeObj(enemyObjs[ranEnemy]);
                 enemy3.transform.position = spawnPoints[ranPoint3].position;
                 Rigidbody2D rigid3 = enemy3.GetComponent<Rigidbody2D>();
-                rigid3.velocity = Vector2.up * speed[i];
+                rigid3.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
             }
         }
         if (Mathf.Abs(ranPoint - ranPoint2) >= 3 && level >=5)
@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour
             GameObject enemy2 = objectManager.MakeObj(enemyObjs[ranEnemy]);
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
-            rigid2.velocity = Vector2.up * speed[i];
+            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
         }
         else if(Mathf.Abs(ranPoint - ranPoint2) >= 4 && level >= 3)
         {
@@ -214,6 +214,7 @@ public class LevelManager : MonoBehaviour
             enemy2.transform.position = spawnPoints[ranPoint2].position;
             Rigidbody2D rigid2 = enemy2.GetComponent<Rigidbody2D>();
             rigid2.velocity = Vector2.up * speed[i];
+            rigid2.velocity = GetComponent<GameManager>().feverState ? Vector2.up * 3.0f : Vector2.up * speed[i];
         }
     }
     IEnumerator InvicibleTime(GameObject gm)
@@ -264,7 +265,6 @@ public class LevelManager : MonoBehaviour
         AudioSource audioSource = rain.GetComponent<AudioSource>();
         if (GetComponent<GameManager>().soundManager2.soundOn)
             audioSource.Play();
-        //GetComponent<GameManager>().EffectSoundPlay(bgList[1]);
         Rigidbody2D rigid = rain.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
 
@@ -305,7 +305,6 @@ public class LevelManager : MonoBehaviour
         int ranPoint = Random.Range(0, spacespawnPoints.Length);
         GameObject spaceship = objectManager.MakeObj(spaceshipObjs[ranEnemy]);
         spaceship.transform.position = spacespawnPoints[ranPoint].position;
-        GetComponent<GameManager>().EffectSoundPlay(bgList[2]);
         warnImage.transform.position = new Vector3(0.0f, spaceship.transform.position.y,0.0f);
         if (0 <= ranPoint && ranPoint < 3)
         {
@@ -318,9 +317,11 @@ public class LevelManager : MonoBehaviour
             surpriseImage.transform.localRotation = Quaternion.Euler(0, 0, 180);
         }
         warnImage.SetActive(true);
+        if (GetComponent<GameManager>().soundManager2.soundOn)
+            warnImage.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(2f);
         warnImage.SetActive(false);
-        GetComponent<GameManager>().EffectSoundPlay(bgList[0]);
+        GetComponent<GameManager>().soundManager2.EffectSoundPlay(bgList[0]);
         Rigidbody2D rigid = spaceship.GetComponent<Rigidbody2D>();
         if (spaceship.transform.position.x > 0)
             rigid.velocity = Vector2.left * speed[i];

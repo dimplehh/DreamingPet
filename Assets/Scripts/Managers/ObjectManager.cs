@@ -172,7 +172,7 @@ public class ObjectManager : MonoBehaviour
                 && (Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x <= -0.5f ||
                 Camera.main.WorldToViewportPoint(targetPool[index].transform.position).x >= 1.5f))
             {
-                gameManager.EffectSoundStop(gameManager.GetComponent<LevelManager>().bgList[0]);
+                gameManager.soundManager2.EffectSoundStop(gameManager.GetComponent<LevelManager>().bgList[0]);
                 targetPool[index].SetActive(false);
             }
             else if (targetPool[index].activeSelf && Camera.main.WorldToViewportPoint(targetPool[index].transform.position).y >= 2.5)

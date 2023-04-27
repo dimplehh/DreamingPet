@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ce77c82acf9b64897fd61c0238f920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
   effectSound: {fileID: 8300000, guid: 0b2dc3f8bd139b04d9328ed800a6a70c, type: 3}
 --- !u!60 &1427826673604221296
 PolygonCollider2D:

@@ -18,7 +18,6 @@ public class SoundManager : MonoBehaviour
             _instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
             soundOn = true;
-            Debug.Log("A");
         }
         else if(_instance != this)
         {

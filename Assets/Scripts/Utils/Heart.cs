@@ -11,7 +11,7 @@ public class Heart : MonoBehaviour
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (collision.gameObject.tag == "Player" && !(gm.feverState))
         {
-            gm.EffectSoundPlay(effectSound);
+            gm.soundManager2.EffectSoundPlay(effectSound);
             if (collision.gameObject.GetComponent<Player>().life < 3)
             {
                 gm.UpdateLife(++collision.gameObject.GetComponent<Player>().life);

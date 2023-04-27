@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ShieldPiece : MonoBehaviour
 {
-    public AudioClip effectSound;
-
+    [SerializeField]
+    AudioClip audioclip;
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         if (collision.gameObject.tag == "Player")
         {
-            gm.EffectSoundPlay(effectSound);
+            gm.soundManager2.EffectSoundPlay(audioclip);
             gm.UpdateShieldScore(++collision.gameObject.GetComponent<Player>().shieldScore);
             gameObject.SetActive(false);
         }

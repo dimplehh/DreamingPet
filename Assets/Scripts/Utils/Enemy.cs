@@ -34,18 +34,18 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         if (collision.gameObject.tag == "Player" && !(gm.feverState))
         {//find 함수 나중에 고치기
             if (gm.shieldState)
             {
-                gm.EffectSoundPlay(bgList[3]);
+                gm.soundManager2.EffectSoundPlay(bgList[3]);
                 collision.gameObject.transform.Find("bubble").gameObject.SetActive(false);
                 gm.shieldState = false;
             }
             else
             {
-                gm.EffectSoundPlay(bgList[0]);
+                gm.soundManager2.EffectSoundPlay(bgList[0]);
                 gm.UpdateLife(--collision.gameObject.GetComponent<Player>().life);
                 collision.gameObject.layer = 0;
             }
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             {
                 collision.gameObject.SetActive(false);
                 GameObject.FindGameObjectsWithTag("Bone")[0].SetActive(false);
-                gm.EffectSoundPlay(bgList[1]);
+                gm.soundManager2.EffectSoundPlay(bgList[1]);
             }
             else
             {
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
                 collision.gameObject.layer = 0;
                 collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
-            gm.EffectSoundPlay(bgList[2]);
+            gm.soundManager2.EffectSoundPlay(bgList[2]);
             Vector2 vectA = new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y);
             gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity * 5 + 5 * vectA;
             gameObject.GetComponent<Rotate>().time = 0;
@@ -79,7 +79,6 @@ public class Enemy : MonoBehaviour
     }
     IEnumerator InvicibleTime(Collider2D collision)
     {
-        Debug.Log("반투명");
         collision.gameObject.layer = 7;
 
         for (int i = 0; i < 3; i++)
@@ -92,7 +91,6 @@ public class Enemy : MonoBehaviour
         }
         collision.gameObject.layer = 0;
         collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        Debug.Log("불투명");
     }
     
     IEnumerator DestroyEnemy(Collider2D collision)

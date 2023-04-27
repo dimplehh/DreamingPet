@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
     /* 플레이어의 목숨 업데이트 */
     public void UpdateLife(int curlife)
     {
-        Debug.Log(curlife);
             for (int i = 0; i < curlife; i++)
             {
                 if (!lifeImages[i].activeSelf)
@@ -133,7 +132,7 @@ public class GameManager : MonoBehaviour
     }
     public void UpdateFeverScore(int feverScore)
     {
-        feverSlider.value = (feverScore * 10.0f / fCount) + 0.12f;
+        feverSlider.value = (feverScore * 10.0f / fCount);
         if (feverSlider.value == 10.0f)
         {
             int story = PlayerPrefs.GetInt("feverPanelCount", 0);
@@ -180,7 +179,7 @@ public class GameManager : MonoBehaviour
         Back.GetComponent<Background2>().speed = 0.0f;
         Back.SetActive(false);
         feverBack.SetActive(true);
-        EffectSoundPlay(effectSound);
+        soundManager2.EffectSoundPlay(effectSound);
         if (soundManager.soundOn) soundManager.BgSoundPlay(feverBGM);
 
         yield return new WaitForSeconds(20f);
@@ -298,25 +297,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("BBBB");
         Time.timeScale = 1f;
         Debug.Log("CCCC");
-    }
-
-    public void EffectSoundPlay(AudioClip clip)
-    {
-        if (soundManager2.soundOn)
-        {
-            soundManager2.effectSound.clip = clip;
-            soundManager2.effectSound.volume = 0.1f;
-            soundManager2.effectSound.Play();
-        }
-    }
-
-    public void EffectSoundStop(AudioClip clip)
-    {
-        if (soundManager2.soundOn)
-        {
-            soundManager2.effectSound.clip = clip;
-            soundManager2.effectSound.volume = 0.1f;
-            soundManager2.effectSound.Stop();
-        }
     }
 }

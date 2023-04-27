@@ -12,7 +12,7 @@ public class Fever : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {//GameObject.Find 차후 수정
-            gm.EffectSoundPlay(effectSound);
+            gm.soundManager2.EffectSoundPlay(effectSound);
             gm.UpdateFeverScore(++collision.gameObject.GetComponent<Player>().feverScore);
             gameObject.SetActive(false);
         }

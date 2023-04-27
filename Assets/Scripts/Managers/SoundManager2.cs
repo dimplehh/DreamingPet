@@ -31,4 +31,13 @@ public class SoundManager2 : MonoBehaviour
             effectSound.PlayOneShot(effectSound.clip);
         }
     }
+    public void EffectSoundStop(AudioClip clip)
+    {
+        if (soundOn)
+        {
+            effectSound.clip = clip;
+            effectSound.volume = 0.1f;
+            effectSound.Stop();
+        }
+    }
 }
