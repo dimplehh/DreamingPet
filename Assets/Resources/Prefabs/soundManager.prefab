@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4754320340337091044}
   m_Layer: 0
   m_Name: soundManager
-  m_TagString: Untagged
+  m_TagString: Sound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
   bgList:
   - {fileID: 8300000, guid: 2cebe5ef59f447d4d803665e3ecf1a2f, type: 3}
   - {fileID: 8300000, guid: 55b253770ee7b4c418cc1034df7f929a, type: 3}
+  soundOn: 0
+  homeScene: {fileID: 0}
 --- !u!82 &4754320340337091044
 AudioSource:
   m_ObjectHideFlags: 0
