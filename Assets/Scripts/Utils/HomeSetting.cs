@@ -106,6 +106,7 @@ public class HomeSetting : MonoBehaviour
 
     public void EffectOffButton()
     {
+        sound2.EffectSoundPlay(bgList[3]);
         if (sound2.GetComponent<SoundManager2>().soundOn)
         {
             sound2.GetComponent<AudioSource>().Pause();
