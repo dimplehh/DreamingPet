@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HomeScene : BaseScene
 {
-    public GameObject StoryPanel;
+    public GameObject canvas;
     public int story;
 
     protected override void Init()
@@ -14,7 +14,7 @@ public class HomeScene : BaseScene
         story = PlayerPrefs.GetInt("StoryCount", 0);
         if (story == 0)
         {
-            StoryPanel.gameObject.SetActive(true);
+            canvas.GetComponent<HomeSetting>().StoryButton();
             PlayerPrefs.SetInt("StoryCount", 1);
             PlayerPrefs.Save();
         }

@@ -16,15 +16,15 @@ public class HomeSetting : MonoBehaviour
     GameObject[] cutSceneSprite2;
     [SerializeField]
     GameObject exitButton;
-    SoundManager sound;
-    SoundManager2 sound2;
+    public SoundManager sound;
+    public SoundManager2 sound2;
     [SerializeField]
     AudioClip[] bgList;
     public float size; //원하는 사이즈
     public float speed; //커질 때의 속도
     static int index = 0;
 
-    public void Start()
+    public void Awake()
     {
         sound = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
         sound2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
@@ -140,32 +140,55 @@ public class HomeSetting : MonoBehaviour
             cutSceneSprite2[i].SetActive(false);
         }
         StoryPanel.gameObject.SetActive(true);
+        StartCoroutine(StoryNextButton());
     }
 
-    public void StoryNextButton()
+    public IEnumerator StoryNextButton()
     {
-        sound2.EffectSoundPlay(bgList[5]);
-        if (index >= cutSceneSprite.Length)
+        for (int index = 0;index <cutSceneSprite.Length; index++)
         {
-            StoryPanel.SetActive(false);
-            StoryPanel2.SetActive(true);
-            index = 0;
-            return;
+            cutSceneSprite[index].SetActive(true);
+            if(index != 0)
+                sound2.EffectSoundPlay(bgList[5]);
+            yield return new WaitForSeconds(2.0f);
         }
-        cutSceneSprite[index].SetActive(true);
-        index++;
+        StoryPanel.SetActive(false);
+        StoryPanel2.SetActive(true);
+        index = 0;
+        yield return StartCoroutine(StoryNextButton2());
     }
-    public void StoryNextButton2()
+    IEnumerator StoryNextButton2()
     {
-        sound2.EffectSoundPlay(bgList[5]);
-        if (index >= cutSceneSprite2.Length)
+        for (index = 0; index< cutSceneSprite2.Length; index++)
         {
-            StoryPanel2.SetActive(false);
-            index = 0;
-            sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[0]);
-            return;
+            cutSceneSprite2[index].SetActive(true);
+            if (index == cutSceneSprite2.Length - 1)
+                sound2.EffectSoundPlay(bgList[6]);
+            else
+                sound2.EffectSoundPlay(bgList[5]);
+            yield return new WaitForSeconds(2.0f);
         }
-        cutSceneSprite2[index].SetActive(true);
-        index++;
+        StoryPanel2.SetActive(false);
+        index = 0;
+        sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[0]);
+        yield return null;
+    }
+
+    public void ExitCutScene()
+    {
+        StopAllCoroutines();
+        for (int i = 0; i < cutSceneSprite.Length; i++)
+        {
+            cutSceneSprite[i].SetActive(false);
+        }
+        for (int i = 0; i < cutSceneSprite2.Length; i++)
+        {
+            cutSceneSprite2[i].SetActive(false);
+        }
+        StoryPanel.SetActive(false);
+        StoryPanel2.SetActive(false);
+        sound2.EffectSoundPlay(bgList[2]);
+        sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[0]);
+        return;
     }
 }
