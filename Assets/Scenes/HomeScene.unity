@@ -1230,6 +1230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39e7d5bb63bd1b448841d7328dbda56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 0}
+  sound2: {fileID: 0}
   canvas: {fileID: 1960582156}
   story: 0
 --- !u!4 &600044065
@@ -4377,6 +4379,7 @@ MonoBehaviour:
   exitButton: {fileID: 0}
   sound: {fileID: 0}
   sound2: {fileID: 0}
+  baseScene: {fileID: 0}
   bgList:
   - {fileID: 8300000, guid: 5e56845b3eece7446941c97b61ba5873, type: 3}
   - {fileID: 8300000, guid: c1530dc46df761c4282ec6132df05aae, type: 3}

@@ -129,6 +129,8 @@ public class HomeSetting : MonoBehaviour
 
     public void StoryButton()
     {
+        sound = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+        sound2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
         sound2.EffectSoundPlay(bgList[0]);
         if (sound.soundOn) sound.BgSoundPlay(bgList[4]);
         for (int i = 0; i < cutSceneSprite.Length; i++)
