@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText2;
     public TMP_Text highScoreText2;
     public int savedScore = 0;
+    public int score = 0;
     private string KeyString = "HighScore";
     public Image img;
     private bool best=false;
@@ -39,6 +40,7 @@ public class ScoreManager : MonoBehaviour
         {
             scoreText.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
             scoreText2.text = string.Format("{0:n0}", player.GetComponent<Player>().score);
+            score = player.GetComponent<Player>().score;
             highScoreText.text = string.Format("{0:n0}", savedScore);
             highScoreText2.text = string.Format("{0:n0}", savedScore);
 
