@@ -156,16 +156,31 @@ public class LevelManager : MonoBehaviour
         Rigidbody2D rigid = fever.GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.up * speed[i];
     }
-
+    
+    private Dictionary<GameObject, Vector2> feverVelocities = new Dictionary<GameObject, Vector2>();
     public void StopFever()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(feverObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
+            GameObject feverObject = targetPool[index];
+            Rigidbody2D feverRigidbody = feverObject.GetComponent<Rigidbody2D>();
             if (stop)
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            {
+                if(!feverVelocities.ContainsKey(feverObject))
+                {
+                    feverVelocities[feverObject] = feverRigidbody.velocity;
+                }
+                feverRigidbody.velocity = Vector2.zero;
+            }
             else
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+            {
+                if(feverVelocities.TryGetValue(feverObject, out Vector2 previousVelocity))
+                {
+                    feverRigidbody.velocity = previousVelocity;
+                    feverVelocities.Remove(feverObject);
+                }
+            }
         }
     }
 
@@ -236,18 +251,32 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
     }
-
+    private Dictionary<GameObject, Vector2> enemyVelocities = new Dictionary<GameObject, Vector2>();
     public void StopEnemy()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(enemyObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
+            GameObject enemyObject = targetPool[index];
+            Rigidbody2D enemyRigidbody = enemyObject.GetComponent<Rigidbody2D>();
+
             if (stop)
             {
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                if (!enemyVelocities.ContainsKey(enemyObject))
+                {
+                    enemyVelocities[enemyObject] = enemyRigidbody.velocity;
+                }
+
+                enemyRigidbody.velocity = Vector2.zero;
             }
             else
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+            {
+                if (enemyVelocities.TryGetValue(enemyObject, out Vector2 previousVelocity))
+                {
+                    enemyRigidbody.velocity = previousVelocity;
+                    enemyVelocities.Remove(enemyObject);
+                }
+            }
         }
     }
 
@@ -272,20 +301,46 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    private Dictionary<GameObject, Vector2> rainVelocities = new Dictionary<GameObject, Vector2>();
+    private Dictionary<GameObject, bool> rainAudioStates = new Dictionary<GameObject, bool>();
+
     public void StopRain()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(rainObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
+            GameObject rainObject = targetPool[index];
+            Rigidbody2D rainRigidbody = rainObject.GetComponent<Rigidbody2D>();
+            AudioSource rainAudio = rainObject.GetComponent<AudioSource>();
+
             if (stop)
             {
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                if (!rainVelocities.ContainsKey(rainObject))
+                {
+                    rainVelocities[rainObject] = rainRigidbody.velocity;
+                }
+                if (!rainAudioStates.ContainsKey(rainObject))
+                {
+                    rainAudioStates[rainObject] = rainAudio.isPlaying;
+                }
+
+                rainRigidbody.velocity = Vector2.zero;
                 if (GetComponent<GameManager>().soundManager2.soundOn)
-                    targetPool[index].GetComponent<AudioSource>().Stop();
+                {
+                    rainAudio.Stop();
+                }
             }
             else
             {
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+                if (rainVelocities.TryGetValue(rainObject, out Vector2 previousVelocity))
+                {
+                    rainRigidbody.velocity = previousVelocity;
+                    rainVelocities.Remove(rainObject);
+                }
+                if (rainAudioStates.TryGetValue(rainObject, out bool audioState) && audioState)
+                {
+                    rainAudio.Play();
+                }
             }
         }
     }
@@ -331,15 +386,30 @@ public class LevelManager : MonoBehaviour
             rigid.velocity = Vector2.right * speed[i];
     }
 
+    private Dictionary<GameObject, Vector2> SpaceshipVelocities = new Dictionary<GameObject, Vector2>();
     public void StopSpaceShip()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(spaceshipObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
+            GameObject spaceshipObject = targetPool[index];
+            Rigidbody2D spaceshipRigidbody = spaceshipObject.GetComponent<Rigidbody2D>();
             if (stop)
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            {
+                if (!SpaceshipVelocities.ContainsKey(spaceshipObject))
+                {
+                    SpaceshipVelocities[spaceshipObject] = spaceshipRigidbody.velocity;
+                }
+                spaceshipRigidbody.velocity = Vector2.zero;
+            }
             else
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+            {
+                if(SpaceshipVelocities.TryGetValue(spaceshipObject,out Vector2 previousVelocity))
+                {
+                    spaceshipRigidbody.velocity = previousVelocity;
+                    SpaceshipVelocities.Remove(spaceshipObject);
+                }
+            }
         }
     }
 
@@ -360,15 +430,30 @@ public class LevelManager : MonoBehaviour
         rigid.velocity = Vector2.up * speed[i];
     }
 
+    private Dictionary<GameObject, Vector2> heartVelocities = new Dictionary<GameObject, Vector2>();
     public void StopHeart()
     {
         GameObject[] targetPool = objectManager.GetTargetPool(heartObjs[0]);
         for (int index = 0; index < targetPool.Length; index++)
         {
+            GameObject heartObject = targetPool[index];
+            Rigidbody2D heartRigidbody = heartObject.GetComponent<Rigidbody2D>();
             if (stop)
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            {
+                if (!heartVelocities.ContainsKey(heartObject))
+                {
+                    heartVelocities[heartObject] = heartRigidbody.velocity;
+                }
+                heartRigidbody.velocity = Vector2.zero;
+            }
             else
-                targetPool[index].GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
+            {
+                if(heartVelocities.TryGetValue(heartObject, out Vector2 previousVelocity))
+                {
+                    heartRigidbody.velocity = previousVelocity;
+                    heartVelocities.Remove(heartObject);
+                }
+            }
         }
     }
 }

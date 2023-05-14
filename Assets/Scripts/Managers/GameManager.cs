@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
             }
         if (curlife <= 0)
         {
-            if (EndPoint == false)
+            if (EndPoint == false&&Managers.Ad.rewardAd.CanShowAd())
             {
                 StopAll();
                 if (soundManager.soundOn) soundManager.BgSoundStop(mainBGM);
@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 StopAll();
+                if (soundManager.soundOn) soundManager.BgSoundStop(mainBGM);
                 OverPanel.SetActive(true);
                 OverPanel.transform.Find("Menu2").gameObject.SetActive(true);
                 OverPanel.transform.Find("Menu1").gameObject.SetActive(false);

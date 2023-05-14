@@ -12,7 +12,7 @@ public class AdmobManager : MonoBehaviour
 
     private void TestId()
     {
-        deviceId.Add("52d9018a2fd6eefd");
+        //deviceId.Add("52d9018a2fd6eefd");
     }
     /*
     // Start is called before the first frame update
@@ -77,7 +77,7 @@ public class AdmobManager : MonoBehaviour
     {
         
         AdSize adSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
-        bannerAd = new BannerView(bannerTestID, adSize, AdPosition.Bottom); // test용이니 실제 적용할 때는 bannerID 넣자
+        bannerAd = new BannerView(bannerID, adSize, AdPosition.Bottom); // test용이니 실제 적용할 때는 bannerID 넣자
         AdRequest request = new AdRequest.Builder().Build();
         bannerAd.LoadAd(request);
         //배너 끄고 키기 
@@ -92,12 +92,12 @@ public class AdmobManager : MonoBehaviour
     
     //전면 광고
     const string frontTestID = "ca-app-pub-3940256099942544/1033173712";
-    const string frontId = "ca-app-pub-7040385188716427/9836628816";
+    const string frontID = "ca-app-pub-7040385188716427/9836628816";
     InterstitialAd frontAd;
 
     void LoadFrontAd()
     {
-        frontAd = new InterstitialAd(frontTestID);
+        frontAd = new InterstitialAd(frontID);
 
         AdRequest request = new AdRequest.Builder().Build();
         frontAd.LoadAd(request);
@@ -116,12 +116,12 @@ public class AdmobManager : MonoBehaviour
 
     //리워드 광고
     const string rewardTestID = "ca-app-pub-3940256099942544/5224354917";
-    const string rewardId = "ca-app-pub-7040385188716427/4105241249";
-    RewardedAd rewardAd;
+    const string rewardID = "ca-app-pub-7040385188716427/4105241249";
+    public RewardedAd rewardAd;
 
     void LoadRewardAd()
     {
-        rewardAd = new RewardedAd(rewardTestID);
+        rewardAd = new RewardedAd(rewardID);
         AdRequest request = new AdRequest.Builder().Build();
         rewardAd.LoadAd(request);
         
