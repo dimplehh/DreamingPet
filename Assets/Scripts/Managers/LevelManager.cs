@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     string[] heartObjs;
     [SerializeField]
+    string[] coinObjs;
+    [SerializeField]
     string[] shieldpieceObjs;
     [SerializeField]
     Transform[] spawnPoints;
@@ -35,11 +37,13 @@ public class LevelManager : MonoBehaviour
     float[] maxSpawnDelay;
     float[] speed;
     float maxT;
+    float otherSpawnDelay = 7f;
+    float t2;
 
     float curSpawnDelay;
     int i;
     int level;
-
+    
     float realSpawnDelay;
     void Awake()
     {
@@ -48,6 +52,7 @@ public class LevelManager : MonoBehaviour
         rainObjs = new string[] { "rain" };
         spaceshipObjs = new string[] { "spaceship" };
         heartObjs = new string[] { "heart" };
+        coinObjs = new string[] { "coin" };
         shieldpieceObjs = new string[] { "shieldpiece" };
     }
     void Start()
@@ -57,6 +62,7 @@ public class LevelManager : MonoBehaviour
         speed = new float[8] { 2.4f, 2.7f, 3.0f, 3.3f, 3.6f, 3.9f, 4.2f, 4.5f };
 
         maxT = t[t.Length - 1];
+        t2 = otherSpawnDelay;
         level = 0;
     }
 
@@ -70,6 +76,24 @@ public class LevelManager : MonoBehaviour
 
         if(!stop)
         {
+            if(t2 > 0)
+            {
+                t2 -= Time.deltaTime;
+            }
+            else
+            {
+                if (!GetComponent<GameManager>().feverState)
+                {
+                    int random = Random.Range(0, 3);
+                    if (random == 0)
+                        SpawnFever();
+                    else if (random == 1)
+                        SpawnHeart();
+                    else if (random == 2)
+                        SpawnCoin();
+                }
+                t2 = otherSpawnDelay;
+            }
             if (t[i] > 0)
             {
                 t[i] -= Time.deltaTime;
@@ -82,8 +106,6 @@ public class LevelManager : MonoBehaviour
                     if (enemyCnt % 3 == 0 && GetComponent<GameManager>().feverState) SpawnShieldPiece();
                     if (enemyCnt % 9 == 0 && !GetComponent<GameManager>().feverState && level >=3) SpawnRain();
                     else if (enemyCnt % 13 == 0 && !GetComponent<GameManager>().feverState && level >= 4) SpawnSpaceShip();
-                    else if (enemyCnt % 6 == 0 && !GetComponent<GameManager>().feverState) SpawnFever();
-                    else if (enemyCnt % 11 == 0 && !GetComponent<GameManager>().feverState) SpawnHeart();
                     else SpawnEnemy();
 
                     curSpawnDelay = 0;
@@ -94,6 +116,7 @@ public class LevelManager : MonoBehaviour
                 DeleteFever();
                 DeleteSpaceShip();
                 DeleteHeart();
+                DeleteCoin();
                 DeleteShieldPiece();
             }
             else
@@ -452,6 +475,50 @@ public class LevelManager : MonoBehaviour
                 {
                     heartRigidbody.velocity = previousVelocity;
                     heartVelocities.Remove(heartObject);
+                }
+            }
+        }
+    }
+
+    public void DeleteCoin()
+    {
+        int ranEnemy = 0;
+        objectManager.DelObj(coinObjs[ranEnemy]);
+    }
+
+    public void SpawnCoin()
+    {
+        int ranEnemy = 0;
+        int ranPoint = Random.Range(0, spawnPoints.Length);
+        GameObject coin= objectManager.MakeObj(coinObjs[ranEnemy]);
+        coin.transform.position = spawnPoints[ranPoint].position;
+
+        Rigidbody2D rigid = coin.GetComponent<Rigidbody2D>();
+        rigid.velocity = Vector2.up * speed[i];
+    }
+
+    private Dictionary<GameObject, Vector2> coinVelocities = new Dictionary<GameObject, Vector2>();
+    public void StopCoin()
+    {
+        GameObject[] targetPool = objectManager.GetTargetPool(coinObjs[0]);
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            GameObject coinObject = targetPool[index];
+            Rigidbody2D coinRigidbody = coinObject.GetComponent<Rigidbody2D>();
+            if (stop)
+            {
+                if (!coinVelocities.ContainsKey(coinObject))
+                {
+                    coinVelocities[coinObject] = coinRigidbody.velocity;
+                }
+                coinRigidbody.velocity = Vector2.zero;
+            }
+            else
+            {
+                if (coinVelocities.TryGetValue(coinObject, out Vector2 previousVelocity))
+                {
+                    coinRigidbody.velocity = previousVelocity;
+                    coinVelocities.Remove(coinObject);
                 }
             }
         }

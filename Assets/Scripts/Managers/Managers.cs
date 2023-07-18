@@ -7,12 +7,14 @@ public class Managers : MonoBehaviour
     static Managers s_instance;
     public static Managers Instance { get { init(); return s_instance; } }
     GameManager _game = new GameManager();
+    CoinManager _coin = new CoinManager();
     ResourceManager _resource = new ResourceManager();
     ObjectManager _object = new ObjectManager();
     ScoreManager _score = new ScoreManager();
     AdmobManager _Ad = new AdmobManager();
 
     public static GameManager Game { get { return Instance._game; } }
+    public static CoinManager Coin { get { return Instance._coin; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static ObjectManager Object { get { return Instance._object; } }
     public static ScoreManager Score { get { return Instance._score; } }

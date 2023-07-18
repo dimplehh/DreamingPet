@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int score;
+    public int coin;
     public int life;
     public int feverScore;
     public int shieldScore;
@@ -14,9 +15,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         StartCoroutine("ScoreUpdate");
+        coin = 0;
     }
-
-    
     
     /* 시간의 흐름에 따른 점수 증가 */
     IEnumerator ScoreUpdate(){
@@ -44,6 +44,5 @@ public class Player : MonoBehaviour
     {
         StartCoroutine(InvicibleTime());
     }
-
 
 }

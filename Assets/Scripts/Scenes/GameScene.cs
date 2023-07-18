@@ -11,11 +11,14 @@ public class GameScene : BaseScene
     public GameObject player;
     [SerializeField]
     ScoreManager scoreManager;
+    [SerializeField]
+    CoinManager coinManager;
     public bool gameState;
     public GameObject GuidePanel;
     void Start()
     {
         scoreManager.GenerateScore();
+        coinManager.GenerateCoin();
     }
 
     protected override void Init()

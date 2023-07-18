@@ -146,6 +146,7 @@ public class AdmobManager : MonoBehaviour
             gm.gameObject.GetComponent<LevelManager>().StopRain();
             gm.gameObject.GetComponent<LevelManager>().StopSpaceShip();
             gm.gameObject.GetComponent<LevelManager>().StopHeart();
+            gm.gameObject.GetComponent<LevelManager>().StopCoin();
             gm.gameObject.GetComponent<LevelManager>().StopShieldPiece();
             if (gm.soundManager.soundOn) gm.soundManager.BgSoundPlay(gm.mainBGM);
 

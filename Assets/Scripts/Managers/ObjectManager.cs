@@ -16,6 +16,8 @@ public class ObjectManager : MonoBehaviour
     GameObject heartPrefab;
     [SerializeField]
     GameObject shieldpiecePrefab;
+    [SerializeField]
+    GameObject coinPrefab;
 
     GameObject[] enemy;
     GameObject[] fever;
@@ -23,7 +25,7 @@ public class ObjectManager : MonoBehaviour
     GameObject[] spaceship;
     GameObject[] heart;
     GameObject[] shieldpiece;
-    //GameObject[] coin;
+    GameObject[] coin;
     GameObject[] targetPool;
 
     GameManager gameManager;
@@ -35,6 +37,7 @@ public class ObjectManager : MonoBehaviour
         rain = new GameObject[5];
         spaceship = new GameObject[5];
         heart = new GameObject[5];
+        coin = new GameObject[5];
         shieldpiece = new GameObject[10];
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         //coin = new GameObject[10];
@@ -69,6 +72,11 @@ public class ObjectManager : MonoBehaviour
             heart[index] = Instantiate(heartPrefab);
             heart[index].SetActive(false);
         }
+        for (int index = 0; index < coin.Length; index++)
+        {
+            coin[index] = Instantiate(coinPrefab);
+            coin[index].SetActive(false);
+        }
         for (int index = 0; index < shieldpiece.Length; index++)
         {
             shieldpiece[index] = Instantiate(shieldpiecePrefab);
@@ -95,6 +103,9 @@ public class ObjectManager : MonoBehaviour
             case "heart":
                 targetPool = heart;
                 break;
+            case "coin":
+                targetPool = coin;
+                break;
             case "shieldpiece":
                 targetPool = shieldpiece;
                 break;
@@ -120,6 +131,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "heart":
                 targetPool = heart;
+                break;
+            case "coin":
+                targetPool = coin;
                 break;
             case "shieldpiece":
                 targetPool = shieldpiece;
@@ -156,6 +170,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "heart":
                 targetPool = heart;
+                break;
+            case "coin":
+                targetPool = coin;
                 break;
             case "shieldpiece":
                 targetPool = shieldpiece;

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     float feverTime = 2.5f;
     public SoundManager soundManager;
     public SoundManager2 soundManager2;
+    public CoinManager coinManager;
 
     [SerializeField]
     AudioClip feverBGM;
@@ -67,6 +68,10 @@ public class GameManager : MonoBehaviour
     {
         return score;
     }
+    public float Coin(float coin)
+    {
+        return coin;
+    }
     public int Life(int life)
     {
         return life;
@@ -84,10 +89,21 @@ public class GameManager : MonoBehaviour
         bone = GameObject.FindGameObjectWithTag("Bone");
         soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
         soundManager2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
+        coinManager= GameObject.FindGameObjectWithTag("CoinManager").GetComponent<CoinManager>();
         Timers = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
     }
 
     /* 플레이어의 목숨 업데이트 */
+    public void UpdateCoin(int curcoin)
+    {
+        coinManager.coin += curcoin;
+        coinManager.savedCoin += curcoin;
+        coinManager.coinText.text = string.Format("{0:n0}", coinManager.coin) ;
+        PlayerPrefs.SetInt(coinManager.KeyString, coinManager.savedCoin);
+        PlayerPrefs.Save();
+        coinManager.TotalCoinText.text = coinManager.savedCoin.ToString();
+    }
+
     public void UpdateLife(int curlife)
     {
             for (int i = 0; i < curlife; i++)
@@ -269,6 +285,7 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<LevelManager>().StopRain();
         gameObject.GetComponent<LevelManager>().StopSpaceShip();
         gameObject.GetComponent<LevelManager>().StopHeart();
+        gameObject.GetComponent<LevelManager>().StopCoin();
         gameObject.GetComponent<LevelManager>().StopShieldPiece();
         Back.GetComponent<Background2>().enabled = false;
     }

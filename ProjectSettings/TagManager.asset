@@ -11,6 +11,8 @@ TagManager:
   - Canvas
   - Sound
   - Sound2
+  - Coin
+  - CoinManager
   layers:
   - Default
   - TransparentFX

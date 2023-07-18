@@ -5,12 +5,12 @@ using UnityEngine;
 public class Share : MonoBehaviour
 {
 	public ScoreManager scoreManager;
-	private string subject ;
+	private string subject;
 	private const string body = "https://play.google.com/store/apps/details?id=com.Default.DreamingPet";
 
 	public void Shareshare()
 	{
-		subject = "내 갱얼쥐 산책시키고 친구의 스코어 " + scoreManager.score + "점 뛰어넘기!"; 
+		subject = "내 펫 산책시키고 친구의 스코어 " + scoreManager.score.ToString() + "점 뛰어넘기!";
 #if UNITY_ANDROID && !UNITY_EDITOR
 		using (AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent")) 
 		using (AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent")) {
