@@ -16,8 +16,8 @@ public class CoinManager : MonoBehaviour
     {
         savedCoin = PlayerPrefs.GetInt(KeyString);
         PlayerPrefs.Save();
-        coinText.text = coin.ToString();
-        TotalCoinText.text = savedCoin.ToString();
+        coinText.text = string.Format("{0:n0}", coin.ToString());
+        TotalCoinText.text = string.Format("{0:n0}", savedCoin.ToString());
     }
 
     //public void UpdateCoin(GameObject gameObject)

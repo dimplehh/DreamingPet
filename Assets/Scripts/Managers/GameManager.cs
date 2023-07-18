@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         coinManager.coinText.text = string.Format("{0:n0}", coinManager.coin) ;
         PlayerPrefs.SetInt(coinManager.KeyString, coinManager.savedCoin);
         PlayerPrefs.Save();
-        coinManager.TotalCoinText.text = coinManager.savedCoin.ToString();
+        coinManager.TotalCoinText.text = string.Format("{0:n0}", coinManager.savedCoin.ToString());
     }
 
     public void UpdateLife(int curlife)
