@@ -6,14 +6,16 @@ using TMPro;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class ShopList //»óÁ¡ panel¿¡ ÀÖ´Â ¹°°Çµé (SerializeField·Î ÁöÁ¤. ->ÇöÀçÃ³·³ ÀÏÀÏÀÌ ÁöÁ¤ ¸»°í ´õ ÁÁÀº ¹æ¹ı ÀÖ±ä ÇÒµí)
+public class ShopList //ìƒì  panelì— ìˆëŠ” ë¬¼ê±´ë“¤ (SerializeFieldë¡œ ì§€ì •. ->í˜„ì¬ì²˜ëŸ¼ ì¼ì¼ì´ ì§€ì • ë§ê³  ë” ì¢‹ì€ ë°©ë²• ìˆê¸´ í• ë“¯)
 {
 	public int id;
 	public Image prefab;
+    public Image mak;
+    public GameObject click;
 }
 
 [System.Serializable]
-public class Items //¾ÆÀÌÅÛ ÀúÀå Á¤º¸(ID, ÀÌ¸§, °¡°İ, ±¸¸Å¿©ºÎ)
+public class Items //ì•„ì´í…œ ì €ì¥ ì •ë³´(ID, ì´ë¦„, ê°€ê²©, êµ¬ë§¤ì—¬ë¶€)
 {
 	public int id;
 	public string name;
@@ -36,18 +38,19 @@ public class ShopManager : MonoBehaviour
 	[SerializeField]
 	TMP_Text coinText;
 	int coin;
+    public int index = 0;
 
-    private void Start()//ÀÓ½Ã. Â÷ÈÄ JSONÀ¸·Î °ü¸®ÇÏ´Â°ÍÀÌ ÁÁÀ»°Í
+    private void Start()//ì„ì‹œ. ì°¨í›„ JSONìœ¼ë¡œ ê´€ë¦¬í•˜ëŠ”ê²ƒì´ ì¢‹ì„ê²ƒ
     {
-		Items.Add(new Items(0, "normal", 10, false));
-		Items.Add(new Items(1, "special", 5, false));
-		Items.Add(new Items(2, "common", 10, false));
-		Items.Add(new Items(3, "good", 5, false));
-		Items.Add(new Items(4, "great", 10, false));
+		Items.Add(new Items(0, "bone", 0, false));
+		Items.Add(new Items(1, "specialbone", 10, false));
+		Items.Add(new Items(2, "twig", 3, false));
+		Items.Add(new Items(3, "ball", 5, false));
+		Items.Add(new Items(4, "doll", 8, false));
 		Items.Add(new Items(5, "super", 5, false));
 	}
 
-    public void Save() //ÀúÀåÇÔ¼ö - ÆÄÀÏ½ºÆ®¸²À¸·Î ÀúÀåÈÄ Á÷·ÄÈ­
+    public void Save() //ì €ì¥í•¨ìˆ˜ - íŒŒì¼ìŠ¤íŠ¸ë¦¼ìœ¼ë¡œ ì €ì¥í›„ ì§ë ¬í™”
     {
 		FileStream fs = File.Create(Application.persistentDataPath + "/Items.dat");
 		BinaryFormatter bf = new BinaryFormatter();
@@ -55,24 +58,32 @@ public class ShopManager : MonoBehaviour
 		fs.Close();
     }
 
-	public void Buy(int index) //±¸¸Å - ¸Å panel ÀÇ ÀÌ¹ÌÁö¿¡ ºÙ¾îÀÖ´Â ÇÔ¼öÀÌ¸ç, ÇöÀç °¡Áø ÄÚÀÎ°³¼ö¿Í ºñ±³ÇÏ¿© ±¸¸Å °¡´ÉÇÏ¸é ±¸¸Å.
+    public void Select(int index)
     {
+        shopList[this.index].click.SetActive(false);
+        shopList[index].click.SetActive(true);
+        this.index = index;
+    }
+
+	public void Buy() //êµ¬ë§¤ - ë§¤ panel ì˜ ì´ë¯¸ì§€ì— ë¶™ì–´ìˆëŠ” í•¨ìˆ˜ì´ë©°, í˜„ì¬ ê°€ì§„ ì½”ì¸ê°œìˆ˜ì™€ ë¹„êµí•˜ì—¬ êµ¬ë§¤ ê°€ëŠ¥í•˜ë©´ êµ¬ë§¤.
+    {
+        int index = this.index;
 		if(Items != null)
         {
 			int coin = PlayerPrefs.GetInt("TotalCoin", 0);
-			if (coin > Items[index].cost)
+			if (coin > Items[index].cost && Items[index].isBuy == false)
             {
 				PlayerPrefs.SetInt("TotalCoin", coin - Items[index].cost);
 				PlayerPrefs.Save();
 				coinText.text = string.Format("{0:n0}", PlayerPrefs.GetInt("TotalCoin", 0));
 				Items[index].isBuy = true;
-				shopList[index].prefab.color = Color.black;
+                shopList[index].mak.color = new Color(0,0,0,0);
 				Save();
 			}
         }
     }
 
-	public bool Load() //¸Ç Ã³À½ HomeSceme·Îµå ½Ã ºÒ·¯¿À´Â ÇÔ¼ö
+	public bool Load() //ë§¨ ì²˜ìŒ HomeScemeë¡œë“œ ì‹œ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜
     {
         string path = Application.persistentDataPath + "/Items.dat";
         // Checking if the file exists
@@ -91,12 +102,12 @@ public class ShopManager : MonoBehaviour
         return false;
     }
 
-	public void Reinstantiate() //Load ÇÔ¼ö¿¡¼­ ¾²ÀÓ, ¸ğµç Item º¸¸é¼­ ±¸¸ÅÇßÀ» ½Ã
+	public void Reinstantiate() //Load í•¨ìˆ˜ì—ì„œ ì“°ì„, ëª¨ë“  Item ë³´ë©´ì„œ êµ¬ë§¤í–ˆì„ ì‹œ
 	{
 		for (int i = 0; i < Items.Count; i++)
 		{
 			if(Items[i].isBuy)
-				shopList[i].prefab.color = Color.black;
-		}
+                shopList[i].mak.color = new Color(0, 0, 0, 0);
+        }
 	}
 }
