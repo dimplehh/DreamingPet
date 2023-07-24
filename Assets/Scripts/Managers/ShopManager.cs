@@ -21,12 +21,14 @@ public class Items //아이템 저장 정보(ID, 이름, 가격, 구매여부)
 	public string name;
 	public int cost;
 	public bool isBuy = false;
-	public Items(int id, string name, int cost, bool isBuy)
+    public string explain;
+	public Items(int id, string name, int cost, bool isBuy, string explain)
 	{
 		this.id = id;
 		this.name = name;
 		this.cost = cost;
 		this.isBuy = isBuy;
+        this.explain = explain;
 	}
 }
 
@@ -39,15 +41,24 @@ public class ShopManager : MonoBehaviour
 	TMP_Text coinText;
 	int coin;
     public int index = 0;
+    [SerializeField]
+    Sprite[] ImageList = new Sprite[5];
+    [SerializeField]
+    Image image;
+    [SerializeField]
+    TMP_Text objname;
+    [SerializeField]
+    TMP_Text explain;
+    [SerializeField]
+    TMP_Text cost;
 
     private void Start()//임시. 차후 JSON으로 관리하는것이 좋을것
     {
-		Items.Add(new Items(0, "bone", 0, false));
-		Items.Add(new Items(1, "specialbone", 10, false));
-		Items.Add(new Items(2, "twig", 3, false));
-		Items.Add(new Items(3, "ball", 5, false));
-		Items.Add(new Items(4, "doll", 8, false));
-		Items.Add(new Items(5, "super", 5, false));
+		Items.Add(new Items(0, "뼈다귀", 0, false, "맛있는 뼈다귀다!"));
+		Items.Add(new Items(1, "특제 뼈다귀", 1000, false, "모든 아이템의 출현률이 증가한다!"));
+		Items.Add(new Items(2, "나뭇가지", 300, false, "이동 속도가 빨라진다!"));
+		Items.Add(new Items(3, "실타래 공", 500, false, "코인 획득량이 두배가 된다!"));
+		Items.Add(new Items(4, "애착 인형", 800, false, "하트 출현 빈도가 증가한다!"));
 	}
 
     public void Save() //저장함수 - 파일스트림으로 저장후 직렬화
@@ -63,6 +74,10 @@ public class ShopManager : MonoBehaviour
         shopList[this.index].click.SetActive(false);
         shopList[index].click.SetActive(true);
         this.index = index;
+        objname.text = Items[this.index].name;
+        cost.text = Items[this.index].cost.ToString();
+        explain.text = Items[this.index].explain;
+        image.sprite = ImageList[this.index];
     }
 
 	public void Buy() //구매 - 매 panel 의 이미지에 붙어있는 함수이며, 현재 가진 코인개수와 비교하여 구매 가능하면 구매.
