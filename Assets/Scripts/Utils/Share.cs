@@ -10,7 +10,7 @@ public class Share : MonoBehaviour
 
 	public void Shareshare()
 	{
-		subject = "³» Æê »êÃ¥½ÃÅ°°í Ä£±¸ÀÇ ½ºÄÚ¾î " + scoreManager.score.ToString() + "Á¡ ¶Ù¾î³Ñ±â!";
+		subject = "ë‚´ í« ì‚°ì±…ì‹œí‚¤ê³  ì¹œêµ¬ì˜ ìŠ¤ì½”ì–´ " + scoreManager.score.ToString() + "ì  ë›°ì–´ë„˜ê¸°!";
 #if UNITY_ANDROID && !UNITY_EDITOR
 		using (AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent")) 
 		using (AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent")) {
