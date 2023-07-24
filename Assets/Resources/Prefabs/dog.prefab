@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  coin: 0
   life: 3
   feverScore: 0
   shieldScore: 0

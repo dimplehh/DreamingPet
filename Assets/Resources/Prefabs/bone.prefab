@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4588981689228300360}
   - component: {fileID: 4588981689228300361}
   - component: {fileID: 3157624181160090363}
+  - component: {fileID: 5476734171855629624}
   m_Layer: 7
   m_Name: bone
   m_TagString: Bone
@@ -140,3 +141,17 @@ PolygonCollider2D:
       - {x: 6.5, y: 1.3333334}
       - {x: 5.375, y: 3}
       - {x: 3.375, y: 3.875}
+--- !u!114 &5476734171855629624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588981689228300362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d971c8b5461144398315eff2ee19e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toyDB: {fileID: 11400000, guid: d7c325f1dc3064645ba7836bff0c5bab, type: 2}
+  toySpriteRenderer: {fileID: 4588981689228300360}
