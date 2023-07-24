@@ -382,7 +382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29719bbca10ede84da90b75d93a85f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fd37354c062c76449d9525950f17a10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -447,6 +447,18 @@ MonoBehaviour:
       - m_Target: {fileID: 611206433}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5476734171855629624, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
+        m_TargetAssemblyTypeName: ToyManager, Assembly-CSharp
+        m_MethodName: ToyChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0.6392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1028,14 +1040,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6565439, g: 1, b: 0.5886792, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29719bbca10ede84da90b75d93a85f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1131a69e09d3ad3469514cdf863523b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1100,6 +1112,18 @@ MonoBehaviour:
       - m_Target: {fileID: 611206433}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5476734171855629624, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
+        m_TargetAssemblyTypeName: ToyManager, Assembly-CSharp
+        m_MethodName: ToyChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3098,14 +3122,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.89435893, b: 0.65471697, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29719bbca10ede84da90b75d93a85f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0aad9fdebb2a183498a7c192cdfa63a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3170,6 +3194,18 @@ MonoBehaviour:
       - m_Target: {fileID: 611206433}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5476734171855629624, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
+        m_TargetAssemblyTypeName: ToyManager, Assembly-CSharp
+        m_MethodName: ToyChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3491,14 +3527,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.57924527, g: 0.7087904, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29719bbca10ede84da90b75d93a85f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ca3fed75d5011a42a951755d6883a54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3572,6 +3608,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5476734171855629624, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
+        m_TargetAssemblyTypeName: ToyManager, Assembly-CSharp
+        m_MethodName: ToyChange
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1079704626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,14 +3672,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.51320755, b: 0.51320755, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29719bbca10ede84da90b75d93a85f3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a95c093b6311dc419460472cf07f537, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3696,6 +3744,18 @@ MonoBehaviour:
       - m_Target: {fileID: 611206433}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5476734171855629624, guid: 1242e4a92f0ab9a42b93d7d6e74e2133, type: 3}
+        m_TargetAssemblyTypeName: ToyManager, Assembly-CSharp
+        m_MethodName: ToyChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

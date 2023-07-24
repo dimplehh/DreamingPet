@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Unity.Mathematics;
+using System.Runtime.CompilerServices;
 
 public class MovePet : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MovePet : MonoBehaviour
     private float maxAngle = 30f;
     private Vector3 moveDirection;
     private Animator animator;
+    private string biteNum;
 
     void Start(){
         boneObject = GameObject.FindGameObjectWithTag("Bone");
@@ -128,14 +130,14 @@ public class MovePet : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = biteDog;
                 color.a = 0.0f;
                 boneObject.GetComponent<SpriteRenderer>().color = color;
-                animator.SetBool("bite", true);
+                animator.SetBool(SkinBite(), true);
             }
             else
             {
                 GetComponent<SpriteRenderer>().sprite = Dog;
                 color.a = 1.0f;
                 boneObject.GetComponent<SpriteRenderer>().color = color;
-                animator.SetBool("bite", false);
+                animator.SetBool(SkinBite(), false);
             }
         
   
@@ -151,6 +153,27 @@ public class MovePet : MonoBehaviour
         speed = boneObject.GetComponent<MoveBone>().speed * 0.15f;
     }
 
-    
+    private string SkinBite()
+    {
+        switch (PlayerPrefs.GetInt("toyOption"))
+        {
+            case 0:
+                biteNum = "bite";
+                break;
+            case 1:
+                biteNum = "bite1";
+                break;
+            case 2:
+                biteNum = "bite2";
+                break;
+            case 3:
+                biteNum = "bite3";
+                break;
+            case 4:
+                biteNum = "bite4";
+                break;
+        }
+        return biteNum;
+    }
 
 }

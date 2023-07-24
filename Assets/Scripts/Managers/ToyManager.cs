@@ -10,7 +10,7 @@ public class ToyManager : MonoBehaviour
 
     private int toyOption = 0;
 
-    private void Start()
+    private void Awake()
     {
         if (!PlayerPrefs.HasKey("toyOption"))
         {

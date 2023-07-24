@@ -8,5 +8,4 @@ public class Toy
 {
     public bool isBuy = false;
     public Sprite toySprite;
-    public AnimationClip animationClip;
 }

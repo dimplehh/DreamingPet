@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public SoundManager2 soundManager2;
     public CoinManager coinManager;
 
+
     [SerializeField]
     AudioClip feverBGM;
     public AudioClip mainBGM;
