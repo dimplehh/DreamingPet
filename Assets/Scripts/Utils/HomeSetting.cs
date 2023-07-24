@@ -20,8 +20,8 @@ public class HomeSetting : MonoBehaviour
     public SoundManager2 sound2;
     [SerializeField]
     AudioClip[] bgList;
-    public float size; //¿øÇÏ´Â »çÀÌÁî
-    public float speed; //Ä¿Áú ¶§ÀÇ ¼Óµµ
+    public float size; //ì›í•˜ëŠ” ì‚¬ì´ì¦ˆ
+    public float speed; //ì»¤ì§ˆ ë•Œì˜ ì†ë„
     static int index = 0;
 
     public void Awake()
