@@ -10,6 +10,8 @@ public class ToyManager : MonoBehaviour
 
     private int toyOption = 0;
 
+    private int selectToy = 0;
+    
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("toyOption"))
@@ -23,15 +25,15 @@ public class ToyManager : MonoBehaviour
         UpdateToy(toyOption);
     }
 
-    public void ToyChange(int num)
+    public void ToyChange()
     {
-        if(toyDB.GetToy(num).isBuy == true)
+        if(toyDB.GetToy(selectToy).isBuy == true)
         {
-            toyOption = num;
+            toyOption = selectToy;
             UpdateToy(toyOption);
+            
             Save();
         }
-
     }
 
     private void UpdateToy(int selectedOption)
@@ -48,5 +50,9 @@ public class ToyManager : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetInt("toyOption", toyOption);
+    }
+    public void SelectToy(int num)
+    {
+        this.selectToy = num;
     }
 }

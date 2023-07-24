@@ -51,15 +51,21 @@ public class ShopManager : MonoBehaviour
     TMP_Text explain;
     [SerializeField]
     TMP_Text cost;
-
+    [SerializeField]
+    GameObject previewPanel;
+    [SerializeField]
+    GameObject ItemImages;
+    [SerializeField] ToyDatabase toyDB;
     private void Start()//임시. 차후 JSON으로 관리하는것이 좋을것
     {
-		Items.Add(new Items(0, "뼈다귀", 0, false, "맛있는 뼈다귀다!"));
-		Items.Add(new Items(1, "특제 뼈다귀", 1000, false, "모든 아이템의 출현률이 증가한다!"));
-		Items.Add(new Items(2, "나뭇가지", 300, false, "이동 속도가 빨라진다!"));
-		Items.Add(new Items(3, "실타래 공", 500, false, "코인 획득량이 두배가 된다!"));
-		Items.Add(new Items(4, "애착 인형", 800, false, "하트 출현 빈도가 증가한다!"));
-	}
+		Items.Add(new Items(0, "뼈다귀", 0, true, "맛있는 뼈다귀다!"));
+		Items.Add(new Items(1, "특제 뼈다귀", 2, false, "모든 아이템의 출현률이 증가한다!"));
+		Items.Add(new Items(2, "나뭇가지", 3, false, "이동 속도가 빨라진다!"));
+		Items.Add(new Items(3, "실타래 공", 4, false, "코인 획득량이 두배가 된다!"));
+		Items.Add(new Items(4, "애착 인형", 5, false, "하트 출현 빈도가 증가한다!"));
+        toyDB.GetToy(0).isBuy = true;
+        shopList[0].mak.color = new Color(0, 0, 0, 0);
+    }
 
     public void Save() //저장함수 - 파일스트림으로 저장후 직렬화
     {
@@ -78,6 +84,13 @@ public class ShopManager : MonoBehaviour
         cost.text = Items[this.index].cost.ToString();
         explain.text = Items[this.index].explain;
         image.sprite = ImageList[this.index];
+
+        foreach (Transform child in previewPanel.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        previewPanel.transform.GetChild(index).gameObject.SetActive(true);
+
     }
 
 	public void Buy() //구매 - 매 panel 의 이미지에 붙어있는 함수이며, 현재 가진 코인개수와 비교하여 구매 가능하면 구매.
@@ -92,6 +105,7 @@ public class ShopManager : MonoBehaviour
 				PlayerPrefs.Save();
 				coinText.text = string.Format("{0:n0}", PlayerPrefs.GetInt("TotalCoin", 0));
 				Items[index].isBuy = true;
+                toyDB.GetToy(index).isBuy = true;
                 shopList[index].mak.color = new Color(0,0,0,0);
 				Save();
 			}
@@ -125,4 +139,5 @@ public class ShopManager : MonoBehaviour
                 shopList[i].mak.color = new Color(0, 0, 0, 0);
         }
 	}
+
 }

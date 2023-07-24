@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3814709522969924425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3814709522969924470}
+  - component: {fileID: 3814709522969924471}
+  m_Layer: 0
+  m_Name: shopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3814709522969924470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814709522969924425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162, y: 1734, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3814709522969924471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814709522969924425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5175a36355c0e4ca1997ff8a498bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopList:
+  - id: 0
+    prefab: {fileID: 0}
+    mak: {fileID: 0}
+    click: {fileID: 0}
+  - id: 1
+    prefab: {fileID: 0}
+    mak: {fileID: 0}
+    click: {fileID: 0}
+  - id: 2
+    prefab: {fileID: 0}
+    mak: {fileID: 0}
+    click: {fileID: 0}
+  - id: 3
+    prefab: {fileID: 0}
+    mak: {fileID: 0}
+    click: {fileID: 0}
+  - id: 4
+    prefab: {fileID: 0}
+    mak: {fileID: 0}
+    click: {fileID: 0}
+  coinText: {fileID: 0}
+  index: 0
+  ImageList:
+  - {fileID: -341964660, guid: 9fd37354c062c76449d9525950f17a10, type: 3}
+  - {fileID: -1422434130, guid: 2a95c093b6311dc419460472cf07f537, type: 3}
+  - {fileID: -2109045700, guid: 0aad9fdebb2a183498a7c192cdfa63a3, type: 3}
+  - {fileID: -1662712113, guid: 1131a69e09d3ad3469514cdf863523b6, type: 3}
+  - {fileID: -128613442, guid: 2ca3fed75d5011a42a951755d6883a54, type: 3}
+  image: {fileID: 0}
+  objname: {fileID: 0}
+  explain: {fileID: 0}
+  cost: {fileID: 0}
+  previewPanel: {fileID: 0}
+  toyDB: {fileID: 11400000, guid: d7c325f1dc3064645ba7836bff0c5bab, type: 2}

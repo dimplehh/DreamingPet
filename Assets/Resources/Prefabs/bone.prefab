@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1841390173
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -128613442, guid: 2ca3fed75d5011a42a951755d6883a54, type: 3}
+  m_Sprite: {fileID: -341964660, guid: 9fd37354c062c76449d9525950f17a10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,3 +155,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toyDB: {fileID: 11400000, guid: d7c325f1dc3064645ba7836bff0c5bab, type: 2}
   toySpriteRenderer: {fileID: 4588981689228300360}
+  shopManager: {fileID: 2144323327105259386, guid: 8e0d4a5a10e6bf748abee0812f623fe7, type: 3}

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ToyDatabase
   m_EditorClassIdentifier: 
   toy:
-  - isBuy: 1
+  - isBuy: 0
     toySprite: {fileID: -341964660, guid: 9fd37354c062c76449d9525950f17a10, type: 3}
   - isBuy: 0
     toySprite: {fileID: -1422434130, guid: 2a95c093b6311dc419460472cf07f537, type: 3}
   - isBuy: 0
     toySprite: {fileID: -2109045700, guid: 0aad9fdebb2a183498a7c192cdfa63a3, type: 3}
-  - isBuy: 1
+  - isBuy: 0
     toySprite: {fileID: -1662712113, guid: 1131a69e09d3ad3469514cdf863523b6, type: 3}
-  - isBuy: 1
+  - isBuy: 0
     toySprite: {fileID: -128613442, guid: 2ca3fed75d5011a42a951755d6883a54, type: 3}
