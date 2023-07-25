@@ -99,7 +99,7 @@ public class ShopManager : MonoBehaviour
 		if(Items != null)
         {
 			int coin = PlayerPrefs.GetInt("TotalCoin", 0);
-			if (coin > Items[index].cost && Items[index].isBuy == false)
+			if (coin >= Items[index].cost && Items[index].isBuy == false)
             {
 				PlayerPrefs.SetInt("TotalCoin", coin - Items[index].cost);
 				PlayerPrefs.Save();
