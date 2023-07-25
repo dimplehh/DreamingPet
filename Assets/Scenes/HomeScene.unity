@@ -472,6 +472,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &112272046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1601,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &265028371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1792,7 @@ PrefabInstance:
       objectReference: {fileID: 600044064}
     - target: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
       propertyPath: bgList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
       propertyPath: bgList.Array.data[0]
@@ -1782,6 +1806,10 @@ PrefabInstance:
       propertyPath: bgList.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: a5bb088843a4e4183af23aa3e7004c0d, type: 3}
+    - target: {fileID: 4754320340337091045, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
+      propertyPath: bgList.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f08b393d2c6ec461d9534182c713a801, type: 3}
     - target: {fileID: 4754320340337091046, guid: 6c421447acc73fc44a54646c8f0af860, type: 3}
       propertyPath: m_Name
       value: soundManager
@@ -3068,6 +3096,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopOffButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4759,6 +4799,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: CreateOnButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &832779593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5524,6 +5576,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &985164775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,6 +5993,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6348,6 +6424,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7050,6 +7138,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1218961340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7578,6 +7678,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: CreateOffButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9605,6 +9717,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a5bb088843a4e4183af23aa3e7004c0d, type: 3}
   - {fileID: 8300000, guid: d3be2f22e22ac4946895daf753ff6005, type: 3}
   - {fileID: 8300000, guid: bb6dc7ac4e631487ba1ef0a36716c7fa, type: 3}
+  - {fileID: 8300000, guid: d9753630d1a36b743ba0b6550e50aff1, type: 3}
   size: 1
   speed: 3
 --- !u!1 &1966366966
@@ -9705,6 +9818,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1635918932}
         m_TargetAssemblyTypeName: ItemSelected, Assembly-CSharp
         m_MethodName: ToySelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: CreateOnButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10020,6 +10145,18 @@ MonoBehaviour:
       - m_Target: {fileID: 611206433}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1960582161}
+        m_TargetAssemblyTypeName: HomeSetting, Assembly-CSharp
+        m_MethodName: ShopBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

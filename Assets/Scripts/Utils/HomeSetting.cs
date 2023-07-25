@@ -116,6 +116,15 @@ public class HomeSetting : MonoBehaviour
         }
     }
 
+    public void CreateOnButton()
+    {
+        sound2.EffectSoundPlay(bgList[0]);
+    }
+    public void CreateOffButton()
+    {
+        sound2.EffectSoundPlay(bgList[2]);
+    }
+
     public void GuideOnButton()
     {
         GuidePanel.gameObject.SetActive(true);
@@ -143,6 +152,28 @@ public class HomeSetting : MonoBehaviour
         }
         StoryPanel.gameObject.SetActive(true);
         StartCoroutine(StoryNextButton());
+    }
+
+    public void ShopButton()
+    {
+        sound2.EffectSoundPlay(bgList[0]);
+        sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[3]);
+    }
+
+    public void ShopOffButton()
+    {
+        sound2.EffectSoundPlay(bgList[1]);
+        sound.GetComponent<SoundManager>().BgSoundPlay(sound.GetComponent<SoundManager>().bgList[0]);
+    }
+
+    public void ShopSelect()
+    {
+        sound2.EffectSoundPlay(bgList[2]);
+    }
+
+    public void ShopBuy()
+    {
+        sound2.EffectSoundPlay(bgList[7]);
     }
 
     public IEnumerator StoryNextButton()
