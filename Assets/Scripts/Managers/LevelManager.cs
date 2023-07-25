@@ -54,6 +54,11 @@ public class LevelManager : MonoBehaviour
         heartObjs = new string[] { "heart" };
         coinObjs = new string[] { "coin" };
         shieldpieceObjs = new string[] { "shieldpiece" };
+
+        if(PlayerPrefs.GetInt("toyOption") == 1)
+        {
+            otherSpawnDelay = 5f;
+        }
     }
     void Start()
     {//Level Design
@@ -84,13 +89,17 @@ public class LevelManager : MonoBehaviour
             {
                 if (!GetComponent<GameManager>().feverState)
                 {
-                    int random = Random.Range(0, 3);
+                    int random;
+                    if (PlayerPrefs.GetInt("toyOption") == 4)
+                        random = Random.Range(0, 4);
+                    else
+                        random = Random.Range(0, 3);
                     if (random == 0)
                         SpawnFever();
                     else if (random == 1)
-                        SpawnHeart();
-                    else if (random == 2)
                         SpawnCoin();
+                    else if (random == 2 || random == 3)
+                        SpawnHeart();
                 }
                 t2 = otherSpawnDelay;
             }
@@ -226,7 +235,7 @@ public class LevelManager : MonoBehaviour
         if (!GetComponent<GameManager>().feverState)
         {
             int a = Random.Range(0, 10);
-            if (a == 9 && level >=7) StartCoroutine(InvicibleTime(enemy));//ÀÏÁ¤ È®·ü·Î »ç¶óÁ³´Ù°¡ ³ªÅ¸³ª´Â ±¸¸§ »ı¼º
+            if (a == 9 && level >=7) StartCoroutine(InvicibleTime(enemy));//ì¼ì • í™•ë¥ ë¡œ ì‚¬ë¼ì¡Œë‹¤ê°€ ë‚˜íƒ€ë‚˜ëŠ” êµ¬ë¦„ ìƒì„±
         }
         else
         {

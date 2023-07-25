@@ -59,10 +59,10 @@ public class ShopManager : MonoBehaviour
     private void Start()//임시. 차후 JSON으로 관리하는것이 좋을것
     {
 		Items.Add(new Items(0, "뼈다귀", 0, true, "맛있는 뼈다귀다!"));
-		Items.Add(new Items(1, "특제 뼈다귀", 2, false, "모든 아이템의 출현률이 증가한다!"));
-		Items.Add(new Items(2, "나뭇가지", 3, false, "이동 속도가 빨라진다!"));
-		Items.Add(new Items(3, "실타래 공", 4, false, "코인 획득량이 두배가 된다!"));
-		Items.Add(new Items(4, "애착 인형", 5, false, "하트 출현 빈도가 증가한다!"));
+		Items.Add(new Items(1, "특제 뼈다귀", 1000, false, "모든 아이템의 출현률이 증가한다!"));
+		Items.Add(new Items(2, "나뭇가지", 300, false, "이동 속도가 빨라진다!"));
+		Items.Add(new Items(3, "실타래 공", 500, false, "코인 획득량이 두배가 된다!"));
+		Items.Add(new Items(4, "애착 인형", 800, false, "하트 출현 빈도가 증가한다!"));
         toyDB.GetToy(0).isBuy = true;
         shopList[0].mak.color = new Color(0, 0, 0, 0);
     }
@@ -133,7 +133,7 @@ public class ShopManager : MonoBehaviour
 
 	public void Reinstantiate() //Load 함수에서 쓰임, 모든 Item 보면서 구매했을 시
 	{
-		for (int i = 0; i < Items.Count; i++)
+		for (int i = 0; i <5; i++)
 		{
 			if(Items[i].isBuy)
                 shopList[i].mak.color = new Color(0, 0, 0, 0);

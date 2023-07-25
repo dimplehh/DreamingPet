@@ -13,7 +13,10 @@ public class Coin : MonoBehaviour
         {
             gm.soundManager2.EffectSoundPlay(effectSound);
             gameObject.SetActive(false);
-            gm.UpdateCoin(10);
+            if (PlayerPrefs.GetInt("toyOption") == 3)
+                gm.UpdateCoin(20);
+            else
+                gm.UpdateCoin(10);
         }
     }
 }
