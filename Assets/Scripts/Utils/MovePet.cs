@@ -25,7 +25,7 @@ public class MovePet : MonoBehaviour
         boneObject = GameObject.FindGameObjectWithTag("Bone");
         bone = boneObject.transform;
         if (PlayerPrefs.GetInt("toyOption") == 2)
-            speed = boneObject.GetComponent<MoveBone>().speed * 0.44f;
+            speed = boneObject.GetComponent<MoveBone>().speed * 0.48f;
         else
             speed = boneObject.GetComponent<MoveBone>().speed * 0.4f;
         color = boneObject.GetComponent<SpriteRenderer>().color;
