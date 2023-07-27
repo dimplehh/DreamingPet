@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
             if (PlayerPrefs.GetInt("toyOption") == 3)
                 gm.UpdateCoin(20);
             else
-                gm.UpdateCoin(1000);
+                gm.UpdateCoin(10);
         }
     }
 }
