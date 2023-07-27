@@ -11270,6 +11270,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 553234006}
     - target: {fileID: 3814709522969924471, guid: 8e0d4a5a10e6bf748abee0812f623fe7, type: 3}
+      propertyPath: ImageList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: aeb65c51f9e5e3c4da2243ef1b54549b, type: 3}
+    - target: {fileID: 3814709522969924471, guid: 8e0d4a5a10e6bf748abee0812f623fe7, type: 3}
       propertyPath: shopList.Array.data[0].mak
       value: 
       objectReference: {fileID: 420318812}

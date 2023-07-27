@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
     float[] maxSpawnDelay;
     float[] speed;
     float maxT;
-    float otherSpawnDelay = 7f;
+    float otherSpawnDelay = 5f;
     float t2;
 
     float curSpawnDelay;
@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
 
         if(PlayerPrefs.GetInt("toyOption") == 1)
         {
-            otherSpawnDelay = 5f;
+            otherSpawnDelay = 4f;
         }
     }
     void Start()

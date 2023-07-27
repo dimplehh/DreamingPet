@@ -27,8 +27,10 @@ public class ToyManager : MonoBehaviour
 
     public void ToyChange()
     {
-        if(toyDB.GetToy(selectToy).isBuy == true)
+        Debug.Log(toyDB.GetToy(selectToy).isBuy);
+        if (toyDB.GetToy(selectToy).isBuy == true)
         {
+            Debug.Log("토이체인지");
             toyOption = selectToy;
             UpdateToy(toyOption);
             
