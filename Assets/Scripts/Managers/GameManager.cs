@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateLife(int curlife)
     {
+        
             for (int i = 0; i < curlife; i++)
             {
                 if (!lifeImages[i].activeSelf)
@@ -119,7 +120,13 @@ public class GameManager : MonoBehaviour
             }
         if (curlife <= 0)
         {
-            if (EndPoint == false&&Managers.Ad.rewardAd.CanShowAd())
+            StopAll();
+            if (soundManager.soundOn) soundManager.BgSoundStop(mainBGM);
+            OverPanel.SetActive(true);
+            OverPanel.transform.Find("Menu2").gameObject.SetActive(true);
+            OverPanel.transform.Find("Menu1").gameObject.SetActive(false);
+            /*임시 주석처리(수정중)
+            if (EndPoint == false)
             {
                 StopAll();
                 if (soundManager.soundOn) soundManager.BgSoundStop(mainBGM);
@@ -131,6 +138,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("EndAdCount", endAdCount);
                 PlayerPrefs.Save();
                 if (endAdCount % 3 == 0) StartCoroutine(EndAd());
+                
             }
             else
             {
@@ -139,12 +147,14 @@ public class GameManager : MonoBehaviour
                 OverPanel.SetActive(true);
                 OverPanel.transform.Find("Menu2").gameObject.SetActive(true);
                 OverPanel.transform.Find("Menu1").gameObject.SetActive(false);
+                
             }
 
             int guide = PlayerPrefs.GetInt("guideAdCount", 0);
             guide++;
             PlayerPrefs.SetInt("guideAdCount", guide);
             PlayerPrefs.Save();
+            */
         }
     }
     public void UpdateFeverScore(int feverScore)

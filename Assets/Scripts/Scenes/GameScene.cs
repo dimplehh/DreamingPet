@@ -15,6 +15,8 @@ public class GameScene : BaseScene
     CoinManager coinManager;
     public bool gameState;
     public GameObject GuidePanel;
+
+
     void Start()
     {
         scoreManager.GenerateScore();
@@ -24,22 +26,26 @@ public class GameScene : BaseScene
     protected override void Init()
     {
         base.Init();
-
         //SceneType = Define.Scene.Game;
+
         int guide = PlayerPrefs.GetInt("guideAdCount", 0);
         if (guide == 0)
         {
             GuidePanel.gameObject.SetActive(true);
         }
+
         /*
         guide++;
         PlayerPrefs.SetInt("guideAdCount", guide);
         PlayerPrefs.Save();
         */
-        Managers.Game.gamePause(0f); //게임 시작 전 일시정
+
         gameState = false;
         player = Managers.Game.Spawn("dog");
         GameObject bone = Managers.Game.Spawn("bone");
+
+        Managers.Game.gamePause(0f); //게임 시작 전 일시정
+
     }
     public override void Clear()
     {
