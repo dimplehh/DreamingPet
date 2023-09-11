@@ -12,7 +12,6 @@ public class BestScore : MonoBehaviour
     public bool gameover;
     private void Update()
     {
-        
         if (gameover)
         {
             float textWidth = text.preferredWidth;

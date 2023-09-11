@@ -30,6 +30,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     GameObject surpriseImage;
     public AudioClip[] bgList;
+    [SerializeField]
+    GameObject Touch;
 
     public bool stop;
     int enemyCnt = 0;
@@ -74,6 +76,8 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Touch.activeSelf == true)
+            return;
         if (!stop)
             curSpawnDelay += Time.deltaTime;
         else

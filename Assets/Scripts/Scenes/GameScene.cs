@@ -8,44 +8,27 @@ using UnityEngine.EventSystems;
 
 public class GameScene : BaseScene
 {
-    public GameObject player;
-    [SerializeField]
-    ScoreManager scoreManager;
-    [SerializeField]
-    CoinManager coinManager;
-    public bool gameState;
+    GameObject player;
+    public bool gameState = true;
     public GameObject GuidePanel;
-
-
-    void Start()
-    {
-        scoreManager.GenerateScore();
-        coinManager.GenerateCoin();
-    }
+    [SerializeField]
+    GameObject Touch;
 
     protected override void Init()
     {
-        base.Init();
-        //SceneType = Define.Scene.Game;
+    }
 
+    void Start()
+    {
+        ScoreManager.instance.GenerateScore();
+        CoinManager.instance.GenerateCoin();
         int guide = PlayerPrefs.GetInt("guideAdCount", 0);
         if (guide == 0)
         {
             GuidePanel.gameObject.SetActive(true);
         }
-
-        /*
-        guide++;
-        PlayerPrefs.SetInt("guideAdCount", guide);
-        PlayerPrefs.Save();
-        */
-
         gameState = false;
-        player = Managers.Game.Spawn("dog");
-        GameObject bone = Managers.Game.Spawn("bone");
-
-        Managers.Game.gamePause(0f); //게임 시작 전 일시정
-
+        Managers.Game.gamePause(0f); //게임 시작 전 일시정지
     }
     public override void Clear()
     {
@@ -57,13 +40,14 @@ public class GameScene : BaseScene
         if (gameState == false && Input.GetMouseButton(0) &&
             (Camera.main.ScreenToWorldPoint(Input.mousePosition).y < 3.4f) && !GuidePanel.activeSelf)
         {
-                GameObject.Find("Touch").SetActive(false);
+                Touch.SetActive(false);
                 Managers.Game.gamePause(1f);
                 gameState = true;
         }
-
-        /*Score Update*/
-        scoreManager.UpdateScore(player);
+        if (Touch.activeSelf == true)
+            return;
+        else
+            ScoreManager.instance.UpdateScore(GameManager.instance.player);
     }
 
     

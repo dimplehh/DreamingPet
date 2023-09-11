@@ -23,6 +23,8 @@ public class Background2 : MonoBehaviour
     [SerializeField]
     AudioClip audioClip;
     private int tmp;
+    [SerializeField]
+    GameObject Touch;
 
     private void Awake()
     {
@@ -32,6 +34,8 @@ public class Background2 : MonoBehaviour
     }
     void Update()
     {
+        if (Touch.activeSelf == true)
+            return;
         Vector3 curPos = transform.position;
         Vector3 nextPos = Vector3.up * speed * Time.deltaTime;
         transform.position = curPos + nextPos;
@@ -40,7 +44,7 @@ public class Background2 : MonoBehaviour
             if (tmp == 0)
             {
                 cyclecnt++;
-                cycle.text = string.Format("\'\'¿ìÁÖ {0}¹ÙÄû\'\'", cyclecnt);
+                cycle.text = string.Format("\'\'ìš°ì£¼ {0}ë°”í€´\'\'", cyclecnt);
                 gm.soundManager2.EffectSoundPlay(audioClip);
                 StartCoroutine(cycles());
                 tmp = 1;

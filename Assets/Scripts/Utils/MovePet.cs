@@ -32,10 +32,11 @@ public class MovePet : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     void Update(){
+        if (Time.timeScale == 0)
+            return;
         moveDirection = transform.position - bone.position;
         distanceX = moveDirection.x;
         distanceY = moveDirection.y;
-        
         /*
         if (distanceX != 0 || distanceY != 0)
         {

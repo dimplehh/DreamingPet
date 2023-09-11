@@ -15,6 +15,15 @@ public class ScoreManager : MonoBehaviour
     private string KeyString = "HighScore";
     public Image img;
     private bool best=false;
+    public static ScoreManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void GenerateScore()
     {

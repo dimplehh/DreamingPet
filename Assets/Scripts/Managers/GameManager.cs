@@ -27,10 +27,11 @@ public class GameManager : MonoBehaviour
     GameObject bone;
     [SerializeField]
     float feverTime = 2.5f;
+    public ScoreManager scoreManager;
     public SoundManager soundManager;
     public SoundManager2 soundManager2;
     public CoinManager coinManager;
-
+    public static GameManager instance;
 
     [SerializeField]
     AudioClip feverBGM;
@@ -48,15 +49,15 @@ public class GameManager : MonoBehaviour
     public bool clean;
     public void gamePause(float timescale)
     {
-        if (Time.timeScale == 0)
+        if (timescale == 1)
         {
             if (feverState)
                 Time.timeScale = feverTime;
             else
-                Time.timeScale = 1.0f;
+                Time.timeScale = timescale;
         }
-        else
-            Time.timeScale = 0.0f;
+        else if(timescale == 0)
+            Time.timeScale = timescale;
     }
 
     public GameObject Spawn(string path, Transform parent = null)
@@ -77,10 +78,16 @@ public class GameManager : MonoBehaviour
     {
         return life;
     }
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
-        Managers mg = Managers.Instance;///이걸 나중에 사용할 수 있을 것(싱글톤 클래스)- 코드 깔끔히 하는 용  
         feverState = false;
         shieldState = false;
         clean = false;
@@ -90,8 +97,8 @@ public class GameManager : MonoBehaviour
         bone = GameObject.FindGameObjectWithTag("Bone");
         soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
         soundManager2 = GameObject.FindGameObjectWithTag("Sound2").GetComponent<SoundManager2>();
-        coinManager= GameObject.FindGameObjectWithTag("CoinManager").GetComponent<CoinManager>();
         Timers = GameObject.FindGameObjectWithTag("Canvas").transform.Find("Timer").GetComponent<TMP_Text>();
+        coinManager = CoinManager.instance;
     }
 
     /* 플레이어의 목숨 업데이트 */

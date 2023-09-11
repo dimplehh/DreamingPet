@@ -8,13 +8,15 @@ public class MoveBone : MonoBehaviour
     public float speed = 10f;
     Vector2 mousePos, transPos, targetPos;
     [SerializeField] Transform Panel;
-
+    [SerializeField] GameObject Touch;
     private void Start()
     {
         Panel = GameObject.FindGameObjectWithTag("Canvas").transform.Find("PausePanel");
     }
     void Update()
     {
+        if (Touch.activeSelf == true)
+            return;
         if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             CalTargetPos();

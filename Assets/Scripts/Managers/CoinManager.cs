@@ -11,7 +11,15 @@ public class CoinManager : MonoBehaviour
     public int savedCoin= 0;
     public int coin = 0;
     public string KeyString = "TotalCoin";
+    public static CoinManager instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     public void GenerateCoin()
     {
         savedCoin = PlayerPrefs.GetInt(KeyString);
